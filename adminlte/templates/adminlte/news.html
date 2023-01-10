@@ -1,0 +1,46 @@
+{% extends 'adminlte/base_admin.html' %}
+{% load static %}
+
+{% block tittle %} News {% endblock tittle%}
+
+
+
+{% block content %}
+<div class="bord border border-dark mt-5 rounded">
+
+         <div class=" h2_bg m-0 p-0 ">
+           <div class="head d-flex justify-content-center">
+             <div class="w-25"></div>
+
+             <div class="w-50 text-center">
+                <h2 class="text_color m-0">Список новин </h2>
+              </div>
+
+              <div class="heads w-25 align-self-center float-right">
+                <a  class="float-right" href="{% url 'addnews'  %}">
+                  <svg class="svg_size" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </a>
+              </div>
+           </div>
+
+           <hr class="m-0">
+
+         </div>
+    <!---------------------------------------------------------------------------------------------------->
+
+
+          <div class="row mt-2">
+          {% for news in news_list %}
+              <div class="col-2 text-center delete-any">
+                  <a href="{% url 'delete-any' delete_item=news.id name='NewsAndDiscount'   %}"><svg class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></a>
+                  <img class="logo_img rounded" src="{{ news.logo.url }}" alt="">
+                  <div class="name">
+                    <a href="{% url 'newsdetail' pk=news.id %}" class="link-dark text-decoration-none fw-bold mt-2 ">{{ news.name_uk }}</a>
+                  </div>
+              </div>
+          {% endfor %}
+          </div>
+
+      </div>
+
+{% endblock %}

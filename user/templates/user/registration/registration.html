@@ -1,0 +1,132 @@
+{% extends 'user/base.html' %}
+{% block tittle %}Register{% endblock %}
+{% block content %}
+     <h1 class="text-center pt-5">Create an account</h1>
+    <p class="text-center mb-3 pt-3 pb-3">Please, sign up using the following form:</p>
+    <form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-3 text-end mt-2">
+                    <label class="d-block mt-1" for="{{ user_form.first_name.id_for_label }}">Ім'я</label>
+                    <label class="d-block mt-3" for="{{ user_form.last_name.id_for_label }}">Призвіще</label>
+                    <label class="d-block mt-3" for="{{ user_form.nickname.id_for_label }}">Нік</label>
+                    <label class="d-block mt-4" for="{{ user_form.email.id_for_label }}">Пошта</label>
+                    <label class="d-block mt-3" for="{{ user_form.address.id_for_label }}">Адрес</label>
+                    <label class="d-block mt-3" for="{{ user_form.password.id_for_label }}">Пароль</label>
+                    <label class="d-block mt-3" for="{{ user_form.card_number.id_for_label }}">Номер картки</label>
+                </div>
+                <div class="col-9">
+                    <div class="form-group mt-1">
+                        {{ user_form.first_name }}
+                        <div class="invalid-feedback">
+                            {{ user_form.first_name.errors }}
+                        </div>
+                     </div>
+
+                    <div class="form-group mt-1">
+                        {{ user_form.last_name }}
+                        <div class="invalid-feedback">
+                            {{ user_form.last_name.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group mt-1">
+                    {{ user_form.nickname }}
+                        <div class="invalid-feedback">
+                        {{ user_form.nickname.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-1">
+                        {{ user_form.email }}
+                        <div class="invalid-feedback">
+                            {{ user_form.email.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-1">
+                        {{ user_form.address }}
+                        <div class="invalid-feedback">
+                            {{ user_form.address.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-1">
+                        {{ user_form.password }}
+                        <div class="invalid-feedback">
+                            {{ user_form.password.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-1">
+                        {{ user_form.card_number }}
+                        <div class="invalid-feedback">
+                            {{ user_form.card_number.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4 text-end">
+                    <label class="d-block mt-1" for="{{ user_form.language.id_for_label }}">Мова</label>
+                    <label class="d-block mt-3" for="{{ user_form.sex.id_for_label }}">Стать</label>
+                    <label class="d-block mt-3" for="{{ user_form.phone.id_for_label }}">Телефон</label>
+                    <label class="d-block mt-3" for="{{ user_form.birthday.id_for_label }}">Дата народження</label>
+                    <label class="d-block mt-3" for="{{ user_form.city.id_for_label }}">Місто</label>
+                    <label class="d-block mt-3" for="{{ user_form.password2.id_for_label }}">Повторіть пароль</label>
+                </div>
+                <div class="col-8">
+                    <div class="form-group mt-2">
+                     {{ user_form.language }}
+                        <div class="invalid-feedback">
+                        {{ user_form.language.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        {{ user_form.sex }}
+                        <div class="invalid-feedback">
+                            {{ user_form.sex.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        {{ user_form.phone }}
+                        <div class="invalid-feedback">
+                            {{ user_form.phone.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        {{ user_form.birthday }}
+                        <div class="invalid-feedback">
+                            {{ user_form.birthday.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        {{ user_form.city }}
+                        <div class="invalid-feedback">
+                            {{ user_form.city.errors }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        {{ user_form.password2 }}
+                        <div class="invalid-feedback">
+                            {{ user_form.password2.errors }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+        <p class="text-center mt-3 pb-3"><input type="submit" class="btn btn_add bg-dark text-white" value="Create my account"></p>
+    </form>
+{% endblock %}

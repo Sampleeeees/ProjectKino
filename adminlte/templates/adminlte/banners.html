@@ -1,0 +1,212 @@
+{% extends 'adminlte/base_admin.html' %}
+{% load static %}
+
+{% block tittle %} Банери {% endblock tittle %}
+
+{% block content %}
+    <div class="bord border border-dark mt-5 rounded">
+
+         <div class=" h2_bg m-0 p-0 text-center ">
+          <h2 class="m-0">Top Banner</h2>
+           <hr class="m-0">
+         </div>
+
+{#        <div class="form-check form-switch form-check-reverse ">#}
+{#          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>#}
+{#          <label class="form-check-label" for="flexSwitchCheckChecked"></label>#}
+{#        </div>#}
+
+        <p>Розмір: 1000х190</p>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="{{ speed.speed_carousel.id_for_label }}"> Speed Carousel</label>
+                {{ speed.speed_carousel }}
+            <label for="{{ speed.status.id_for_label }}"> Status </label>
+                {{ speed.status }}
+            {% if formset %}
+                {{ formset.management_form }}
+            <div class="form-group d-flex overflow-auto p-3">
+            <div class="row d-flex">
+                <div id="gallery-form-list" class="col-12 d-flex">
+                    {% for banner in formset%}
+                        <div id="{{ banner.prefix }}" class="m-3">
+                        <div class="d-none">
+                            {{ banner }}
+                        </div>
+                        <div class="foo">
+                            {% if banner  %}
+                                {% if banner.instance.image %}
+                            <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{{ banner.instance.image.url }}" alt="">
+                                    {% endif %}
+                            <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="id-__prefix__-image">Додати</label>
+                            <label for="{{ banner.url.for_id_label }}">URL</label>
+                            {{ banner.url  }}
+                            <label for="{{ banner.text.id_for_label }}">Text</label>
+                            {{ banner.text  }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            <div class="invalid-feedback">
+                {{ formset.non_form_errors }}
+            </div>
+
+            <div id="empty-form" class="d-none">
+                <div class="d-none">
+                    {{ formset.empty_form }}
+                </div>
+
+                <div class="foo mr-2 ml-2">
+                    <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{% static 'dist/img/uploadimage.png' %}" alt="">
+                    <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img-__prefix__-Banner">Додати</label>
+                    <label for="form.url.id_for_label">URL</label>
+                    {{ formset.empty_form.url }}
+                    <label for="form.text.id_for_label">Text</label>
+                    {{ formset.empty_form.text }}
+
+                </div>
+            </div>
+            </div>
+
+            <button id="add-more" onclick="add_new_form()" type="button" class="btn"><svg width="100px" height="100px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
+
+            </div>
+
+            {% endif %}
+        <button type="submit">Save</button>
+        </form>
+    </div>
+      <!-------------------------------------------------------------------------------------------------------->
+
+      <div class="bord border border-dark mb-5 mt-5 rounded ">
+
+        <div class=" h2_bg m-0 p-0 text-center ">
+          <h2 class="m-0 ">Background Banner</h2>
+           <hr class="m-0">
+         </div>
+
+        <p>Розмір: 2000х3000</p>
+        <div class="form-1">
+
+          <div class="form-check d-flex align-self-center">
+            <input class="form-check-input align-items-center" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
+            <label class="form-check-label m-0 p-0 align-self-center" for="flexRadioDefault1">
+              Default radio
+            </label>
+          <div class="image align-self-center">
+            <a href="#" class="btn  btn_add ">Додати зображення</a>
+          </div>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-dark form_btn ">Зберегти</a>
+          </div>
+
+          <div class=" text-center">
+            <a href="#" class="btn btn-dark form_btn">Зберегти</a>
+          </div>
+
+          </div>
+        </div>
+
+        <div class="form-2 d-flex">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Default radio
+            </label>
+            </div>
+
+
+        </div>
+
+        </div>
+
+
+
+
+      <!-------------------------------------------------------------------------------------------------------->
+
+{#    <div class="bord border border-dark mt-5 rounded">#}
+{##}
+{#         <div class=" h2_bg m-0 p-0 text-center ">#}
+{#          <h2 class="m-0">Top Banner</h2>#}
+{#           <hr class="m-0">#}
+{#         </div>#}
+{##}
+{#        <div class="form-check form-switch form-check-reverse ">#}
+{#          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>#}
+{#          <label class="form-check-label" for="flexSwitchCheckChecked"></label>#}
+{#        </div>#}
+{##}
+{#        <p>Розмір: 1000х190</p>#}
+{##}
+{#        <form action="" method="POST" enctype="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{#            <label for="{{ speed.speed_carousel.id_for_label }}"> Speed Carousel</label>#}
+{#                {{ speed.speed_carousel }}#}
+{#            <label for="{{ speed.status.id_for_label }}"> Status </label>#}
+{#                {{ speed.status }}#}
+{#            {% if formset_news %}#}
+{#                {{ formset_news.management_form }}#}
+{#            <div class="form-group d-flex overflow-auto p-3">#}
+{#            <div class="row d-flex">#}
+{#                <div id="gallery-form-list" class="col-12 d-flex">#}
+{#                    {% for banner in formset_news%}#}
+{#                        <div id="{{ banner.prefix }}" class="m-3">#}
+{#                        <div class="d-none">#}
+{#                            {{ banner }}#}
+{#                        </div>#}
+{#                        <div class="foo">#}
+{#                            {% if banner  %}#}
+{#                                {{ banner.instance.speed_carousel.speed_carousel }}#}
+{#                                {% if banner.instance.image %}#}
+{#                            <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{{ banner.instance.image.url }}" alt="">#}
+{#                                {% endif %}#}
+{#                            <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>#}
+{#                            <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="id-__prefix__-image">Додати</label>#}
+{#                            <label for="{{ banner.url.for_id_label }}">URL</label>#}
+{#                            {{ banner.url  }}#}
+{#                            <label for="{{ banner.text.id_for_label }}">Text</label>#}
+{#                            {{ banner.text  }}#}
+{#                            {% endif %}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{##}
+{#            <div class="invalid-feedback">#}
+{#                {{ formset_news.non_form_errors }}#}
+{#            </div>#}
+{##}
+{#            <div id="empty-form" class="d-none">#}
+{#                <div class="d-none">#}
+{#                    {{ formset_news.empty_form }}#}
+{#                </div>#}
+{##}
+{#                <div class="foo mr-2 ml-2">#}
+{#                    <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{% static 'dist/img/uploadimage.png' %}" alt="">#}
+{#                    <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>#}
+{#                    <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img-__prefix__-Banner">Додати</label>#}
+{#                    <label for="form.url.id_for_label">URL</label>#}
+{#                    {{ formset_news.empty_form.url }}#}
+{#                    <label for="form.text.id_for_label">Text</label>#}
+{#                    {{ formset_news.empty_form.text }}#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{##}
+{#            <button id="add-more" onclick="add_new_form()" type="button" class="btn"><svg width="100px" height="100px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>#}
+{##}
+{#            </div>#}
+{##}
+{#            {% endif %}#}
+{#        <button type="submit">Save</button>#}
+{#        </form>#}
+{#    </div>#}
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'cinema/base.html' %}
+{% load static %}
+
+{% block tittle %} Афіша {% endblock tittle %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-2">
+                <div class="container-fluid text-center">
+                    <a href="{% url 'afisha' %}" class="btn text-white bg-film d-block mt-2 ">Афіша</a>
+                    <a href="{% url 'soon' %}" class="btn text-white bg-film d-block mt-1">Скоро</a>
+                </div>
+                <div class="add">
+                    <img class="img-fluid text-center mt-5" src="../img/add.png" alt="">
+                </div>
+            </div>
+            <div class="col-10 ">
+                <div class="row">
+                    {% for film in film_list %}
+                    <div class="col-5 col-sm-4 col-lg-2 item-film text-center">
+                        <p>Зараз в кіно</p>
+                        <img height="180px" width="150px" class="logo-afisha" src="{{ film.logo.url }}" alt="">
+                        <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' film.id %}">{{ film.name }}</a>
+                        <a href="#" class="btn text-white bg-film">Buy ticket</a>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+
+{% endblock content%}

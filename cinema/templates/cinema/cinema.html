@@ -1,0 +1,33 @@
+{% extends 'cinema/base.html' %}
+{% load static %}
+
+{%block tittle%} Кінотеатри {% endblock tittle%}
+
+{% block content %}
+<div class="cinemas-photo">
+             {%block image%}<img class="w-100" src="{% static 'dist/img/cinemas.jpg' %}" alt="">{%endblock image%}
+         </div>
+
+        <div class="text-center ">
+            <h1 class="pt-2 pb-2 ">{%block tittlecontent%}Наші кінотеатри{%endblock tittlecontent%}</h1>
+        </div>
+        {%block context%}
+        <div class="ourcinemas text-center">
+            <div class="row">
+                <div class="col-4">
+                    <img class="cinema-img" src="{% static 'dist/img/multiplex.jpg' %}" alt="">
+                    <a class="btn-cn d-block pt-3 pb-2" href="#">Multiplex</a>
+                </div>
+                <div class="col-4">
+                    <img class="cinema-img" src="{% static 'dist/img/unnamed-15.jpg' %}" alt="">
+                    <a class="btn-cn d-block pt-3 pb-2" href="#">Planeta Kino</a>
+                </div>
+                <div class="col-4">
+                    <img class="cinema-img" src="{% static 'dist/img/multiplex.jpg' %}" alt="">
+                    <a class=" btn-cn d-block pt-3 pb-2" href="#">Multiplex</a>
+                </div>
+            </div>
+        </div>
+        {%endblock context%}
+
+{% endblock content%}

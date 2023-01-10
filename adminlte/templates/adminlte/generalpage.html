@@ -1,0 +1,112 @@
+{% extends 'adminlte/base_admin.html' %}
+{% load static %}
+{% load i18n %}
+{% load static i18n %}
+
+{% block content %}
+    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <ul class="nav nav-tabs justify-content-end" role="tablist">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <li class="nav-item">
+            <input type="submit" class="d-none" href="#{{ LANGUAGE_CODE }}" name="language" id="{{ language.code  }}" value="{{ language.code }}">
+            <label class="nav-link fw-normal" id="id_{{ language.code }}" for="{{ language.code }}">{{ language.name_local }}</label>
+            </li>
+        {% endfor %}
+    </ul>
+    </form>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!---------------------------------------------------------------------------------------------------------------------------->
+        <div class="form-group mb-4 mt-2">
+            <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ home.phone_number.id_for_label }}">{% trans 'Номер телефону' %}</label>
+            {{ home.phone_number }}
+            <div class="invalid-feedback">
+                {{ home.phone_number.errors}}
+            </div>
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------------------------------->
+        <div class="form-group mb-4 mt-2">
+            <label class="form-label ml-2 mb-0 p-0 align-self-center d-block" for="{{ home.status.id_for_label }}"> Status </label>
+            {{ home.status }}
+            <div class="invalid-feedback">
+                {{ home.status.errors}}
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------------------------------->
+        <div class="form-group mb-4 mt-2">
+            <label class="form-label ml-2 mb-0 p-0 align-self-center d-block" for="{{ home.seo_text.id_for_label }}">{% trans 'СЕО текст' %}</label>
+            {{ home.seo_text }}
+            <div class="invalid-feedback">
+                {{ home.seo_text.errors}}
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------------------->
+        <div class="seoblock">
+        <div class="row">
+            <div class="col-2 text-end align-self-center">
+                <p class="fw-bold rounded fs-5">{% trans 'СЕО Блок:' %}</p>
+            </div>
+
+            <div class="col-10">
+                <div class="row">
+
+
+                    <div class="col-4 text-right">
+                        <label class="d-block mt-2 mb-auto" for="{{ seo.url_seo.id_for_label }}">{% trans 'Посилання' %}</label>
+                        <label class="d-block mt-4 pt-1 mb-auto" for="{{ seo.tittle_seo.id_for_label }}">{% trans 'Назва' %}</label>
+                        <label class="d-block mt-4 pt-1" for="{{ seo.keywords_seo.id_for_label }}">{% trans 'Ключові слова' %}</label>
+                        <label class="d-block mt-4" for="{{ seo.description_seo.id_for_label }}">{% trans 'Опис' %}</label>
+                    </div>
+
+
+                    <div class="col-8">
+
+                        <div class="form-group">
+                            {{ seo.url_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.url_seo.erorrs }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ seo.tittle_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.tittle_seo.erorrs }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ seo.keywords_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.keywords_seo.erorrs }}
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            {{ seo.description_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.description_seo.erorrs }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+    </div>
+<!------------------------------------------------------------------------------------------------------------------->
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-8 d-flex justify-content-center">
+            <button class="btn btn_add mt-4 fw-bolder pl-3 pr-3 pt-2 pb-2" type="submit">Зберегти</button>
+            <button class="btn btn_add mt-4 fw-bold pl-3 pr-3 pt-2 pb-2" type="reset">Очистити</button>
+        </div>
+    </div>
+    </form>
+{% endblock %}

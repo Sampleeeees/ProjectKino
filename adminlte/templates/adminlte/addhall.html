@@ -1,0 +1,208 @@
+{% extends 'adminlte/base_admin.html' %}
+{% load static %}
+{% load i18n %}
+{% load static i18n %}
+
+{% block content %}
+    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <ul class="nav nav-tabs justify-content-end" role="tablist">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <li class="nav-item">
+            <input type="submit" class="d-none" href="#{{ LANGUAGE_CODE }}" name="language" id="{{ language.code  }}" value="{{ language.code }}">
+            <label class="nav-link fw-normal" id="id_{{ language.code }}" for="{{ language.code }}">{{ language.name_local }}</label>
+            </li>
+        {% endfor %}
+    </ul>
+    </form>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<!------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------------------------->
+    <div class="form-group mb-4 mt-2 w-50">
+        <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ hall.hall_number.id_form_label}}">{% trans 'Номер залу' %}</label>
+        {{ hall.hall_number }}
+        <div class="invalid-feedback">
+            {{ hall.hall_number.errors}}
+        </div>
+    </div>
+<!------------------------------------------------------------------------------------------------------------------->
+
+<!-- Tab panes -->
+          <div class="tab-content">
+            <div id="id_uk_tabs" class=" tab-pane active"><br>
+                <!------------------------------------------------------------------------------------------------------------------->
+                    <div class="form-group mb-4 mt-2">
+                        <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ hall.description_uk.id_for_label }}"> Опис </label>
+                        {{hall.description_uk }}
+                        <div class="invalid-feedback">
+                            {{hall.description_uk.errors}}
+                        </div>
+                    </div>
+                <!------------------------------------------------------------------------------------------------------------------->
+            </div>
+            <div id="id_en_tabs" class=" tab-pane fade"><br>
+            <!------------------------------------------------------------------------------------------------------------------->
+                <div class="form-group mb-4 mt-2">
+                    <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ hall.description_eng.id_for_label }}"> Description </label>
+                    {{hall.description_eng }}
+                    <div class="invalid-feedback">
+                        {{hall.description_eng.errors}}
+                    </div>
+                </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            </div>
+          </div>
+
+
+<!------------------------------------------------------------------------------------------------------------------->
+    <div class="form-group mb-4 mt-2">
+        <label for="{{  hall.scheme_hall.id_for_label }}">{% trans 'Схема залу' %}</label>
+        <div class="image-block d-flex">
+            <img class="rounded" id="SchemeHall" height="150" width="auto" src="{% static 'dist/img/uploadimage.png' %}" alt="">
+            {{ hall.scheme_hall}}
+            <div class="invalid-feedback">
+                {{ hall.scheme_hall.errors}}
+            </div>
+             <div class="align-self-center">
+                 <label class="btn btn_add mr-auto ml-5 mt-2 mb-2" for="id_scheme_hall">{% trans 'Додати' %}</label>
+             </div>
+            <div class="align-self-center">
+                <input type="button" id="delGeneral" style="display: none" onclick="deleteImage('SchemeHall')">
+                <label for="delGeneral" class="btn btn_add">{% trans 'Видалити' %}</label>
+            </div>
+        </div>
+      </div>
+
+<!------------------------------------------------------------------------------------------------------------------->
+    <div class="form-group mb-4 mt-2">
+        <label for="{{  hall.top_banner.id_for_label }}">{% trans 'Банер залу' %}</label>
+        <div class="image-block d-flex">
+            <img class="rounded" id="TopBannerHall" height="150" width="auto" src="{% static 'dist/img/uploadimage.png' %}" alt="">
+            {{ hall.top_banner}}
+            <div class="invalid-feedback">
+                {{ hall.top_banner.errors}}
+            </div>
+             <div class="align-self-center">
+                 <label class="btn btn_add mr-auto ml-5 mt-2 mb-2" for="id_topbanner_hall">{% trans 'Додати' %}</label>
+             </div>
+            <div class="align-self-center">
+                <input type="button" id="delGeneralBanner" style="display: none" onclick="deleteImage('TopBannerHall')">
+                <label for="delGeneralBanner" class="btn btn_add">{% trans 'Видалити' %}</label>
+            </div>
+        </div>
+      </div>
+<!------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------->
+{% if formset %}
+        <div class="form-group">
+            <p class="fw-bold size-32">{% trans 'Галерея' %}</p>
+            {{ formset.management_form }}
+            <div class="row">
+                <div id="gallery-form-list" class="col-12 overflow-auto p-3 d-flex">
+                    {% for fset in formset%}
+                    <div id="{{ fset.prefix }}">
+                        <div class="d-none">
+                            {{ fset }}
+                        </div>
+                        <div class="foo">
+                            <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{{ fset.instance.image.url }}" alt="">
+                            <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="id-__prefix__-image">{% trans 'Додати' %}</label>
+                        </div>
+                    </div>
+                {% endfor %}
+                <button id="add-more" onclick="add_new_form()" type="button" class="btn"><svg width="100px" height="100px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button>
+                </div>
+            </div>
+        <div id="empty-form" class="d-none">
+                 <div class="d-none">
+                    {{ formset.empty_form }}
+                 </div>
+                <div class="foo">
+                    <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{% static 'dist/img/uploadimage.png' %}" alt="">
+                    <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="id-__prefix__-image">{% trans 'Видалити' %}</label>
+            </div>
+        </div>
+            <div class="invalid-feedback">
+                {{ formset.non_form_errors }}
+            </div>
+        </div>
+    {% endif %}
+<!------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------------------------->
+    <div class="seoblock">
+        <div class="row">
+            <div class="col-2 text-end align-self-center">
+                <p class="fw-bold rounded fs-5">{% trans 'СЕО Блок:' %}</p>
+            </div>
+
+            <div class="col-10">
+                <div class="row">
+
+
+                    <div class="col-4 text-right">
+                        <label class="d-block mt-2 mb-auto" for="{{ seo.url_seo.id_for_label }}">{% trans 'Посилання' %}</label>
+                        <label class="d-block mt-4 pt-1 mb-auto" for="{{ seo.tittle_seo.id_for_label }}">{% trans 'Назва' %}</label>
+                        <label class="d-block mt-4 pt-1" for="{{ seo.keywords_seo.id_for_label }}">{% trans 'Ключові слова' %}</label>
+                        <label class="d-block mt-4" for="{{ seo.description_seo.id_for_label }}">{% trans 'Опис' %}</label>
+                    </div>
+
+
+                    <div class="col-8">
+
+                        <div class="form-group">
+                            {{ seo.url_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.url_seo.erorrs }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ seo.tittle_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.tittle_seo.erorrs }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ seo.keywords_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.keywords_seo.erorrs }}
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            {{ seo.description_seo }}
+                            <div class="invalid-feedback">
+                                {{ seo.description_seo.erorrs }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+    </div>
+<!------------------------------------------------------------------------------------------------------------------->
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-8 d-flex justify-content-center">
+            <button class="btn btn_add mt-4 fw-bolder pl-3 pr-3 pt-2 pb-2" type="submit">Зберегти</button>
+            <button class="btn btn_add mt-4 fw-bold pl-3 pr-3 pt-2 pb-2" type="reset">Очистити</button>
+        </div>
+    </div>
+
+
+
+<form>
+{% endblock %}

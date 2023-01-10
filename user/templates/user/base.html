@@ -1,0 +1,206 @@
+<!doctype html>
+{% load static %}
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'dist/img/favicon.ico' %}" type="image/x-icon">
+    <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet" >
+    <link rel="stylesheet" href="{% static 'dist/css/cinema.css' %}">
+    <title>{% block tittle %} Cinema {% endblock tittle %}</title>
+</head>
+<body>
+<!---------------------Header------------------------>
+    <header class="back-header">
+
+        <!--------Container--------->
+        <div class="container" >
+            <div class="bg-header">
+            <!--Logo + Navbar + Phone number-->
+            <div class="row header-row">
+
+                <!------Logo Header----->
+                <div class="col text-center">
+                    <a href=""><img class="image-icon" src="{% static 'dist/img/logocms.png' %}" alt=""></a>
+                </div>
+                <!------\Logo Header----->
+
+                <!------Navbar----->
+                <div class="col-6 align-self-center">
+                    <nav class="navbar navbar-dark bg-dark navbar-expand-xl bg-light ">
+                        <div class="container-fluid ">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
+                                    <li class="nav-item">
+                                        <a href="{%url 'afisha'%}" class="nav-link text-white">
+                                            Афіша
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'timetable' %}" class="nav-link text-white">
+                                            Розклад
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'soon' %}" class="nav-link text-white">
+                                            Скоро
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'cinema' %}" class="nav-link text-white">
+                                            Кінотеатри
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'discount' %}" class="nav-link text-white">
+                                            Акції
+                                        </a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <button class="btn nav-link dropdown-toggle text-white " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Про кінотеатр
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url 'newss' %}" class="dropdown-item text-white">Новини</a></li>
+                                            <li><a href="{% url 'advertising' %}" class="dropdown-item text-white">Реклама</a></li>
+                                            <li><a href="{% url 'viphall' %}" class="dropdown-item text-white">Vip-зал</a></li>
+                                            <li><a href="{% url 'childroom' %}" class="dropdown-item text-white">Дитяча кімната</a></li>
+                                            <li><a href="{% url 'cafebar' %}" class="dropdown-item text-white">Кафе-Бар</a></li>
+                                            <li><a href="{% url 'mobileapp' %}" class="dropdown-item text-white">Мобільний додаток</a></li>
+                                            <li><a href="{% url 'contacts' %}" class="dropdown-item text-white">Контакти</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+
+
+                </div>
+                 <!------/Navbar----->
+
+                <!------Phone number----->
+                <div class="col text-end">
+                    <h3 class="text-end">+380667774444</h3>
+                    <h3 class="text-end">+380436894563</h3>
+                </div>
+                <!------/Phone number----->
+
+            </div>
+            <!--/Logo + Navbar + Phone number-->
+
+            <!--Input + Icon Social + Language + Auth-->
+            <div class="row">
+                <div class="col"></div>
+                <!---------------Input------------->
+                <div class="col align-self-center">
+                    <form action="" class="d-flex ">
+                        <input type="search" placeholder="Search" class="form-control form-header">
+                        <button class="btn btn-s btn-outline-light "><img src="{% static 'dist/img/search.webp' %}" alt="" class="search"></button>
+                    </form>
+                </div>
+                <!---------------/Input------------->
+
+                <!---------------Icon Social------------->
+                <div class="col align-self-center ">
+                    <img class="iconimg" src="{% static 'dist/img/facebook.png' %}" alt="">
+                    <img class="iconimg" src="{% static 'dist/img/instagram.webp' %}" alt="">
+                    <img class="iconimg" src="{% static 'dist/img/twitter.webp' %}" alt="">
+                    <img class="iconimg" src="{% static 'dist/img/tiktok.png' %}" alt="">
+                    <img class="iconimg" src="{% static 'dist/img/g+.png' %}" alt="">
+                    <img class="iconimg" src="{% static 'dist/img/github.png' %}" alt="">
+                </div>
+                <!---------------/Icon Social------------->
+
+                <!---------------Language + Auth------------->
+                <div class="col align-self-center">
+                    <!--Language-->
+                    <a class="btn btn-outline-dark text-white link-padd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            UA
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item text-white" href="#">Українська</a></li>
+                            <li><a class="dropdown-item text-white" href="#">English</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Рос</a></li>
+                        </ul>
+                    <!--/Language-->
+                    <!--Auth-->
+                    <div id="header">
+                        <span class="user">
+                            {% if user.is_authenticated %}
+                                <a href="{% url "login_user" %}">Log-in</a>
+                            {% else %}
+                                Hello {{ request.user.first_name }},
+                                <a href="{% url "logout_user" %}">Logout</a>
+                        {% endif %}
+                        </span>
+                    </div>
+                    <!--\Auth-->
+                </div>
+                <!---------------/Language + Auth------------->
+            </div>
+             <!--/Input + Icon Social + Language + Auth-->
+            </div>
+        </div>
+        <!-------\Container-------->
+
+    </header>
+<!---------------------------Header--------------------------->
+<div class="container">
+    <div class="main">
+        {% block content%}
+
+        {% endblock content%}
+
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-bg">
+        <hr class="border border-dark border-2 opacity-75 hr-radius">
+        <div class="row mt-2 pb-2">
+            <div class="col-5 ">
+                <h3 class="">Мобільні застосунки</h3>
+                <img src="{% static 'dist/img/googleplay.png' %}" alt="" class="footer-icon">
+                <img src="{% static 'dist/img/appstore.png' %}" alt="" class="footer-icon">
+            </div>
+            <div class="col-2">
+                <a href="{% url 'afisha' %}" class="btn-ft d-block">Афіша</a>
+                <a href="{% url 'timetable' %}" class="btn-ft d-block">Розклад</a>
+                <a href="{% url 'soon' %}" class="btn-ft d-block">Скоро в прокаті</a>
+                <a href="{% url 'cinema' %}" class="btn-ft d-block"> Кінотеатри</a>
+                <a href="{% url 'discount' %}" class="btn-ft d-block">Акції</a>
+            </div>
+            <div class="col-2">
+                <a href="" class="btn-ft d-block">Про кінотеатр</a>
+                <a href="{% url 'newss' %}" class="btn-ft d-block">Новини</a>
+                <a href="{% url 'advertising' %}" class="btn-ft d-block">Реклама</a>
+                <a href="{% url 'cafebar' %}" class="btn-ft d-block">Кафе-Бар</a>
+                <a href="{% url 'contacts' %}" class="btn-ft d-block">Контакти</a>
+            </div>
+            <div class="col-3 text-center mt-3">
+                <img class="iconimg" src="{% static 'dist/img/facebook.png' %}" alt="">
+                <img class="iconimg" src="{% static 'dist/img/instagram.webp' %}" alt="">
+                <img class="iconimg" src="{% static 'dist/img/twitter.webp' %}" alt="">
+                <img class="iconimg" src="{% static 'dist/img/tiktok.png' %}" alt="">
+            </div>
+            <div class="text-center pt-4">
+                <p>KinoCMS 2022, All rights reserved</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</footer>
+</body>
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Script -->
+<script src="{% static 'plugins/bootstrap/js/cinema.js' %}"></script>
+</html>

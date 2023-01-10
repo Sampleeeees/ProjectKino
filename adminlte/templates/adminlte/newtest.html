@@ -1,0 +1,16 @@
+{% extends 'adminlte/base_admin.html'%}
+{% load static %}
+
+{% block tittle %} Test Page for Forms {% endblock%}
+
+{% block content %}
+<form action="" method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+</form>
+
+
+
+
+
+{% endblock %}

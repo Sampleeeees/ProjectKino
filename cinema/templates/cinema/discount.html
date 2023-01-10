@@ -1,0 +1,47 @@
+{% extends 'cinema/cinema.html' %}
+{% load static %}
+
+{% block tittle %} Акції {% endblock tittle %}
+
+{% block image %}
+<img class="w-100" src="{% static 'dist/img/discount-img.png' %}" alt="">
+{% endblock image %}
+
+{%block tittlecontent%}{%endblock tittlecontent%}
+
+{% block context %}
+<hr class="border border-1 border-dark">
+
+        <div class="discount text-center bg-light ">
+            <div class="row">
+                <div class="col-4 pt-2">
+                    <img class="cinema-img" src="{% static 'dist/img/multiplex.jpg' %}" alt="">
+                    <a class="btn-cn d-block pt-3 pb-2" href="#">News 1</a>
+                    <div class="text-start p-1">
+                    <p class="border border-2 rounded-pill border-dark bg-dark d-inline text-white-50 fw-bold p-1">16.10.2022</p>
+                        <p class="border border-2 rounded-pill border-dark bg-success d-inline text-white-50 fw-bold p-1">Multiplex</p>
+                    </div>
+                    <p class="p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deleniti dolorem enim voluptas! Dolore error minima possimus. Accusantium, amet architecto error eveniet fuga illo labore minima placeat quia reprehenderit veritatis?</p>
+                </div>
+                <div class="col-4 pt-2 border-start border-end">
+                    <img class="cinema-img" src="{% static 'dist/img/unnamed-15.jpg' %}" alt="">
+                    <a class="btn-cn d-block pt-3 pb-2" href="#">News 2</a>
+                    <div class="text-start p-1">
+                    <p class="border border-2 rounded-pill border-dark bg-dark text-white-50 d-inline fw-bold p-1">16.10.2022</p>
+                        <p class="border border-2 rounded-pill border-dark bg-success d-inline text-white-50 fw-bold p-1">Planeta Kino</p>
+                    </div>
+                    <p class="p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deleniti dolorem enim voluptas! Dolore error minima possimus. Accusantium, amet architecto error eveniet fuga illo labore minima placeat quia reprehenderit veritatis?</p>
+                </div>
+                <div class="col-4 pt-2 ">
+                    <img class="cinema-img" src="{% static 'dist/img/multiplex.jpg' %}" alt="">
+                    <a class=" btn-cn d-block pt-3 pb-2" href="#">News 3</a>
+                    <div class="text-start p-1">
+                    <p class="border border-2 rounded-pill border-dark bg-dark text-white-50 d-inline-block fw-bold p-1">16.10.2022</p>
+                        <p class="border border-2 rounded-pill border-dark bg-success d-inline text-white-50 fw-bold p-1">Planeta Kino</p>
+                        <p class="border border-2 rounded-pill border-dark bg-success d-inline text-white-50 fw-bold p-1">Multiplex</p>
+                    </div>
+                    <p class="p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deleniti dolorem enim voluptas! Dolore error minima possimus. Accusantium, amet architecto error eveniet fuga illo labore minima placeat quia reprehenderit veritatis?</p>
+                </div>
+            </div>
+        </div>
+{% endblock context %}

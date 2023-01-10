@@ -1,0 +1,57 @@
+{% extends 'adminlte/base_admin.html' %}
+{% load static %}
+
+{% block tittle %} Користувачі {% endblock tittle%}
+
+{% block content%}
+    <div class=" h2_bg m-0 p-0 ">
+       <div class="m-2">
+           <div class="head d-flex justify-content-center">
+             <div class="w-25"></div>
+
+             <div class="w-50 text-center">
+                <h2 class="text_color mt-2 ">Користувачі</h2>
+              </div>
+
+              <div class="heads align-self-center">
+                <input type="text" placeholder="Search User" class="form-control mt-2 mr-4" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+           </div>
+         </div>
+
+     </div>
+
+    <div class="table">
+         <table class="ml-auto mr-auto">
+             <thead>
+             <th class="text-center border border-1 border-dark">ID</th>
+             <th class="text-center border border-1 border-dark">Дата реєстрації</th>
+             <th class="text-center border border-1 border-dark">День Народження</th>
+             <th class="text-center border border-1 border-dark">Email</th>
+             <th class="text-center border border-1 border-dark">Телефон</th>
+             <th class="text-center border border-1 border-dark">ПІБ</th>
+             <th class="text-center border border-1 border-dark">Нік</th>
+             <th class="text-center border border-1 border-dark">Місто</th>
+             </thead>
+           <tbody>
+           {% for user in user_list %}
+               {% if user.is_superuser %}
+                {% else %}
+           <th class="text-center border border-1 border-dark">{{ user.id }}</th>
+           <th class="text-center border border-1 border-dark">{{ user.day_reg|date:'d-m-y' }}</th>
+           <th class="text-center border border-1 border-dark">{{ user.birthday|date:'d.m.y' }}</th>
+           <th class="text-center border border-1 border-dark">{{ user.email }}</th>
+           <th class="text-center border border-1 border-dark">+380{{ user.phone }}</th>
+           <th class="text-center border border-1 border-dark">{{ user.first_name }}</th>
+           <th class="text-center border border-1 border-dark">{{ user.nickname }}</th>
+           <th class="text-center border border-1 border-dark">{{ user.city }}</th>
+               {% endif %}
+           {% endfor %}
+           </tbody>
+         </table>
+
+       </div>
+    {% for user in user_list %}
+
+    {% endfor %}
+{% endblock content %}

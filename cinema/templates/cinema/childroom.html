@@ -1,0 +1,105 @@
+{% extends 'cinema/cinema.html' %}
+{% load static %}
+
+{% block tittle %} Дитяча кімната {% endblock tittle %}
+
+{% block image %}
+<img class="w-100" src="{% static 'dist/img/cchildrenroom.jpeg' %}" alt="">
+{% endblock image %}
+
+{% block tittlecontent %} Дитяча кімната {% endblock tittlecontent%}
+
+{% block context %}
+<div class="vip-hall">
+            <img class="w-100" src="../img/сchildrenroom.jpeg" alt="">
+            <h1 class="text-center p-2">Дитяча кімната</h1>
+            <hr class="border border-1 border-dark">
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col">
+                    <div class="pt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ad commodi consectetur
+                        cupiditate deserunt eaque esse facere illo, laboriosam maiores nemo odio optio perspiciatis
+                        ratione reiciendis. Officiis perferendis quam vitae.
+                        Eaque fuga magnam tenetur! Aperiam debitis ea enim eum explicabo, fugiat ipsam, officia
+                        officiis quas quibusdam quo quos repudiandae velit! Distinctio dolorem fuga, nemo qui quibusdam
+                        totam voluptatibus. Magnam, voluptatem.
+                    </div>
+
+                    <div class="pt-4">Ab accusamus adipisci aliquam, aperiam at consequatur doloribus facere illum laudantium nostrum
+                        quo tempore totam unde. Amet, consequatur fugiat harum ipsam maiores, minus molestias,
+                        necessitatibus nesciunt officiis quidem quis voluptas?
+                        Accusantium adipisci aliquid assumenda blanditiis consequatur cupiditate ea eaque error est
+                        fuga incidunt, laboriosam magnam pariatur praesentium quam quo, similique sint suscipit.
+                        Accusamus alias deleniti laboriosam quaerat reiciendis saepe unde?
+                    </div>
+
+                    <div class="pt-4">Aliquam aperiam corporis deserunt dicta distinctio est facere illo, impedit labore laborum
+                        laudantium nam quia quis recusandae sit soluta velit voluptate. Cupiditate dolorem ipsum iusto
+                        labore laboriosam nobis sit suscipit.
+                        Accusantium ad adipisci cupiditate eius excepturi provident qui unde, voluptatibus. A
+                        accusantium assumenda culpa est, ipsum nam reiciendis tempora vero? Ab ad commodi ea impedit
+                        iure labore quisquam rerum voluptatum!
+                    </div>
+
+                        <div class="row text-center mt-3">
+                            <div class="col-4">
+                                <img class="logo-film" src="../img/logo-spider.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="logo-film" src="../img/logo-spider.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="logo-film" src="../img/logo-spider.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                    <div class="pt-4">Aliquam aperiam corporis deserunt dicta distinctio est facere illo, impedit labore laborum
+                        laudantium nam quia quis recusandae sit soluta velit voluptate. Cupiditate dolorem ipsum iusto
+                        labore laboriosam nobis sit suscipit.
+                        Accusantium ad adipisci cupiditate eius excepturi provident qui unde, voluptatibus. A
+                        accusantium assumenda culpa est, ipsum nam reiciendis tempora vero? Ab ad commodi ea impedit
+                        iure labore quisquam rerum voluptatum!
+                    </div>
+
+                </div>
+                <div class="col-2 col-hide">
+                    <img class="w-100" src="../img/ad.png" alt="">
+                </div>
+            </div>
+            <div>
+
+            </div>
+
+            <div class="text-center p-2">
+                <h1>Фотогалерея</h1>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'dist/img/tor.webp' %}" class="d-block w-100 carousel-banner" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'dist/img/badguys.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+{% endblock context %}
