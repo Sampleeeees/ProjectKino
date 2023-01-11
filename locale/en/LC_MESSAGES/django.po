@@ -282,7 +282,7 @@ msgstr "Phone number"
 #, fuzzy
 #| msgid "СЕО блок:"
 msgid "СЕО текст"
-msgstr "SEO Block:"
+msgstr "SEO text"
 
 #: user/models.py:9
 msgid "email address"

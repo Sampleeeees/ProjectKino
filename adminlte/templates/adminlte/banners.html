@@ -11,19 +11,18 @@
            <hr class="m-0">
          </div>
 
-{#        <div class="form-check form-switch form-check-reverse ">#}
-{#          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>#}
-{#          <label class="form-check-label" for="flexSwitchCheckChecked"></label>#}
-{#        </div>#}
-
         <p>Розмір: 1000х190</p>
 
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="{{ speed.speed_carousel.id_for_label }}"> Speed Carousel</label>
+        <div class="ml-2 d-flex">
+            <label class="pt-2 mr-2 align-self-center" for="{{ speed.speed_carousel.id_for_label }}"> Speed Carousel</label>
                 {{ speed.speed_carousel }}
-            <label for="{{ speed.status.id_for_label }}"> Status </label>
-                {{ speed.status }}
+            <div class="mt-2 ml-2 form-check form-switch ">
+                {{ speed.status}}
+                <label>Active</label>
+            </div>
+        </div>
             {% if formset %}
                 {{ formset.management_form }}
             <div class="form-group d-flex overflow-auto p-3">
@@ -149,8 +148,11 @@
 {#            {% csrf_token %}#}
 {#            <label for="{{ speed.speed_carousel.id_for_label }}"> Speed Carousel</label>#}
 {#                {{ speed.speed_carousel }}#}
-{#            <label for="{{ speed.status.id_for_label }}"> Status </label>#}
-{#                {{ speed.status }}#}
+
+{#            <div class="text-right mt-2 form-check form-switch ">#}
+{#                {{ news.status }}#}
+{#                <label>Active</label>#}
+{#            </div>#}
 {#            {% if formset_news %}#}
 {#                {{ formset_news.management_form }}#}
 {#            <div class="form-group d-flex overflow-auto p-3">#}

@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from .managers import UserManager
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first_name'), max_length=50, blank=True)
@@ -39,6 +40,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_active
-
-    def email_user(self, subject, message, from_email=None, **kwargs):
-        send_mail(subject, message, from_email, [self.email], **kwargs)
+    #
+    # def email_user(self, subject, message, from_email=None, **kwargs):
+    #     send_mail(subject, message, from_email, [self.email], **kwargs)

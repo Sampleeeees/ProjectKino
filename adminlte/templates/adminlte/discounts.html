@@ -29,9 +29,13 @@
 
           <div class="row mt-2">
           {% for discount in discount_list %}
+
               <div class="col-2 text-center delete-any">
                   <a href="{% url 'delete-any' delete_item=discount.id name='NewsAndDiscount'   %}"><svg class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></a>
                   <img class="logo_img rounded" src="{{ discount.logo.url }}" alt="">
+                  <div class="cla">
+                    <p class="d-inline text-black-100 fw-bold ml-1 pr-2 pl-2">{{ discount.date_created_updated|date:'d.m.Y' }}</p>
+                  </div>
                   <div class="name">
                     <a href="{% url 'discountdetail' pk=discount.id %}" class="link-dark text-decoration-none fw-bold mt-2 ">{{ discount.name_uk }}</a>
                   </div>

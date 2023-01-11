@@ -7,7 +7,7 @@ from django.views.generic.base import View
 from datetime import datetime, timedelta
 from django.core.mail import send_mail
 from user.models import User
-from django.utils import timezone
+from django.utils import timezone, dateformat
 
 # Create your views here.
 
@@ -26,12 +26,21 @@ def delete(request, delete_item, name):
         return redirect('films')
     if name == 'NewsAndDiscount':
         delit = NewsAndDiscount.objects.get(pk=delete_item)
-        delit.gallery.delete()
-        for dele in Image.objects.filter(gallery=delit.gallery.id):
-            dele.delete()
-        delit.seo_block.delete()
-        delit.delete()
-        return redirect('news')
+        if delit.type == 'news':
+            delit.gallery.delete()
+            for dele in Image.objects.filter(gallery=delit.gallery.id):
+                dele.delete()
+            delit.seo_block.delete()
+            delit.delete()
+            return redirect('news')
+        else:
+            delit.gallery.delete()
+            for dele in Image.objects.filter(gallery=delit.gallery.id):
+                dele.delete()
+            delit.seo_block.delete()
+            delit.delete()
+            return redirect('discounts')
+
     if name == 'Cinema':
         delit = Cinema.objects.get(pk=delete_item)
         delit.gallery.delete()
@@ -68,7 +77,7 @@ def banner(request):
 
 
 
-    speedinstance = SpeedCarousel.objects.first()
+    speedinstance = SpeedCarousel.objects.get(pk=1)
     speed = SpeedCarouselForm(request.POST or None, instance=speedinstance)
 
 
@@ -131,6 +140,7 @@ def general_page(request):
     if request.method == 'POST':
         if home.is_valid() and seoform.is_valid():
             homepage = home.save(commit=False)
+            homepage.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             homepage.seo_block = seoform.save()
             homepage.save()
     return render(request, 'adminlte/generalpage.html', context={'home': home, 'seo': seoform})
@@ -151,6 +161,7 @@ def aboutcinema(request):
         if aboutcinemaform.is_valid() and seoform.is_valid() and formset.is_valid():
             print(aboutcinemaform.errors, formset.errors, seoform.errors)
             cinema = aboutcinemaform.save(commit=False)
+            cinema.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             print(cinema)
             cinema.seo_block = seoform.save()
             print(cinema.seo_block)
@@ -188,6 +199,7 @@ def cafebar(request):
     if request.method == 'POST':
         if cafebarform.is_valid() and formset.is_valid() and seoform.is_valid():
             cafebar = cafebarform.save(commit=False)
+            cafebar.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             cafebar.seo_block = seoform.save()
             cafebar.gallery = get_object_or_404(Gallery, pk=cafebar.gallery.id)
             cafebar.gallery.text = cafebar.namepage
@@ -216,6 +228,7 @@ def viphalldetail(request):
     if request.method == 'POST':
         if viphallform.is_valid() and seoform.is_valid() and formset.is_valid():
             viphall = viphallform.save(commit=False)
+            viphall.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             viphall.seo_block = seoform.save()
             viphall.gallery = get_object_or_404(Gallery, pk=viphall.gallery.id)
             for img in formset:
@@ -245,6 +258,7 @@ def advertisingdetail(request):
     if request.method == 'POST':
         if advform.is_valid() and formset.is_valid() and seoform.is_valid():
             adv = advform.save(commit=False)
+            adv.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             adv.seo_block = seoform.save()
             adv.gallery = get_object_or_404(Gallery, pk=adv.gallery.id)
             adv.gallery.text = adv.namepage
@@ -273,6 +287,7 @@ def childroomdetail(request):
     if request.method == 'POST':
         if childform.is_valid() and formset.is_valid() and seoform.is_valid():
             child = childform.save(commit=False)
+            child.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             child.seo_block = seoform.save()
             child.gallery = get_object_or_404(Gallery, pk=child.gallery.id)
             child.gallery.text = child.namepage
@@ -299,6 +314,7 @@ def contact(request):
     if request.method == 'POST':
         if formset.is_valid() and formseo.is_valid():
             seo = formseo.save(commit=False)
+            seo.date_create = dateformat.format(timezone.now(), 'Y-m-d')
             print(formseo.cleaned_data)
             for contact in formset:
                 con = contact.save(commit=False)
@@ -308,7 +324,7 @@ def contact(request):
             return redirect('pages')
 
 
-    context = {'formset': formset,'formseo': formseo}
+    context = {'formset': formset,'formseo': formseo, 'contact': contact}
     return render(request, 'adminlte/contact.html', context)
 
 def user(request):
@@ -358,6 +374,7 @@ def addnews(request):
     if request.method == "POST":
         if newsform.is_valid() and formseo.is_valid() and formset.is_valid():
             news = newsform.save(commit=False)
+            news.date_created_updated = dateformat.format(timezone.now(), 'Y-m-d')
             news.type = 'News'
             news.seo_block = formseo.save()
             gallery = Gallery.objects.create(text=news.name_eng)
@@ -387,6 +404,7 @@ def adddiscount(request):
     if request.method == "POST":
         if discountform.is_valid() and formseo.is_valid() and formset.is_valid():
             discount = discountform.save(commit=False)
+            discount.date_created_updated = dateformat.format(timezone.now(), 'Y-m-d')
             discount.type = 'Discount'
             discount.seo_block = formseo.save()
             gallery = Gallery.objects.create(text=discount.name_eng)
@@ -711,6 +729,7 @@ class NewsDetailView(View):
                 print(request.FILES)
                 print(formset.errors, formset.cleaned_data)
                 news = newssave.save(commit=False)
+                news.date_created_updated = dateformat.format(timezone.now(), 'Y-m-d')
                 news.seo_block = formseo.save()
                 gallery = Gallery.objects.get(pk=news.gallery.id)
                 gallery.text = news.name_eng
@@ -743,9 +762,9 @@ class DiscountDetailView(View):
             print(formset.queryset)
             print(formset.errors)
 
-            context = {'news': discountsave, 'seo': formseo, 'formset': formset, 'image': discount}
+            context = {'discount': discountsave, 'seo': formseo, 'formset': formset, 'image': discount}
 
-            return render(request, 'adminlte/News_edit.html', context)
+            return render(request, 'adminlte/Discount_edit.html', context)
 
         def post(self, request, pk):
             discount = get_object_or_404(NewsAndDiscount, pk=pk)
@@ -759,26 +778,22 @@ class DiscountDetailView(View):
             ImageDiscountFormset = modelformset_factory(Image, form=ImageForm, extra=0, can_delete=True)
             formset = ImageDiscountFormset(request.POST or None, request.FILES or None,
                                        queryset=Image.objects.filter(gallery=discount.gallery.id))
-            print(formset.errors, discountsave.errors)
             # print(formset)
             if request.method == 'POST':
                 if discountsave.is_valid() and formseo.is_valid() and formset.is_valid():
-                    print('-------------')
-                    print(request.FILES)
-                    print(formset.errors, formset.cleaned_data)
                     discount = discountsave.save(commit=False)
+                    discount.date_created_updated = dateformat.format(timezone.now(), 'Y-m-d')
+                    print('-------')
+                    print(discount.date_created_updated)
+                    print('---------')
                     discount.seo_block = formseo.save()
                     gallery = Gallery.objects.get(pk=discount.gallery.id)
                     gallery.text = discount.name_eng
                     discount.gallery = get_object_or_404(Gallery, id=gallery.id)
                     for img in formset:
-                        print('-------------')
                         images = img.save(commit=False)
                         images.gallery = discount.gallery
                         images.save()
-
-                    print(formset.errors, discountsave.errors)
-
                     formset.save()
                     discount.save()
 

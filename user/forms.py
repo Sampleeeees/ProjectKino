@@ -13,23 +13,28 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'nickname', 'address', 'city', 'card_number', 'email', 'language', 'phone', 'sex', 'birthday', 'password', 'password2']
-
+        choices_lang = ((1, 'Українська'), (2, 'English'))
+        choices_sex = ((1, 'Чоловік'), (2, 'Жінка'))
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'nickname': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'city': forms.TextInput(attrs={'class': 'form-control'}),
             'card_number': forms.TextInput(attrs={'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
-            'birthday': forms.TextInput(attrs={'class': 'form-control'}),
+            'birthday': forms.DateInput(attrs={
+                'class': 'form-control',
+                'id': 'datepicker1',
+                'autocomplete': 'off'}),
+            'language': forms.RadioSelect(choices=choices_lang, attrs={'class': 'ml-2'}),
+            'sex': forms.RadioSelect(choices=choices_sex, attrs={'class': 'ml-2'})
         }
 
 
-    def clean_password(self):
-        ps = self.cleaned_data
-        print(self.cleaned_data)
-        if ps['password'] != ps['password']:
-            raise forms.ValidationError('Паролі не співпадають')
-        return ps['password']
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError('Passwords don\'t match.')
+        return cd['password2']

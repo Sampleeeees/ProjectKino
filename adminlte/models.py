@@ -108,7 +108,7 @@ class Page(models.Model):
     name_eng = models.CharField(max_length=50, blank=True)
     description_eng = models.TextField(blank=True)
     status = models.BooleanField()
-    date_create = models.DateField()
+    date_create = models.DateField(blank=True, null=True)
     logo = models.ImageField(upload_to='PageImage/')
     url_video = models.URLField()
     gallery = models.ForeignKey(Gallery, verbose_name='Галерея', on_delete=models.CASCADE, null=True, blank=True)
@@ -143,12 +143,11 @@ class NewsAndDiscount(models.Model):
 # Banners
 
 SPEED_CHOICES = {
-    ('1', '5c'),
-    ('2', '6c'),
-    ('3', '7c'),
-    ('4', '8c'),
-    ('5', '9c'),
-    ('6', '10c')
+    (None, ''),
+    (300, '3c'),
+    (500, '5c'),
+    (700, '7c'),
+    (1000, '10c')
 }
 
 class SpeedCarousel(models.Model):

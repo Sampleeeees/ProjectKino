@@ -74,7 +74,13 @@ class NewsForm(ModelForm):
                 'class': 'form-control',
                 'id': 'datepicker1',
                 'type': 'text',
-                'autocomplete': 'off'})
+                'autocomplete': 'off'}),
+
+            'status': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch',
+                'id': 'id_news_status'
+            })
         }
 
 class DiscountForm(ModelForm):
@@ -94,6 +100,12 @@ class DiscountForm(ModelForm):
                 'class': 'form-control',
                 'id': 'datepicker1',
                 'autocomplete': 'off'}),
+
+            'status': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch',
+                'id': 'id_discount_status'
+            })
         }
 
 
@@ -141,6 +153,15 @@ class SpeedCarouselForm(ModelForm):
     class Meta:
         model = SpeedCarousel
         fields = ['speed_carousel', 'status']
+        widgets = {
+            'status': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch'
+            }),
+            'speed_carousel': forms.Select(attrs={
+                'class': 'speed_check form-select rounded',
+            })
+        }
 
 class NewsAndDiscountBannerForm(ModelForm):
     class Meta:
@@ -166,7 +187,11 @@ class HomePageForm(ModelForm):
         fields = ['phone_number',  'status', 'seo_text']
         widgets = {
             'phone_number': forms.NumberInput(attrs={'class': 'form-control w-25'}),
-            'seo_text': forms.Textarea(attrs={'class': 'form-control w-25'})
+            'seo_text': forms.Textarea(attrs={'class': 'form-control w-25'}),
+            'status': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch'
+            }),
         }
 
 class PageForm(ModelForm):
@@ -179,7 +204,11 @@ class PageForm(ModelForm):
             'name_eng': forms.TextInput(attrs={'class': 'form-control w-50 ml-2'}),
             'description_eng': forms.Textarea(attrs={'class': 'form-control w-50 ml-2'}),
             'url_video': forms.URLInput(attrs={'class': 'form-control w-50 ml-2'}),
-            'logo': forms.FileInput(attrs={'class': 'ml-2 d-none', 'id': 'id_aboutcinema_logo', 'onchange': 'addPhotoImage(this, "ImgAboutCinemaLogo")'})
+            'logo': forms.FileInput(attrs={'class': 'ml-2 d-none', 'id': 'id_aboutcinema_logo', 'onchange': 'addPhotoImage(this, "ImgAboutCinemaLogo")'}),
+            'status': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch'
+            }),
         }
 
 
@@ -191,7 +220,11 @@ class ContactForm(ModelForm):
             'name_cinema': forms.TextInput(attrs={'class': 'form-control w-100 ml-auto mr-auto'}),
             'address': forms.Textarea(attrs={'class': 'form-control w-100 ml-auto mr-auto '}),
             'coordinate': forms.TextInput(attrs={'class': 'form-control w-100 ml-auto mr-auto'}),
-            'logo': forms.FileInput(attrs={'class': 'd-none', 'id': 'id-__prefix__-contact-logo', 'onchange': 'addPhotoImage(this, "id-__prefix__-contact")'})
+            'logo': forms.FileInput(attrs={'class': 'd-none', 'id': 'id-__prefix__-contact-logo', 'onchange': 'addPhotoImage(this, "id-__prefix__-contact")'}),
+            'status': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch'
+            })
         }
 
 class MailingForm(ModelForm):

@@ -22,6 +22,10 @@
 
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+    <div class="text-right mt-2 form-check form-switch ">
+        {{ discount.status }}
+        <label>Active</label>
+    </div>
 <!-- Tab panes -->
           <div class="tab-content">
 
