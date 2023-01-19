@@ -11,6 +11,7 @@ urlpatterns = [
     path('discounts/', views.DiscountView.as_view(), name='discounts'),
     path('pages/', views.page, name='pages'),
     path('users/', views.user, name='users'),
+    path('users/edit<user_id>', views.useredit, name='useredit'),
     path('mailings/', views.mailing, name='mailings'),
     # add block
     # films

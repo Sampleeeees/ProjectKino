@@ -1,9 +1,27 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from adminlte.models import Image, SeoBlock, Gallery, Film
 from django.views.generic.base import View
+from user.models import User
+from user.forms import UserRegistrationForm
 # Create your views here.
+
+def base(request):
+    if request.user.is_authenticated:
+        user_active = request.user
+
+    context = {'user': user_active}
+    return render(request, 'cinema/base.html', context)
+
+def cabinet(request):
+    print(request.user.id)
+    user = User.objects.get(pk=request.user.id)
+    form = UserRegistrationForm(request.POST or None, instance=user)
+    if form.is_valid():
+        form.save()
+    return render(request, 'cinema/usercabinet.html', {'form': form})
 
 def index(request):
     return render(request, 'cinema/index.html')

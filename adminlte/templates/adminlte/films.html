@@ -70,7 +70,7 @@
                   <img class="logo_img rounded" src="{{ film.logo.url }}" alt="">
                   <a href="{% url 'delete-any' delete_item=film.id name='Film'   %}"><svg class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></a>
                   <div class="name">
-                    <a href="{% url 'filmdetailadmin' pk=film.id %}" class="link-dark text-decoration-none fw-bold mt-2 ">{{ film.name_uk }}</a>
+                    <a href="{% url 'filmdetailadmin' pk=film.id %}" class="link-dark text-decoration-none fw-bold mt-2 ">{{ film.name_eng }}</a>
                   </div>
               </div>
           {% endfor %}

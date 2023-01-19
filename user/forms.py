@@ -1,9 +1,11 @@
 from django import forms
 from .models import User
+from time import sleep
+from django.core.mail import send_mail
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    nickname = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Нікнейм'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль'}))
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -13,8 +15,6 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'nickname', 'address', 'city', 'card_number', 'email', 'language', 'phone', 'sex', 'birthday', 'password', 'password2']
-        choices_lang = ((1, 'Українська'), (2, 'English'))
-        choices_sex = ((1, 'Чоловік'), (2, 'Жінка'))
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -28,13 +28,13 @@ class UserRegistrationForm(forms.ModelForm):
                 'class': 'form-control',
                 'id': 'datepicker1',
                 'autocomplete': 'off'}),
-            'language': forms.RadioSelect(choices=choices_lang, attrs={'class': 'ml-2'}),
-            'sex': forms.RadioSelect(choices=choices_sex, attrs={'class': 'ml-2'})
+            'language': forms.RadioSelect(attrs={'class': 'ml-2'}),
+            'sex': forms.RadioSelect(attrs={'class': 'ml-2'})
         }
 
 
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
+            raise forms.ValidationError('Паролі не співпадають')
         return cd['password2']

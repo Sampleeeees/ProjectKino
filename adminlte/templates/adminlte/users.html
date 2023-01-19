@@ -24,15 +24,15 @@
     <div class="table">
          <table class="ml-auto mr-auto">
              <thead>
-             <th class="text-center border border-1 border-dark">ID</th>
-             <th class="text-center border border-1 border-dark">Дата реєстрації</th>
-             <th class="text-center border border-1 border-dark">День Народження</th>
-             <th class="text-center border border-1 border-dark">Email</th>
-             <th class="text-center border border-1 border-dark">Телефон</th>
-             <th class="text-center border border-1 border-dark">ПІБ</th>
-             <th class="text-center border border-1 border-dark">Нік</th>
-             <th class="text-center border border-1 border-dark">Місто</th>
-             <th></th>
+                 <th class="text-center border border-1 border-dark">ID</th>
+                 <th class="text-center border border-1 border-dark">Дата реєстрації</th>
+                 <th class="text-center border border-1 border-dark">День Народження</th>
+                 <th class="text-center border border-1 border-dark">Email</th>
+                 <th class="text-center border border-1 border-dark">Телефон</th>
+                 <th class="text-center border border-1 border-dark">ПІБ</th>
+                 <th class="text-center border border-1 border-dark">Нік</th>
+                 <th class="text-center border border-1 border-dark">Місто</th>
+                 <th></th>
              </thead>
          {% for user in user_list %}
            <tbody>
@@ -46,7 +46,7 @@
            <th class="text-center border border-1 border-dark">{{ user.first_name }}</th>
            <th class="text-center border border-1 border-dark">{{ user.nickname }}</th>
            <th class="text-center border border-1 border-dark">{{ user.city }}</th>
-           <th><a href="#" class="text-gray"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg_size"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg></a></th>
+           <th><a href="{% url 'useredit' user_id=user.id %}" class="text-gray"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg_size"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg></a></th>
 
                {% endif %}
            </tbody>

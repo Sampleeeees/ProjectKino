@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # AUTHENTICATION_BACKENDS = (
 #     'django.contrib.auth.backends.ModelBackend',
-#     'user.authentication',
+#     'user.backends.CustomerBackend',
 # )
 
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
@@ -190,13 +190,6 @@ LOCALE_PATHS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Redis
-
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = '6379'
-CELERY_BROKEN_URL = 'redis//' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-CELERY_BROKEN_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
-CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_CONTENT = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
+#CELERY settings
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"

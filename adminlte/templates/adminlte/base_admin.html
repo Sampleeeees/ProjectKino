@@ -32,13 +32,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
   <link rel="stylesheet" href="{% static 'dist/css/admin.css' %}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
   <!-- Right navbar links -->
-
+{% if user.is_superuser %}
 <nav class="main-header navbar navbar-expand navbar-light">
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -48,10 +49,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <ul class="navbar-nav ml-auto" >
     <li class="nav-item m-2">
         <svg width="30px" height="30px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        Admin
+        {% if user.is_superuser %}
+            {{ user.nickname }}
+        {% endif %}
     </li>
     <li class="nav-item m-2">
-      <a href="{% url 'auth' %}" class="text-decoration-none text-dark">
+      <a href="{% url 'logout_user' %}" class="text-decoration-none text-dark">
         <svg width="30px" height="30px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
       </a>
     </li>
@@ -64,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Brand Logo -->
     <div href="" class="brand-link text-decoration-none">
       <img src="{% static 'dist/img/logocms.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <a href="{% url 'admin' %}" class="text-decoration-none text-white">KinoCMS</a>
+      <a href="{% url 'index' %}" class="text-decoration-none text-white">KinoCMS</a>
     </div>
 
     <!-- Sidebar -->
@@ -182,6 +185,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <strong>Copyright &copy; 2022 <a href="https://spacelab.com.ua/">SpaceLab</a>.</strong> All rights reserved.
 
   </footer>
+{% else %}
+    {% include 'user/base_auth_register.html' %}
+    <div class="">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="{% url 'index' %}" class="h1"><b>Kino</b>CMS</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Ви не є адміністратором</p>
+
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+{% endif %}
 </div>
 <!-- ./wrapper -->
 
@@ -192,8 +212,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <!-- AdminLTE App -->
-<script src="{% static 'plugins/bootstrap/js/moment.js' %}"></script>
 <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.2/chart.min.js" integrity="sha512-fYE9wAJg2PYbpJPxyGcuzDSiMuWJiw58rKa9MWQICkAqEO+xeJ5hg5qPihF8kqa7tbgJxsmgY0Yp51+IMrSEVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static 'plugins/bootstrap/js/Chart.min.js'%}"> </script>
+<script src="{% static 'plugins/bootstrap/js/moment.js' %}"></script>
 <!-- Script -->
 
 <script src="{% static 'dist/js/jquery-ui.js' %}"></script>

@@ -4,8 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="">
+    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="&quot;add btn active and rebuilt registratino&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KinoCMS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinoCMS/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/tasks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/base_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/base_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/films.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/films.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/plugins/bootstrap/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/plugins/bootstrap/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/authentication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/managers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/registration/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/registration/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/registration/registration_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/registration/registration_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +62,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -87,8 +114,31 @@
       <workItem from="1673342822555" duration="5620000" />
       <workItem from="1673386844923" duration="4675000" />
       <workItem from="1673426554352" duration="3329000" />
-      <workItem from="1673436561459" duration="14636000" />
+      <workItem from="1673436561459" duration="15528000" />
+      <workItem from="1673470547120" duration="6210000" />
+      <workItem from="1673521890332" duration="8839000" />
+      <workItem from="1673543287119" duration="415000" />
+      <workItem from="1673548456411" duration="1788000" />
+      <workItem from="1673556677801" duration="4080000" />
+      <workItem from="1673594930426" duration="3046000" />
+      <workItem from="1673599612878" duration="1401000" />
+      <workItem from="1673669623860" duration="2004000" />
+      <workItem from="1673677165878" duration="4112000" />
+      <workItem from="1673779111965" duration="3058000" />
+      <workItem from="1673789038778" duration="2096000" />
+      <workItem from="1673867178072" duration="801000" />
+      <workItem from="1673890488726" duration="3035000" />
+      <workItem from="1674038124235" duration="6837000" />
+      <workItem from="1674055144068" duration="906000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
+      <created>1673455811827</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673455811827</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,14 +159,21 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="&quot;add btn active and rebuilt registratino&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;add btn active and rebuilt registratino&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/adminlte/views.py</url>
-          <line>786</line>
+          <line>806</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/django/contrib/auth/management/commands/createsuperuser.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

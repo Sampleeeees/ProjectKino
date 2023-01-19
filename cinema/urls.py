@@ -16,5 +16,5 @@ urlpatterns = [
     path('cafebar/', views.cafebar, name='cafebar'),
     path('mobileapp/', views.mobileapp, name='mobileapp'),
     path('contacts/', views.contacts, name='contacts'),
-    path('auth/', views.auth, name='auth'),
+    path('usercabinet/', views.cabinet, name='cabinet'),
 ]

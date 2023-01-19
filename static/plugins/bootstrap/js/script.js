@@ -83,6 +83,11 @@ if (url.includes('uk')){
 }});
 
 
+$(document).ready(function (){
+  document.getElementById('id_language_0').setAttribute('class', 'd-none');
+  document.getElementById('id_sex_0').setAttribute('class', 'd-none')
+});
+
 // function confirmfunc(){
 //   let answer = confirm('Ви впевнені ?');
 //   if(answer = true){

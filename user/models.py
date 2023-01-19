@@ -5,26 +5,28 @@ from django.utils.translation import ugettext_lazy as _
 
 from .managers import UserManager
 
+sex_choice = {(None, ''), ('1', 'Чоловік'), ('2', 'Жінка')}
+language_choice = {(None, ''), ('1', 'Українська'), ('2', 'Англійська')}
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first_name'), max_length=50, blank=True)
     last_name = models.CharField(_('last_name'), max_length=50, blank=True)
-    nickname = models.CharField(_('nickname'), max_length=75, blank=True)
+    nickname = models.CharField(_('nickname'), max_length=75, blank=True, unique=True)
     city = models.CharField(_('city'), max_length=50, blank=True)
     address = models.CharField(_('address'), max_length=55, blank=True)
-    card_number = models.CharField(_('card_number'), unique=True, max_length=16, blank=True)
-    phone = models.IntegerField(_('phone'), blank=True, null=True)
-    language = models.BooleanField(blank=True, null=True)
-    sex = models.BooleanField(blank=True, null=True)
+    card_number = models.CharField(_('card_number'), null=True, max_length=16, blank=True)
+    phone = models.IntegerField(_('phone'), blank=True, null=True, unique=True)
+    language = models.CharField(max_length=50, choices=language_choice ,blank=True, null=True)
+    sex = models.CharField(max_length=50, choices=sex_choice, blank=True, null=True)
     birthday = models.DateField(_('birthday'), blank=True, null=True)
     day_reg = models.DateTimeField(_("date_joined"), auto_now_add=True)
     is_active = models.BooleanField(_('active'), default=True)
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELD = []
+    USERNAME_FIELD = 'nickname'
+    REQUIRED_FIELD = ['nickname']
 
     class Meta:
         verbose_name = _('User')

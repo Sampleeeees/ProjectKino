@@ -8,12 +8,21 @@ from datetime import datetime, timedelta
 from django.core.mail import send_mail
 from user.models import User
 from django.utils import timezone, dateformat
-
+from user.forms import UserRegistrationForm
 # Create your views here.
+def base_adminlte(request):
+    user_active = request.user
+    return render(request, 'adminlte/base_admin.html', {'user': user_active})
 
 def index(request):
     return render(request, 'adminlte/index.html')
 
+def  useredit(request, user_id):
+    userins = User.objects.get(pk=user_id)
+    form = UserRegistrationForm(request.POST or None, instance=userins)
+    if form.is_valid():
+        form.save()
+    return render(request, 'adminlte/useredit.html', {'form': form})
 
 def delete(request, delete_item, name):
     if name == 'Film':
@@ -63,7 +72,21 @@ def delete(request, delete_item, name):
     return redirect('films')
 
 def statistic(request):
-    return render(request, 'adminlte/statistics.html')
+    man = User.objects.filter(sex=1).count()
+    woman = User.objects.filter(sex=2).count()
+    alluser = User.objects.filter(is_superuser=False).count()
+    gender_list = ['Жінка', 'Чоловік']
+    for gener in gender_list:
+        print(gener)
+    gender_number = [man, woman]
+
+
+    contex = {
+        'gender_list': gender_list,
+        'gender_number': gender_number,
+        'reg': alluser
+    }
+    return render(request, 'adminlte/chartjs.html', contex)
 
 
 #Для сторінки банерів
@@ -838,11 +861,16 @@ class BannerView(View):
 
 def send(user_email):
     send_mail('Ви підписалися на розсилку ',
-        [user_email],
-        fail_silently=False)
+                [user_email],
+                fail_silently=False)
 
 def mailing(request):
     mail = MailingForm(request.POST or None, request.FILES or None)
+
+    def form_valid(self, mail):
+        mail.send_email()
+        return super().form_valid(mail)
+
     return render(request, 'adminlte/mailings.html', {'mailing': mail})
 
 

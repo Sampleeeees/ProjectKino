@@ -3,6 +3,9 @@ from django.forms import ModelForm
 from KinoCMS import settings
 from .models import Film, Cinema, TopHomeBanner, SeoBlock, Gallery, Image, NewsAndDiscount, SpeedCarousel, NewsAndDiscountBanner, BackgroundBanner, Hall, HomePage, Page, Contact, Mailing
 from tempus_dominus.widgets import DatePicker
+from time import sleep
+from django.core.mail import send_mail
+from adminlte.tasks import send_feedback_email_task
 
 
 class FilmForm(ModelForm):
@@ -236,3 +239,7 @@ class MailingForm(ModelForm):
         widgets = {
             'template': forms.FileInput(attrs={'class': 'd-none'})
         }
+    def send_email(self):
+        send_feedback_email_task.delay(
+            self.cleaned_data["email"], self.cleaned_data["message"]
+        )
