@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from adminlte.models import Image, SeoBlock, Gallery, Film
+from adminlte.models import *
 from django.views.generic.base import View
 from user.models import User
 from user.forms import UserRegistrationForm
@@ -24,7 +24,11 @@ def cabinet(request):
     return render(request, 'cinema/usercabinet.html', {'form': form})
 
 def index(request):
-    return render(request, 'cinema/index.html')
+    banner_list = TopHomeBanner.objects.all
+    film = Film.objects.all()
+    news = NewsAndDiscountBanner.objects.all()
+    context = {'banner_list': banner_list, 'film_list': film, 'news_banner': news}
+    return render(request, 'cinema/index.html', context)
 
 
 def soon(request):

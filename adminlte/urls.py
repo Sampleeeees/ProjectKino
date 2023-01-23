@@ -40,6 +40,8 @@ urlpatterns = [
     path('pages/adverising', views.advertisingdetail, name='advertisingdetail'),
     path('pages/childroom', views.childroomdetail, name='childroomdetail'),
     path('pages/contacts', views.contact, name='contactdetail'),
+    path('pages/newpage', views.newpage, name='createnewpage'),
+    path('pages/newpageedit/<page_id>', views.newpageedit, name='newpageedit'),
 ]
 
 

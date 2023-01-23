@@ -144,10 +144,10 @@ class NewsAndDiscount(models.Model):
 
 SPEED_CHOICES = {
     (None, ''),
-    (300, '3c'),
-    (500, '5c'),
-    (700, '7c'),
-    (1000, '10c')
+    ('300', '3c'),
+    ('500', '5c'),
+    ('700', '7c'),
+    ('1000', '10c')
 }
 
 class SpeedCarousel(models.Model):

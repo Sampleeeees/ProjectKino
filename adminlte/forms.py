@@ -146,8 +146,8 @@ class TopHomeBannerForm(ModelForm):
         model = TopHomeBanner
         fields = ['image', 'url', 'text']
         widgets = {
-            'url': forms.URLInput(attrs={'class': 'form-control w-100', 'id': 'id_form-__prefix__-url'}),
-            'text': forms.TextInput(attrs={'class': 'form-control w-100', 'id': 'id_form-__prefix__-text'}),
+            'url': forms.URLInput(attrs={'class': 'form-control w-100 mt-2 mb-2', 'id': 'id_form-__prefix__-url', 'placeholder': 'URL'}),
+            'text': forms.TextInput(attrs={'class': 'form-control w-100 mt-2 mb-2', 'id': 'id_form-__prefix__-text', 'placeholder': 'Text'}),
             'image': forms.FileInput(attrs={'class': 'form-control w-100 d-none',
                                             'id': 'img-__prefix__-Banner',
                                             'onchange': "addPhotoImage(this, 'img-__prefix__-Gallery')"})
@@ -159,7 +159,7 @@ class SpeedCarouselForm(ModelForm):
         widgets = {
             'status': forms.CheckboxInput(attrs={
                 'class': 'form-check-input',
-                'role': 'switch'
+                'role': 'switch',
             }),
             'speed_carousel': forms.Select(attrs={
                 'class': 'speed_check form-select rounded',
@@ -170,18 +170,24 @@ class NewsAndDiscountBannerForm(ModelForm):
     class Meta:
         model = NewsAndDiscountBanner
         fields = ['image', 'url']
-        # widgets = {
-        #     'url': forms.URLInput(attrs={'class': 'form-control w-100', 'id': 'id_form-__prefix__-url'}),
-        #     'text': forms.TextInput(attrs={'class': 'form-control w-100', 'id': 'id_form-__prefix__-text'}),
-        #     'image': forms.FileInput(attrs={'class': 'form-control w-100 d-none',
-        #                                     'id': 'img-__prefix__-Banner',
-        #                                     'onchange': "addPhotoImage(this, 'img-__prefix__-Gallery')"})
-        # }
+        widgets = {
+            'url': forms.URLInput(attrs={'class': 'form-control w-100', 'id': 'id_form-__prefix__-url-news', 'placeholder': 'URL'}),
+            'image': forms.FileInput(attrs={'class': 'form-control w-100 d-none',
+                                            'id': 'img-__prefix__-BannerNews',
+                                            'onchange': "addPhotoImage(this, 'img-__prefix__-News')"})
+        }
 
 class BackgroundForm(ModelForm):
     class Meta:
         model = BackgroundBanner
+        choices_type = (('10', 'Фон-картинка'), ('1000', 'Звичаний фон'))
         fields = ['type', 'image']
+        widgets = {
+            'type': forms.RadioSelect(choices=choices_type, attrs={'class': 'form-check-inline'}),
+            'image': forms.FileInput(attrs={'class': 'd-none',
+                                            'id': 'img_back_banner',
+                                            'onchange': "addPhotoImage(this, 'img-BackBanner')"})
+        }
 
 
 class HomePageForm(ModelForm):
@@ -231,8 +237,8 @@ class ContactForm(ModelForm):
         }
 
 class MailingForm(ModelForm):
-    alluser = forms.RadioSelect(attrs={'type': 'radio'})
-    another_user = forms.RadioSelect()
+    all_user = forms.ChoiceField(widget=(forms.CheckboxInput(attrs={'class': 'form-check-input', 'type': 'radio', 'checked': '', 'onclick': 'switchList(this)'})))
+    select_user = forms.ChoiceField(widget=(forms.CheckboxInput(attrs={'class': 'form-check-input', 'type': 'radio', 'onclick': 'switchList(this)'})))
     class Meta:
         model = Mailing
         fields = ['template']
@@ -243,3 +249,4 @@ class MailingForm(ModelForm):
         send_feedback_email_task.delay(
             self.cleaned_data["email"], self.cleaned_data["message"]
         )
+

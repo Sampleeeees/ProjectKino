@@ -1,14 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from django.forms import modelformset_factory, inlineformset_factory
-from .forms import FilmForm, CinemaForm, TopHomeBannerForm, SeoBlockForm, GalleryForm, ImageForm, NewsForm, DiscountForm, SpeedCarouselForm, NewsAndDiscountBannerForm, MailingForm ,HallForm, HomePageForm, PageForm, ContactForm
-from .models import Image, SeoBlock, Gallery, Film, NewsAndDiscount, TopHomeBanner, SpeedCarousel, NewsAndDiscountBanner, Cinema, Hall, HomePage, Page, Contact
+from django.forms import modelformset_factory
+from .forms import FilmForm, CinemaForm, TopHomeBannerForm, SeoBlockForm, GalleryForm, ImageForm, NewsForm, DiscountForm, SpeedCarouselForm, NewsAndDiscountBannerForm, MailingForm ,HallForm, HomePageForm, PageForm, ContactForm, BackgroundForm
+from .models import Image, SeoBlock, Gallery, Film, NewsAndDiscount, TopHomeBanner, SpeedCarousel, NewsAndDiscountBanner, Cinema, Hall, HomePage, Page, Contact, Mailing, BackgroundBanner
 from django.views.generic.base import View
 from datetime import datetime, timedelta
 from django.core.mail import send_mail
 from user.models import User
 from django.utils import timezone, dateformat
 from user.forms import UserRegistrationForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 def base_adminlte(request):
     user_active = request.user
@@ -69,6 +70,31 @@ def delete(request, delete_item, name):
         delit.delete()
         return redirect('cinemadetail', pk=delit.cinema.id)
 
+    if name == 'NewPage':
+        delit = Page.objects.get(pk=delete_item)
+        delit.gallery.delete()
+        for dele in Image.objects.filter(gallery=delit.gallery.id):
+            dele.delete()
+        delit.seo_block.delete()
+        delit.delete()
+        return redirect('pages')
+
+    if name == 'Banner':
+        delit = TopHomeBanner.objects.get(pk=delete_item)
+        delit.delete()
+
+        return redirect('banners')
+
+    if name == 'NewsBanner':
+        delit = NewsAndDiscountBanner.objects.get(pk=delete_item)
+        delit.delete()
+        return redirect('banners')
+
+    if name == 'MailSend':
+        delit = Mailing.objects.get(pk=delete_item)
+        delit.delete()
+        return redirect('mailings')
+
     return redirect('films')
 
 def statistic(request):
@@ -91,39 +117,30 @@ def statistic(request):
 
 #Для сторінки банерів
 def banner(request):
-
     BannerFormset = modelformset_factory(TopHomeBanner, form=TopHomeBannerForm, extra=0, can_delete=True)
-    formset = BannerFormset(request.POST or None, request.FILES or None, queryset=TopHomeBanner.objects.all())
+    formset = BannerFormset(request.POST or None, request.FILES or None, queryset=TopHomeBanner.objects.all(), prefix='topbanner',)
 
-    # NewsFormset = modelformset_factory(NewsAndDiscountBanner, form=NewsAndDiscountBannerForm, extra=0, can_delete=True)
-    # formset_news = NewsFormset(request.POST or None, request.FILES or None, queryset=NewsAndDiscountBanner.objects.all())
-
-
+    NewsFormset = modelformset_factory(NewsAndDiscountBanner, form=NewsAndDiscountBannerForm, extra=0, can_delete=True)
+    formset_news = NewsFormset(request.POST or None, request.FILES or None, queryset=NewsAndDiscountBanner.objects.all(), prefix='newsbanner')
 
     speedinstance = SpeedCarousel.objects.get(pk=1)
-    speed = SpeedCarouselForm(request.POST or None, instance=speedinstance)
+    speed = SpeedCarouselForm(request.POST or None, instance=speedinstance, prefix='speed_for_top')
 
+    speedsecond = SpeedCarousel.objects.get(pk=2)
+    speed2 = SpeedCarouselForm(request.POST or None, instance=speedsecond, prefix='speed_for_news')
 
-    print(formset.errors)
+    typeback = BackgroundForm(request.POST or None, request.FILES or None)
 
+    if request.method == 'POST':
+        if formset.is_valid() and speed.is_valid() and formset_news.is_valid() and speed2.is_valid():
+            print(formset.non_form_errors(), speed.errors)
+            speed2.save()
+            speed.save()
+            formset.save()
+            formset_news.save()
+            redirect('banners')
 
-    if formset.is_valid() and speed.is_valid():
-        print(formset.errors)
-        speed.save()
-        for banner in formset:
-            print(banner.instance.id)
-            print(banner.errors)
-            if banner.is_valid():
-                print(banner.errors)
-                banner.save()
-        # for banner in formset_news:
-        #     print(banner.errors)
-        #     if banner.is_valid():
-        #         print(banner.errors)
-        #         print(formset.deleted_forms)
-        #         banner.save()
-
-    context = {'formset': formset, 'speed': speed }
+    context = {'formset': formset, 'speed': speed, 'speed2': speed2, 'formset_news': formset_news, 'type': typeback}
 
     return render(request, 'adminlte/banners.html', context)
 
@@ -140,8 +157,11 @@ def page(request):
     viphall = Page.objects.get(namepage='VipHall')
     advert = Page.objects.get(namepage='Advert')
     child = Page.objects.get(namepage='Childroom')
+    page = Page.objects.filter(namepage='NewPage')
     contact = Contact.objects.last()
-    print(contact)
+    # PageFormset = modelformset_factory(Page, form=PageForm, extra=0, can_delete=True)
+    # formset = PageFormset(request.POST or None, request.FILES or None, queryset=Page.objects.all())
+    # print(contact)
     context = {
         'home': home,
         'aboutcinema': aboutcinema,
@@ -149,9 +169,76 @@ def page(request):
         'vip': viphall,
         'adv': advert,
         'child': child,
-        'contact': contact
+        'contact': contact,
+        'page_list': page
+        # 'formset': formset
     }
     return render(request, 'adminlte/pages.html', context)
+
+def newpage(request):
+    page = PageForm(request.POST or None, request.FILES or None)
+    seoform = SeoBlockForm(request.POST or None)
+
+    ImageFormset = modelformset_factory(Image, form=ImageForm, extra=0, can_delete=True)
+    formset = ImageFormset(request.POST or None, request.FILES or None,
+                           queryset=Image.objects.none())
+
+    if request.method == "POST":
+        if page.is_valid() and seoform.is_valid():
+            newpage = page.save(commit=False)
+            newpage.date_create = dateformat.format(timezone.now(), 'Y-m-d')
+            newpage.seo_block = seoform.save()
+            newpage.namepage = 'NewPage'
+            gallery = Gallery.objects.create(text=newpage.name_uk)
+            newpage.gallery = get_object_or_404(Gallery, pk=gallery.id)
+            for img in formset:
+                image = img.save(commit=False)
+                image.gallery = newpage.gallery
+                image.save()
+
+            formset.save()
+            newpage.save()
+
+
+
+
+    context = {
+        'pagedetail': page,
+        'seo': seoform,
+        'formset': formset
+    }
+    return render(request, 'adminlte/pagedetail.html', context)
+
+def newpageedit(request, page_id):
+    page = get_object_or_404(Page, pk=page_id)
+    seo = get_object_or_404(SeoBlock, pk=page.seo_block.id)
+
+    pagedetail = PageForm(request.POST or None, request.FILES or None, instance=page)
+    seoform = SeoBlockForm(request.POST or None, instance=seo)
+
+    ImageFormset = modelformset_factory(Image, ImageForm, extra=0, can_delete=True)
+    formset = ImageFormset(request.POST or None, request.FILES or None, queryset=Image.objects.filter(gallery=page.gallery.id))
+
+    if request.method == "POST":
+        if pagedetail.is_valid() and seoform.is_valid():
+            newpage = pagedetail.save(commit=False)
+            newpage.seo_block = seoform.save()
+            newpage.gallery = Gallery.objects.get(pk=page.gallery.id)
+            for img in formset:
+                image = img.save(commit=False)
+                image.gallery = newpage.gallery
+                image.save()
+
+            formset.save()
+            newpage.save()
+            redirect('pages')
+    context = {
+        'pagedetail': pagedetail,
+        'seo': seoform,
+        'formset': formset
+    }
+    return render(request, 'adminlte/pagedetail.html', context)
+
 
 def general_page(request):
     homepage = get_object_or_404(HomePage, pk=1)
@@ -556,6 +643,7 @@ def test(request):
         print('Oki')
         form = CinemaForm(request.POST)
         if form.is_valid():
+
             print('Hiii')
             print(form.cleaned_data)
 
@@ -823,41 +911,41 @@ class DiscountDetailView(View):
                 return redirect('discounts')
 
 
-class BannerView(View):
-    def get(self, request, pk):
-        banner = get_object_or_404(TopHomeBanner, pk=pk)
-
-        return render(request, 'adminlte/banners.html', {'banner_list': banner})
-
-    def post(self, request, pk):
-        banner = get_object_or_404(TopHomeBannerForm, pk=pk)
-        speeds = get_object_or_404(SpeedCarouselForm, pk=banner.speed_carousel.id)
-
-        BannerFormset = modelformset_factory(TopHomeBanner, form=TopHomeBannerForm, extra=0, can_delete=True)
-        formset = BannerFormset(request.POST or None, request.FILES or None, queryset=TopHomeBanner.objects.none())
-
-        speed = SpeedCarouselForm(request.POST or None, instance=speeds)
-
-        print(formset.errors, speed.errors)
-
-        if formset.is_valid() and speed.is_valid():
-            speed.save()
-            for banner in formset:
-                if banner.is_valid():
-                    print(speed.cleaned_data, speed.instance.speed_carousel)
-                    print(speed.errors, banner.errors)
-                    banner.save(commit=False)
-                    banner.instance.speed_carousel = speed.instance
-                    banner.instance.status = speed.instance.status
-                    banner.save()
-                    print(banner, banner.errors)
-
-
-
-
-        context = {'formset': formset, 'speed': speed}
-
-        return render(request, 'adminlte/banners.html', context)
+# class BannerView(View):
+#     def get(self, request, pk):
+#         banner = get_object_or_404(TopHomeBanner, pk=pk)
+#
+#         return render(request, 'adminlte/banners.html', {'banner_list': banner})
+#
+#     def post(self, request, pk):
+#         banner = get_object_or_404(TopHomeBannerForm, pk=pk)
+#         speeds = get_object_or_404(SpeedCarouselForm, pk=banner.speed_carousel.id)
+#
+#         BannerFormset = modelformset_factory(TopHomeBanner, form=TopHomeBannerForm, extra=0, can_delete=True)
+#         formset = BannerFormset(request.POST or None, request.FILES or None, queryset=TopHomeBanner.objects.none())
+#
+#         speed = SpeedCarouselForm(request.POST or None, instance=speeds)
+#
+#         print(formset.errors, speed.errors)
+#
+#         if formset.is_valid() and speed.is_valid():
+#             speed.save()
+#             for banner in formset:
+#                 if banner.is_valid():
+#                     print(speed.cleaned_data, speed.instance.speed_carousel)
+#                     print(speed.errors, banner.errors)
+#                     banner.save(commit=False)
+#                     banner.instance.speed_carousel = speed.instance
+#                     banner.instance.status = speed.instance.status
+#                     banner.save()
+#                     print(banner, banner.errors)
+#
+#
+#
+#
+#         context = {'formset': formset, 'speed': speed}
+#
+#         return render(request, 'adminlte/banners.html', context)
 
 def send(user_email):
     send_mail('Ви підписалися на розсилку ',
@@ -865,13 +953,24 @@ def send(user_email):
                 fail_silently=False)
 
 def mailing(request):
-    mail = MailingForm(request.POST or None, request.FILES or None)
+    if request.method == 'GET':
+        mail = MailingForm(request.POST or None, request.FILES or None)
+        fivelastmail = Mailing.objects.all().order_by('-pk')[:5]
+        alluser=User.objects.all()
+        # paginator = Paginator(alluser, 8)
+        # page = request.GET.get('page', 1)
+        # try:
+        #     alluser = paginator.page(page)
+        # except PageNotAnInteger:
+        #     alluser = paginator.page(1)
+        # except EmptyPage:
+        #     alluser = paginator.page(paginator.num_pages)
 
-    def form_valid(self, mail):
-        mail.send_email()
-        return super().form_valid(mail)
+    # if mail.is_valid():
+    #     mail.save()
+    #     send(mail.instance.email)
 
-    return render(request, 'adminlte/mailings.html', {'mailing': mail})
+        return render(request, 'adminlte/mailings.html', {'mailing': mail, 'mail': fivelastmail, 'alluser': alluser})
 
 
 

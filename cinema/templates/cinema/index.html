@@ -13,12 +13,11 @@
                 <div class="carousel-item active">
                     <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
                 </div>
+                {% for banner in banner_list %}
                 <div class="carousel-item">
-                    <img src="{% static 'dist/img/tor.webp' %}" class="d-block w-100 carousel-banner" alt="...">
+                    <img src="{{ banner.image.url }}" class="d-block w-100 carousel-banner" alt="...">
                 </div>
-                <div class="carousel-item">
-                    <img src="{% static 'dist/img/badguys.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
-                </div>
+                {% endfor %}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,11 +35,13 @@
 
         <div class="watch-today">
         <div class="row text-center">
+            {% for film in film_list %}
             <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
+                <img class="logo-film" src="{{ film.logo.url }}" alt="">
+                <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' pk=film.id %}">{{ film.name_uk }}{{ film.name_eng }}</a>
                 <a href="#" class="btn text-white bg-film">Buy ticket</a>
             </div>
+            {% endfor %}
             <div class="col item-film">
                 <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
                 <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
@@ -135,15 +136,14 @@
 
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 img-carosel" alt="...">
+                    <div class="carousel-item active">
+                        <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
                     </div>
-                    <div class="carousel-item">
-                        <img src="../img/tor.webp" class="d-block w-100 img-carosel" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../img/badguys.jpg" class="d-block w-100 img-carosel" alt="...">
-                    </div>
+                {% for news in news_banner %}
+                <div class="carousel-item">
+                    <img src="{{ news.image.url }}" class="d-block w-100 carousel-banner" alt="...">
+                </div>
+                {% endfor %}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -155,9 +155,6 @@
             </button>
             </div>
 
-            <div class="text-center">
-                <img src="../img/logo-spider.jpg" alt="" class="iconimg">
-            </div>
 
         </div>
 

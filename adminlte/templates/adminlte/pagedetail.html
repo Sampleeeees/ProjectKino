@@ -87,7 +87,11 @@
     <div class="form-group mb-4 mt-2">
         <label for="{{  pagedetail.logo.id_for_label }}">{% trans 'Головна картинка' %}</label>
         <div class="image-block d-flex">
+            {% if pagedetail.instance.logo %}
             <img class="rounded" id="ImgAboutCinemaLogo" height="150" width="auto" src="{{ pagedetail.instance.logo.url }}" alt="">
+            {% else %}
+                <img class="rounded" id="ImgAboutCinemaLogo" height="150" width="auto" src="{% static 'dist/img/uploadimage.png' %}" alt="">
+            {% endif %}
             {{ pagedetail.logo }}
             <div class="invalid-feedback">
                 {{ pagedetail.logo.errors}}
@@ -114,7 +118,9 @@
                                 {{ fset }}
                             </div>
                             <div class="foo">
+                                {% if fset.image %}
                                 <img class="mr-2 ml-2 rounded" height="200" width="auto" id="img-__prefix__-Gallery" src="{{ fset.instance.image.url }}" alt="">
+                                {% endif %}
                                 <svg onclick="delForm('form-__prefix__')" class="btn delete-image text-danger" width="60px" height="60px" fill="#f8eeed" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="id-__prefix__-image">{% trans 'Додати' %}</label>
                             </div>
