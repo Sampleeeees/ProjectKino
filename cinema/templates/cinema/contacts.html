@@ -1,96 +1,54 @@
-{% extends 'cinema/cinema.html' %}
+{% extends 'cinema/base.html' %}
 {% load static %}
 
-{% block tittle %} Контакти {% endblock tittle %}
+{% block tittle %}{% endblock %}
 
-{% block image %}
-<img class="w-100" src="{% static 'dist/img/contactsimg.jpg' %}" alt="">
-{% endblock image %}
+{% block content %}
+<div class="row">
+    <div class="col-10 bg-dark">
+        {% for contact in contact_list %}
+        <div class="row mt-3">
+            <div class="col-6 ">
+                <div class="d-flex">
+                    <p class="align-self-center mx-auto fw-bolder fs-4" style="color: white;">{{ contact.name_cinema }}</p>
+                    <img height="100px" width="100px" src="{{ contact.logo.url }}" alt="">
+                </div>
 
-{% block tittlecontent %} Контакти {% endblock tittlecontent%}
-
-{% block context %}
-<div class="vip-hall">
-            <img class="w-100" src="../img/contactsimg.jpg" alt="">
-            <h1 class="text-center p-2">Контакти</h1>
-            <hr class="border border-1 border-dark">
+            </div>
+            <div class="col-6 align-self-center text-center">
+                <div>
+                    <p class="" style="color: white;" >{{ contact.address }}</p>
+                    <p class="text-success">Coordinate:</p>
+                    <p class=fs-6" style="color: white;">{{ contact.coordinate }}</p>
+                </div>
+            </div>
         </div>
-        <div class="content">
-            <div class="row">
-                <div class="col">
-                    <div class="newcontact mt-3">
-                        <div class="row">
-                        <div class="col-6 d-flex">
-                            <p>Kinoteatr 1</p>
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        </div>
-                    </div>
-                    <div class="newcontact mt-3">
-                        <div class="row">
-                        <div class="col-6">
-                            <p>Kinoteatr 1</p>
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        <div class="col-6">
-                            <img class="logo-film" src="../img/logo-spider.jpg" alt="">
-                        </div>
-                        </div>
-                    </div>
-
-
+        <div class="row mt-3">
+            <div class="col-6">
+                <div>
+                    <img class="w-100" src="{% static 'dist/img/forcontact.jpg' %}" alt="">
                 </div>
-                <div class="col-2 col-hide">
-                    <img class="w-100" src="../img/ad.png" alt="">
-                </div>
-            </div>
-            <div>
 
             </div>
+            <div class="col-6">
+                <div>
 
-            <div class="text-center p-2">
-                <h1>Фотогалерея</h1>
-            </div>
-            <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
+                    <iframe width="400" height="300" src="https://maps.google.com/maps?width=400&amp;height=300&amp;hl=en&amp;q={{ contact.coordinate }})&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                 </div>
-                <div class="carousel-item">
-                    <img src="{% static 'dist/img/tor.webp' %}" class="d-block w-100 carousel-banner" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'dist/img/badguys.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
-                </div>
+
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-        </div>
-{% endblock context %}
+            <div class="bg-white" style="height: 70px;">
+
+            </div>
+        {% endfor %}
+
+
+    </div>
+    <div class="col-2">
+        <img class="w-100" src="{% static 'dist/img/add.png' %}" alt="">
+    </div>
+</div>
+
+
+{% endblock %}

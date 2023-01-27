@@ -96,19 +96,64 @@
 
         <p>Розмір: 1000х190</p>
         <div class="d-flex">
-        <div class="form-check">
-            {{ type.type }}
-        </div>
         <div>
-        {{ type.image }}
+{{ type.back_type_img }}
+            {% if type.instance.back_type_img%}
+        <div class="form-check ml-2 mt-5 mb-5 d-flex">
+            <input type="radio" name="back_check" class="form-check-input" id="id_back_0" onclick="back_type(this)" required="" checked="">
+            <label class="form-check-label" for="id_back_0">Фото на фон</label>
+                       <div class="ml-5" id="id_back_image">
             {% if type.instance.image %}
-                <img width="300px" height="200px" id="img-__prefix__-Gallery" src="{{ type.instance.image.url }}" alt="">
-                <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img-__prefix__-Banner">Додати</label>
+                {{ type.image }}
+                <img width="300px" height="200px" id="img-BackBanner" src="{{ type.instance.image.url }}" alt="">
+                <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img_back_banner">Додати</label>
             {% else %}
                 <img width="300px" height="200px" id="img-BackBanner" src="{% static 'dist/img/uploadimage.png' %}" alt="">
                 <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img_back_banner">Додати</label>
             {% endif %}
         </div>
+        </div>
+        <div class="form-check ml-2 mt-5 mb-5 d-flex">
+            <input type="radio" name="back_check" class="form-check-input align-self-center" id="id_back_1" onclick="back_type(this)" required="">
+            <label class="form-check-label align-self-center" for="id_back_1">Звичаний фон</label>
+            <div class="d-none ml-3 mt-3" id="picker_back">
+                {{ type.back_type_pick }}
+                <input class="form-control form-control-color " onchange="changepicker()" id="picker-color" type="color" name="color" value="{{ type.instance.back_type_pick }}">Колір
+            </div>
+        </div>
+
+
+
+
+                {% else %}
+
+
+                <div class="form-check ml-2 mt-5 mb-5 d-flex">
+            <input type="radio" name="back_check" class="form-check-input" id="id_back_0" onclick="back_type(this)" required="">
+            <label class="form-check-label" for="id_back_0">Фото на фон</label>
+                <div class="ml-5 d-none" id="id_back_image">
+            {% if type.instance.image %}
+                {{ type.image }}
+                <img width="300px" height="200px" id="img-BackBanner" src="{{ type.instance.image.url }}" alt="">
+                <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img_back_banner">Додати</label>
+            {% else %}
+                <img width="300px" height="200px" id="img-BackBanner" src="{% static 'dist/img/uploadimage.png' %}" alt="">
+                <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="img_back_banner">Додати</label>
+            {% endif %}
+        </div>
+        </div>
+        <div class="form-check ml-2 mt-5 mb-5 d-flex">
+            <input type="radio" name="back_check" class="form-check-input align-self-center" id="id_back_1" onclick="back_type(this)" required="" checked>
+            <label class="form-check-label align-self-center" for="id_back_1">Звичаний фон</label>
+            <div class=" ml-3 mt-3" id="picker_back">
+                {{ type.back_type_pick }}
+                <input class="form-control form-control-color " onchange="changepicker()" id="picker-color" type="color" name="color" value="{{ type.instance.back_type_pick }}">Колір
+            </div>
+        </div>
+
+            {% endif %}
+        </div>
+
         </div>
     </div>
 

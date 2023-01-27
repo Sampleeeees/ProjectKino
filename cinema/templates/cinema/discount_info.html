@@ -1,28 +1,24 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
 
-{% block tittle %} Кафе-Бар {% endblock tittle %}
+{% block tittle %}{% endblock %}
 
 {% block content %}
-{% if cafebar.status %}
-    <div>
-        <img style="height: 550px" class="w-100" src="{{ cafebar.logo.url }}" alt="">
-    </div>
-            <div class="row">
-                <div class="col">
-                <div class="text-center">
-        <p class="fs-2 fw-bolder">Кафе Бар</p>
+    <div class="row">
+    <div class="col-9">
+        <div class="">
+            <p class="fs-2 fw-bolder" style="margin-left: 2%;">{{ discount.name_uk }}</p>
         </div>
-                    <div class="pt-4">
-                        <p class="text-center">
-                            {{ cafebar.description_uk  }}
-                        </p>
-                    </div>
-
-            <div class="text-center p-2 mt-4 mb-4">
-                <h1>Фотогалерея</h1>
+        <div class="row">
+            <div class="col-6">
+                <img class="w-100" src="{{ discount.logo.url }}" alt="">
             </div>
-                    <div id="carouselExampleIndicators" class="carousel slide m-3 " data-bs-ride="carousel">
+            <div class="col-6 align-self-center text-center"><p>{{ discount.description_uk }}</p></div>
+        </div>
+        <div class="mt-4 mb-4">
+            <p class="fs-2 text-center">Фотогалерея</p>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide m-3 " data-bs-ride="carousel">
             <div class="carousel-inner">
                 {% for banner in gallery_list %}
                     {% if banner == gallery_list|first %}
@@ -45,20 +41,9 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-                </div>
-                <div class="col-2 col-hide">
-                    <img class="w-100" src="{% static 'dist/img/add.png' %}" alt="">
-                </div>
-            </div>
-            <div>
-
-            </div>
-
-
-        {% else %}
-        <div class="text-center" style="height: 250px">
-        <p class="fs-1 text-success">Вибачте, адміністратор відключив дану сторінку </p>
-        </div>
-    {% endif %}
+    </div>
+    <div class="col-3 text-end">
+        <img src="{% static 'dist/img/add.png' %}" alt="">
+    </div>
+    </div>
 {% endblock %}

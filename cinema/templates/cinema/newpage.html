@@ -1,21 +1,19 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
 
-{% block tittle %} Кафе-Бар {% endblock tittle %}
-
 {% block content %}
-{% if cafebar.status %}
+{% if page.status %}
     <div>
-        <img style="height: 550px" class="w-100" src="{{ cafebar.logo.url }}" alt="">
+        <img style="height: 550px" class="w-100" src="{{ page.logo.url }}" alt="">
     </div>
             <div class="row">
                 <div class="col">
                 <div class="text-center">
-        <p class="fs-2 fw-bolder">Кафе Бар</p>
+        <p class="fs-2 fw-bolder">{{ page.name_uk }}</p>
         </div>
                     <div class="pt-4">
                         <p class="text-center">
-                            {{ cafebar.description_uk  }}
+                            {{ page.description_uk  }}
                         </p>
                     </div>
 
@@ -57,8 +55,6 @@
 
 
         {% else %}
-        <div class="text-center" style="height: 250px">
-        <p class="fs-1 text-success">Вибачте, адміністратор відключив дану сторінку </p>
-        </div>
+        <div>Поки реклами немає</div>
     {% endif %}
 {% endblock %}

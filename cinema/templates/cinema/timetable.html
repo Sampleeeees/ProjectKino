@@ -9,35 +9,30 @@
 
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Кінотеатр</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="cinema_select" aria-label="Default select example">
+                        <option id="all_cinema" selected>Кінотеатр</option>
+                        {% for cinema in cinema_list %}
+                            <option id="cinema_{{ cinema.id }}" value="cinema{{ cinema.id }}">{{ cinema.name_uk }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Дата</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        </select>
+                    <input type="text" name="dates" class="form-control">
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Фільм</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="film_select" aria-label="Default select example">
+                        <option id="all_film" selected>Фільм: Всі</option>
+                        {% for film in film_list %}
+                            <option value="film{{ film.id }}">{{ film.name_uk }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Зал</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="hall_select" aria-label="Default select example">
+                        <option id="all_hall" selected>Зал: Всі</option>
+                        {% for hall in hall_list %}
+                            <option value="hall{{ hall.pk }}">Зал {{ hall.hall_number }} в {{ hall.cinema.name_uk }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-1">
@@ -91,48 +86,28 @@
                         <th class="col">Бронювати</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>{% for ses in session %}
                     <tr>
-                        <th>20.10</th>
-                        <th>10:00</th>
-                        <th><a class="text-decoration-none text-body" href="../js/spider.html">Людина-павук: додому шляху немає</a></th>
-                        <th>4</th>
+                        <th>{{ ses.day|date:'d.m.Y' }}</th>
+                        <th>{{ ses.time_start|date:"h:s" }}</th>
+                        <th><a class="text-decoration-none text-body" href="../js/spider.html">{{ ses.film.name_uk }}</a></th>
+                        <th>{{ ses.hall.hall_number }}</th>
                         <th>90 грн</th>
                         <th></th>
                     </tr>
-                <tr>
-                        <th>20.10</th>
-                        <th>10:00</th>
-                        <th><a class="text-decoration-none text-body" href="../js/spider.html">Людина-павук: додому шляху немає</a></th>
-                        <th>4</th>
-                        <th>90 грн</th>
-                        <th></th>
-                    </tr>
-                <tr>
-                        <th>20.10</th>
-                        <th>10:00</th>
-                        <th><a class="text-decoration-none text-body" href="../js/spider.html">Людина-павук: додому шляху немає</a></th>
-                        <th>4</th>
-                        <th>90 грн</th>
-                        <th></th>
-                    </tr>
-                <tr>
-                        <th>20.10</th>
-                        <th>10:00</th>
-                        <th><a class="text-decoration-none text-body" href="../js/spider.html">Людина-павук: додому шляху немає</a></th>
-                        <th>4</th>
-                        <th>90 грн</th>
-                        <th></th>
-                    </tr>
-
+                {% endfor %}
                 </tbody>
             </table>
             </div>
                 <div class="col-2">
-                    <img class="img-fluid text-center" src="../img/add.png" alt="">
+                    <img class="img-fluid text-center" src="{% static 'dist/img/add.png' %}" alt="">
                 </div>
             </div>
         </div>
+    <script>
+    $('input[name="dates"]').daterangepicker();
 
-    </div>
+
+    
+    </script>
 {%endblock content%}

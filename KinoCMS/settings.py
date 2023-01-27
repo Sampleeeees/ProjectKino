@@ -82,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cinema.context_processors.pages_new',
             ],
         },
     },
@@ -189,6 +190,14 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#smtp
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'rubetsdima2004@gmail.com'
+EMAIL_HOST_PASSWORD = 'gheslkacgwwucmwa'
+EMAIL_PORT = 587
+
 
 #CELERY settings
 CELERY_BROKER_URL = "redis://localhost:6379"

@@ -5,7 +5,7 @@ from .models import Film, Cinema, TopHomeBanner, SeoBlock, Gallery, Image, NewsA
 from tempus_dominus.widgets import DatePicker
 from time import sleep
 from django.core.mail import send_mail
-from adminlte.tasks import send_feedback_email_task
+from adminlte.tasks import send_email_task
 
 
 class FilmForm(ModelForm):
@@ -180,13 +180,15 @@ class NewsAndDiscountBannerForm(ModelForm):
 class BackgroundForm(ModelForm):
     class Meta:
         model = BackgroundBanner
-        choices_type = (('10', 'Фон-картинка'), ('1000', 'Звичаний фон'))
-        fields = ['type', 'image']
+        fields = ['image', 'back_type_img', 'back_type_pick']
         widgets = {
-            'type': forms.RadioSelect(choices=choices_type, attrs={'class': 'form-check-inline'}),
             'image': forms.FileInput(attrs={'class': 'd-none',
                                             'id': 'img_back_banner',
-                                            'onchange': "addPhotoImage(this, 'img-BackBanner')"})
+                                            'onchange': "addPhotoImage(this, 'img-BackBanner')"}),
+            'back_type_img': forms.CheckboxInput(attrs={
+                'class': 'form-check-input d-none'
+            }),
+            'back_type_pick': forms.TextInput(attrs={'class': 'd-none', })
         }
 
 
@@ -237,16 +239,10 @@ class ContactForm(ModelForm):
         }
 
 class MailingForm(ModelForm):
-    all_user = forms.ChoiceField(widget=(forms.CheckboxInput(attrs={'class': 'form-check-input', 'type': 'radio', 'checked': '', 'onclick': 'switchList(this)'})))
-    select_user = forms.ChoiceField(widget=(forms.CheckboxInput(attrs={'class': 'form-check-input', 'type': 'radio', 'onclick': 'switchList(this)'})))
     class Meta:
         model = Mailing
         fields = ['template']
         widgets = {
             'template': forms.FileInput(attrs={'class': 'd-none'})
         }
-    def send_email(self):
-        send_feedback_email_task.delay(
-            self.cleaned_data["email"], self.cleaned_data["message"]
-        )
 

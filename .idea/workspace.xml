@@ -4,19 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'add new edit file '">
+    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'new commit with new edit file'">
+      <change afterPath="$PROJECT_DIR$/adminlte/management/commands/create_session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cinema/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cinema/templates/cinema/aboutcinema.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cinema/templates/cinema/discount_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cinema/templates/cinema/newpage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KinoCMS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinoCMS/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminlte/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminlte/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/Discount_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/Discount_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/adddiscount.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/adddiscount.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/banners.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/banners.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/base_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/base_admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/mailings.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/mailings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/pagedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/pagedetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/pages.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/pages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminlte/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/advertising.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/advertising.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/afisha.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/afisha.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/cafebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/cafebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/childroom.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/childroom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/cinema.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/cinema.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/discount.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/discount.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/newss.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/newss.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/soon.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/soon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/viphall.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/viphall.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/plugins/bootstrap/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/plugins/bootstrap/js/script.js" afterDir="false" />
     </list>
@@ -122,7 +138,10 @@
       <workItem from="1674151258695" duration="20544000" />
       <workItem from="1674281027133" duration="12998000" />
       <workItem from="1674372373120" duration="21981000" />
-      <workItem from="1674457643399" duration="10614000" />
+      <workItem from="1674457643399" duration="18092000" />
+      <workItem from="1674547394987" duration="9749000" />
+      <workItem from="1674581181123" duration="41776000" />
+      <workItem from="1674818828195" duration="3206000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
       <created>1673455811827</created>
@@ -138,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674135172300</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="'new commit with new edit file'">
+      <created>1674493077179</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674493077179</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +187,8 @@
     </ignored-roots>
     <MESSAGE value="&quot;add btn active and rebuilt registratino&quot;" />
     <MESSAGE value="'add new edit file '" />
-    <option name="LAST_COMMIT_MESSAGE" value="'add new edit file '" />
+    <MESSAGE value="'new commit with new edit file'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'new commit with new edit file'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

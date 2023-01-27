@@ -163,13 +163,13 @@ $('input:file').change(function (e){
 function switchList(radiotype){
     var choose_model = document.getElementById('select_user_mailing')
 
-    if(radiotype.id == 'id_all_user'){
+    if(radiotype.id === 'id_all_user'){
         document.getElementById('id_select_user').checked = false
-        document.getElementById('id_all_user').value = 'on'
+        document.getElementById('id_all_user').value = 'all_user'
         choose_model.setAttribute('class', 'd-none')
     } else {
         document.getElementById('id_all_user').checked = false
-        document.getElementById('id_select_user').value = 'on'
+        document.getElementById('id_select_user').value = 'check_user'
         choose_model.setAttribute('class', 'btn_width btn_add rounded')
     }
 }
@@ -202,3 +202,26 @@ $(document).ready(function () {
             }
         });
     });
+
+function back_type(back){
+    if(back.id === 'id_back_0'){
+        document.getElementById('id_back_1').checked = false;
+        document.getElementById('id_back_1').value = '#000000';
+        document.getElementById('id_back_type_img').checked = true;
+
+        document.getElementById('picker_back').setAttribute('class', 'd-none')
+        document.getElementById('id_back_image').setAttribute('class', 'ml-5')
+    } else {
+        document.getElementById('id_back_0').checked = false;
+        document.getElementById('id_back_image').setAttribute('class', 'd-none');
+        document.getElementById('picker_back').setAttribute('class', 'ml-3 mt-3');
+        document.getElementById('id_back_type_img').checked = false;
+    }
+}
+
+function changepicker(){
+    document.getElementById('id_back_type_pick').value = document.getElementById('picker-color').value
+    console.log(document.getElementById('picker-color').value)
+}
+
+

@@ -2,21 +2,19 @@
 {% load static %}
 
 {% block content%}
-
+    {% if speed.status %}
         <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
-                </div>
                 {% for banner in banner_list %}
-                <div class="carousel-item">
+                    {% if banner == banner_list|first %}
+                <div class="carousel-item active" data-bs-interval="{{ speed.speed_carousel }}">
+                    <img src="{{ banner_list.first.image.url }}" class="d-block w-100 carousel-banner" alt="...">
+                </div>
+                    {% else %}
+                <div class="carousel-item" data-bs-interval="{{ speed.speed_carousel }}">
                     <img src="{{ banner.image.url }}" class="d-block w-100 carousel-banner" alt="...">
                 </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -28,6 +26,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+    {% endif %}
 
         <div class="text-center">
             <h1 class=" text-h1">Дивіться сьогодні</h1>
@@ -36,47 +35,14 @@
         <div class="watch-today">
         <div class="row text-center">
             {% for film in film_list %}
+                {% if film.date_premiere|date:'d/m/Y' <= today|date:'d/m/Y' %}
             <div class="col item-film">
                 <img class="logo-film" src="{{ film.logo.url }}" alt="">
                 <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' pk=film.id %}">{{ film.name_uk }}{{ film.name_eng }}</a>
                 <a href="#" class="btn text-white bg-film">Buy ticket</a>
             </div>
+                {% endif %}
             {% endfor %}
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
-            </div>
         </div>
         </div>
 
@@ -87,77 +53,49 @@
 
             <div class="watch-today">
         <div class="row text-center">
+            {% for film in film_list %}
+                {% if film.date_premiere|date:'d/m/Y' > today|date:'d/m/Y' %}
             <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
+                <img class="logo-film" src="{{ film.logo.url }}" alt="">
+                <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' pk=film.id %}">{{ film.name_uk }}</a>
+                <p class="btn fw-semibold fst-italic text-success">{{ film.date_premiere|date:'d.m.Y' }}</p>
             </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="#">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            <div class="col item-film">
-                <img class="logo-film" src="{% static 'dist/img/logo-spider.jpg' %}" alt="">
-                <a class="btn-cn d-block pt-2 pb-2" href="../js/spider.html">Spider</a>
-                <p class="btn fw-semibold fst-italic text-success">З 2023 року</p>
-            </div>
-            </div>
+                {% endif %}
+            {% endfor %}
 
             <div class="text-center">
                 <hr class="border border-dark border-2 opacity-75 hr-radius mb-2">
                 <h1 class="text-h1">Новини та акції</h1>
             </div>
-
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{% static 'dist/img/spider-man.jpg' %}" class="d-block w-100 carousel-banner" alt="...">
-                    </div>
-                {% for news in news_banner %}
-                <div class="carousel-item">
-                    <img src="{{ news.image.url }}" class="d-block w-100 carousel-banner" alt="...">
-                </div>
-                {% endfor %}
+{% if speed2.status %}
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+              {% for news in news_banner %}
+                {% if news == news_banner|first %}
+            <div class="carousel-item active" data-bs-interval="{{ speed2.speed_carousel }}">
+              <img src="{{ news_banner.first.image.url }}" class="d-block w-100 carousel-banner " alt="...">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                {% else %}
+            <div class="carousel-item" data-bs-interval="{{ speed2.speed_carousel }}">
+              <img src="{{ news.image.url }}" class="d-block w-100 carousel-banner" alt="...">
             </div>
+              {% endif %}
+          {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+{% endif %}
 
 
         </div>
-
+            </div>
 {% endblock content %}
 
 

@@ -17,15 +17,15 @@
             <div class="col-10 ">
                 <div class="row">
                     {% for film in film_list %}
-                    <div class="col-5 col-sm-4 col-lg-2 item-film text-center">
-                        <p>Зараз в кіно</p>
-                        <img height="180px" width="150px" class="logo-afisha" src="{{ film.logo.url }}" alt="">
-                        <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' film.id %}">{{ film.name }}</a>
-                        <a href="#" class="btn text-white bg-film">Buy ticket</a>
-                    </div>
+                        {% if film.date_premiere|date:'d/m/Y' <= today|date:'d/m/Y' %}
+                        <div class="col-5 col-sm-4 col-lg-2 item-film text-center">
+                            <p>Зараз в кіно</p>
+                            <img height="180px" width="150px" class="logo-afisha" src="{{ film.logo.url }}" alt="">
+                            <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' pk=film.id %}">{{ film.name_uk }}</a>
+                            <a href="#" class="btn text-white bg-film">Buy ticket</a>
+                        </div>
+                        {% endif %}
                     {% endfor %}
-
-
                 </div>
             </div>
         </div>

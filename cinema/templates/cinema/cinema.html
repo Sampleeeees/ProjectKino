@@ -14,18 +14,12 @@
         {%block context%}
         <div class="ourcinemas text-center">
             <div class="row">
+                {% for cinema in cinema_list %}
                 <div class="col-4">
-                    <img class="cinema-img" src="{% static 'dist/img/multiplex.jpg' %}" alt="">
-                    <a class="btn-cn d-block pt-3 pb-2" href="#">Multiplex</a>
+                    <img class="cinema-img" src="{{ cinema.logo.url }}" alt="">
+                    <a class="btn-cn d-block pt-3 pb-2" href="{% url 'cinemainfo' cinema_id=cinema.pk %}">{{ cinema.name_uk }}</a>
                 </div>
-                <div class="col-4">
-                    <img class="cinema-img" src="{% static 'dist/img/unnamed-15.jpg' %}" alt="">
-                    <a class="btn-cn d-block pt-3 pb-2" href="#">Planeta Kino</a>
-                </div>
-                <div class="col-4">
-                    <img class="cinema-img" src="{% static 'dist/img/multiplex.jpg' %}" alt="">
-                    <a class=" btn-cn d-block pt-3 pb-2" href="#">Multiplex</a>
-                </div>
+                {% endfor %}
             </div>
         </div>
         {%endblock context%}

@@ -129,13 +129,16 @@ def banner(request):
     speedsecond = SpeedCarousel.objects.get(pk=2)
     speed2 = SpeedCarouselForm(request.POST or None, instance=speedsecond, prefix='speed_for_news')
 
-    typeback = BackgroundForm(request.POST or None, request.FILES or None)
+    back = get_object_or_404(BackgroundBanner, pk=BackgroundBanner.objects.first().id)
+    typeback = BackgroundForm(request.POST or None, request.FILES or None, instance=back)
 
+    print( typeback.instance.back_type_img)
     if request.method == 'POST':
-        if formset.is_valid() and speed.is_valid() and formset_news.is_valid() and speed2.is_valid():
+        if formset.is_valid() and speed.is_valid() and formset_news.is_valid() and speed2.is_valid() and typeback.is_valid():
             print(formset.non_form_errors(), speed.errors)
             speed2.save()
             speed.save()
+            typeback.save()
             formset.save()
             formset_news.save()
             redirect('banners')
@@ -425,7 +428,9 @@ def contact(request):
         if formset.is_valid() and formseo.is_valid():
             seo = formseo.save(commit=False)
             seo.date_create = dateformat.format(timezone.now(), 'Y-m-d')
+            seo.save()
             print(formseo.cleaned_data)
+            print(formset.non_form_errors())
             for contact in formset:
                 con = contact.save(commit=False)
                 con.seo_block = seo
@@ -521,6 +526,7 @@ def adddiscount(request):
             discount.gallery = get_object_or_404(Gallery, id=gallery.id)
             discount.date_created_updated = timezone.now()
             print(discount.date_created_updated)
+            print(discountform.errors, formseo.errors, formset.errors)
             for img in formset:
                 images = img.save(commit=False)
                 images.gallery = discount.gallery
@@ -948,29 +954,36 @@ class DiscountDetailView(View):
 #         return render(request, 'adminlte/banners.html', context)
 
 def send(user_email):
-    send_mail('Ви підписалися на розсилку ',
-                [user_email],
-                fail_silently=False)
+    send_mail(
+        'Subject',
+        'Message.',
+        'from@example.com',
+        [user_email])
 
 def mailing(request):
-    if request.method == 'GET':
-        mail = MailingForm(request.POST or None, request.FILES or None)
-        fivelastmail = Mailing.objects.all().order_by('-pk')[:5]
-        alluser=User.objects.all()
-        # paginator = Paginator(alluser, 8)
-        # page = request.GET.get('page', 1)
-        # try:
-        #     alluser = paginator.page(page)
-        # except PageNotAnInteger:
-        #     alluser = paginator.page(1)
-        # except EmptyPage:
-        #     alluser = paginator.page(paginator.num_pages)
+    print('hello')
+    mail = MailingForm(request.POST or None, request.FILES or None)
+    fivelastmail = Mailing.objects.all().order_by('-pk')[:5]
+    alluser=User.objects.all()
 
-    # if mail.is_valid():
-    #     mail.save()
-    #     send(mail.instance.email)
+    if request.method == 'POST':
+        print('Post')
+        if mail.is_valid():
+            print('valid')
+            print(request.POST.get)
+            mail.save(commit=False)
+            if request.POST.get('type_user') == 'all_user':
+                email_address_list = []
+                for user in alluser:
+                    email_address_list.append(user.email)
+                print(mail.cleaned_data, email_address_list)
 
-        return render(request, 'adminlte/mailings.html', {'mailing': mail, 'mail': fivelastmail, 'alluser': alluser})
+
+            if request.POST.get('type_user') == 'check_user':
+                return redirect('cinemas')
+
+
+    return render(request, 'adminlte/mailings.html', {'mailing': mail, 'mail': fivelastmail, 'alluser': alluser})
 
 
 

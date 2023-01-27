@@ -7,7 +7,7 @@ import datetime
 # User Block
 
 class Mailing(models.Model):
-    template = models.FileField()
+    template = models.FileField(upload_to='file/mailing/', blank=True)
 
 
 # SEO Block
@@ -78,6 +78,9 @@ class Hall(models.Model):
 class Session(models.Model):
     time_start = models.TimeField()
     day = models.DateField()
+    type_2d = models.BooleanField(default=True)
+    type_3d = models.BooleanField(default=False)
+    type_imax = models.BooleanField(default=False)
     hall = models.ForeignKey(Hall, verbose_name="Кінозал", on_delete=models.CASCADE, blank=True, null=True)
     film = models.ForeignKey(Film, verbose_name="Фільм", on_delete=models.CASCADE, blank=True, null=True)
 
@@ -144,10 +147,10 @@ class NewsAndDiscount(models.Model):
 
 SPEED_CHOICES = {
     (None, ''),
-    ('300', '3c'),
-    ('500', '5c'),
-    ('700', '7c'),
-    ('1000', '10c')
+    ('3000', '3c'),
+    ('5000', '5c'),
+    ('7000', '7c'),
+    ('10000', '10c')
 }
 
 class SpeedCarousel(models.Model):
@@ -161,7 +164,8 @@ class TopHomeBanner(models.Model):
 
 class BackgroundBanner(models.Model):
     image = models.ImageField(upload_to='Banner/BackgroundBanner/', blank=True, null=True)
-    type = models.CharField(max_length=50)
+    back_type_img = models.BooleanField(default=True)
+    back_type_pick = models.CharField(max_length=7, null=True, blank=True)
 
 
 

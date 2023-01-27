@@ -1,7 +1,8 @@
 {% extends 'adminlte/base_admin.html' %}
 {% load static %}
 {% block content %}
-    <form action="" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="bord border border-dark mt-5 rounded">
 
          <div class=" h2_bg m-0 p-0 text-center ">
@@ -12,13 +13,13 @@
     <div class="d-flex mt-2">
         <p class="ml-3">Кому надсилати:</p>
     <div class="form-check ml-2">
-        {{ mailing.all_user }}
+        <input class="form-check-input" type="radio" id="id_all_user" name="type_user" value="all_user" onclick="switchList(this)" checked>
         <label class="form-check-label" for="id_all_user">
             Всім користувачам
         </label>
     </div>
     <div class="form-check ml-2">
-        {{ mailing.select_user }}
+        <input class="form-check-input" type="radio" id="id_select_user" name="type_user" value="check_user" onclick="switchList(this)">
         <label class="form-check-label" for="id_select_user">
             Обрати користувачів
         </label>
@@ -113,7 +114,8 @@
             <div class="col-6">
                 <div class="html_mail d-flex mt-2">
                     <p class="ml-3">Завантажити HTML-лист </p>
-                    <label for="id_for_mailing" class="btn btn_add ml-4"> Завантажити</label>
+                    {{ mailing.template }}
+                    <label for="id_template" class="btn btn_add ml-4"> Завантажити</label>
                 </div>
                 <div class="filename d-flex mt-2">
                     <p id="dynamicli_name_file" class="ml-3">Завантажений файл: </p>

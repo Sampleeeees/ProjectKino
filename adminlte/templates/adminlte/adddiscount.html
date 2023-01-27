@@ -34,9 +34,11 @@
                     <div class="form-group mb-4 mt-2 w-50">
                         <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ discount.name_uk.id_form_label}}"> Назва </label>
                         {{ discount.name_uk }}
-                        <div class="invalid-feedback">
+                        {% if discount.name_uk.errors %}
+                        <div class="alert alert-danger" role="alert">
                             {{discount.name_uk.errors}}
                         </div>
+                        {% endif %}
                     </div>
                 <!------------------------------------------------------------------------------------------------------------------->
 
@@ -44,9 +46,11 @@
                     <div class="form-group mb-4 mt-2">
                         <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ discount.description_uk.id_for_label }}"> Опис </label>
                         {{discount.description_uk }}
-                        <div class="invalid-feedback">
+                        {% if discount.description_uk.errors %}
+                        <div class="alert alert-danger" role="alert">
                             {{discount.description_uk.errors}}
                         </div>
+                        {% endif %}
                     </div>
                 <!------------------------------------------------------------------------------------------------------------------->
             </div>
@@ -55,9 +59,11 @@
                 <div class="form-group mb-4 mt-2 w-50">
                     <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ discount.name_eng.id_form_label}}"> Title </label>
                     {{ discount.name_eng}}
-                    <div class="invalid-feedback">
-                        {{discount.name_eng.errors}}
-                    </div>
+                    {% if discount.name_eng.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{discount.name_eng.errors}}
+                        </div>
+                        {% endif %}
                 </div>
             <!------------------------------------------------------------------------------------------------------------------->
 
@@ -65,9 +71,11 @@
                 <div class="form-group mb-4 mt-2">
                     <label class="form-label ml-2 mb-0 p-0 align-self-center" for="{{ discount.description_eng.id_for_label }}"> Description </label>
                     {{discount.description_eng }}
-                    <div class="invalid-feedback">
-                        {{discount.description_eng.errors}}
-                    </div>
+                    {% if discount.description_eng.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{discount.description_eng.errors}}
+                        </div>
+                        {% endif %}
                 </div>
             <!------------------------------------------------------------------------------------------------------------------->
             </div>
@@ -77,6 +85,11 @@
     <div class="form-group mb-4 mt-2 w-50">
         <label for="{{ discount.date_premiere.id_for_label }}">{% trans 'Дата показу' %}</label>
             {{ discount.date_premiere }}
+        {% if discount.date_premiere.errors %}
+        <div class="alert alert-danger" role="alert">
+             {{discount.date_premiere.errors}}
+        </div>
+        {% endif %}
     </div>
 <!------------------------------------------------------------------------------------------------------------------->
 
@@ -86,9 +99,11 @@
         <div class="image-block d-flex">
             <img class="rounded" id="imgBanner" height="150" width="auto" src="{% static 'dist/img/uploadimage.png' %}" alt="">
             {{discount.logo}}
-            <div class="invalid-feedback">
-                {{discount.logo.errors}}
-            </div>
+            {% if discount.logo.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{discount.logo.errors}}
+                </div>
+            {% endif %}
              <div class="align-self-center">
                  <label class="btn btn_add mr-auto ml-5 mt-2 mb-2" for="id_general_photo">{% trans 'Додати' %}</label>
              </div>
@@ -131,9 +146,11 @@
                     <label class="btn btn_add mr-4 ml-4 mt-2 mb-2" for="id-__prefix__-image">{% trans 'Додати' %}</label>
             </div>
         </div>
-            <div class="invalid-feedback">
-                {{ formset.non_form_errors }}
-            </div>
+            {% if formset.non_form_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{formset.non_form_errors}}
+                </div>
+            {% endif %}
         </div>
     {% endif %}
 <!------------------------------------------------------------------------------------------------------------------->
@@ -141,9 +158,11 @@
     <div class="form-group mb-4 mt-2 w-50">
         <label for="{{ discount.url_video.id_for_label }}">{% trans 'Посилання' %}</label>
         {{discount.url_video}}
-        <div class="invalid-feedback">
-            {{discount.url_video.errors}}
-        </div>
+        {% if discount.url_video.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{discount.url_video.errors}}
+            </div>
+        {% endif %}
     </div>
 <!------------------------------------------------------------------------------------------------------------------->
 
@@ -170,30 +189,38 @@
 
                         <div class="form-group">
                             {{ seo.url_seo }}
-                            <div class="invalid-feedback">
-                                {{ seo.url_seo.erorrs }}
+                            {% if seo.url_seo.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{seo.url_seo.errors}}
                             </div>
+                            {% endif %}
                         </div>
 
                         <div class="form-group">
                             {{ seo.tittle_seo }}
-                            <div class="invalid-feedback">
-                                {{ seo.tittle_seo.erorrs }}
+                            {% if seo.tittle_seo.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{seo.tittle_seo.errors}}
                             </div>
+                            {% endif %}
                         </div>
 
                         <div class="form-group">
                             {{ seo.keywords_seo }}
-                            <div class="invalid-feedback">
-                                {{ seo.keywords_seo.erorrs }}
+                            {% if seo.keywords_seo.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{seo.keywords_seo.errors}}
                             </div>
+                            {% endif %}
                         </div>
 
                          <div class="form-group">
                             {{ seo.description_seo }}
-                            <div class="invalid-feedback">
-                                {{ seo.description_seo.erorrs }}
+                            {% if seo.description_seo.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{seo.description_seo.errors}}
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
