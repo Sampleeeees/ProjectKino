@@ -1,6 +1,11 @@
-from django.http import HttpResponse
+import json
+
+import redis
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import modelformset_factory
+from django.template.loader import render_to_string, get_template
+
 from .forms import FilmForm, CinemaForm, TopHomeBannerForm, SeoBlockForm, GalleryForm, ImageForm, NewsForm, DiscountForm, SpeedCarouselForm, NewsAndDiscountBannerForm, MailingForm ,HallForm, HomePageForm, PageForm, ContactForm, BackgroundForm
 from .models import Image, SeoBlock, Gallery, Film, NewsAndDiscount, TopHomeBanner, SpeedCarousel, NewsAndDiscountBanner, Cinema, Hall, HomePage, Page, Contact, Mailing, BackgroundBanner
 from django.views.generic.base import View
@@ -9,7 +14,7 @@ from django.core.mail import send_mail
 from user.models import User
 from django.utils import timezone, dateformat
 from user.forms import UserRegistrationForm
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .tasks import send_email_task
 # Create your views here.
 def base_adminlte(request):
     user_active = request.user
@@ -960,11 +965,17 @@ def send(user_email):
         'from@example.com',
         [user_email])
 
+client = redis.Redis(host='127.0.0.1')
+def percent(request):
+    perc = client.get('perc')
+    return HttpResponse(perc)
+
 def mailing(request):
+    count = 0
     print('hello')
     mail = MailingForm(request.POST or None, request.FILES or None)
     fivelastmail = Mailing.objects.all().order_by('-pk')[:5]
-    alluser=User.objects.all()
+    alluser = User.objects.all()
 
     if request.method == 'POST':
         print('Post')
@@ -977,13 +988,48 @@ def mailing(request):
                 for user in alluser:
                     email_address_list.append(user.email)
                 print(mail.cleaned_data, email_address_list)
+                count = count + len(email_address_list)
+                if mail.cleaned_data['template']:
+                    mail.save()
+                    mail_name = mail.cleaned_data['template']
+                    print(f'file/mailing/{mail_name}')
+                    message = 'hello'
+                    print(message)
+                    send_email_task.delay(email_address_list, message)
+                    print(send_email_task(email_address_list=email_address_list, message=message))
+
+                elif request.POST.get('list_pk'):
+                    namemail = get_object_or_404(Mailing, pk=request.POST.get('list_pk'))
+                    url = namemail.template.name
+                    print(namemail.template.name)
+                    msg = 'send mail'
+                    send_email_task.delay(email_address_list=email_address_list, message=msg)
+                else:
+                    pass
+
 
 
             if request.POST.get('type_user') == 'check_user':
-                return redirect('cinemas')
+                email_address_list = request.POST.getlist('user_checking')
+                print(email_address_list)
+                if mail.cleaned_data['template']:
+                    mail.save()
+                    mail_name = mail.cleaned_data['template']
+                    message = 'send for check'
+                    send_email_task.delay(email_address_list, message)
+                elif request.POST.get('list_pk'):
+                    namemail = get_object_or_404(Mailing, pk=request.POST.get('list_pk'))
+                    url = namemail.template.name
+                    msg = 'Send for 5 last msg in current user'
+                    send_email_task.delay(email_address_list=email_address_list, message=msg)
+
+                else:
+                    pass
 
 
-    return render(request, 'adminlte/mailings.html', {'mailing': mail, 'mail': fivelastmail, 'alluser': alluser})
+    return render(request, 'adminlte/mailings.html', {'mailing': mail, 'mail': fivelastmail, 'alluser': alluser, 'count': count})
+
+
 
 
 

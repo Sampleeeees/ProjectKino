@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-08 16:51+0000\n"
+"POT-Creation-Date: 2023-02-03 12:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,32 +21,32 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: KinoCMS/settings.py:149
+#: KinoCMS/settings.py:150
 msgid "Ukrainian"
 msgstr ""
 
-#: KinoCMS/settings.py:150
+#: KinoCMS/settings.py:151
 msgid "English"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:28
-#: adminlte/templates/adminlte/Discount_edit.html:81
+#: adminlte/templates/adminlte/Discount_edit.html:85
 #: adminlte/templates/adminlte/Film_edit.html:82
-#: adminlte/templates/adminlte/News_edit.html:81
+#: adminlte/templates/adminlte/News_edit.html:85
 #: adminlte/templates/adminlte/addcinema.html:93
-#: adminlte/templates/adminlte/adddiscount.html:83
+#: adminlte/templates/adminlte/adddiscount.html:98
 #: adminlte/templates/adminlte/addfilm.html:88
-#: adminlte/templates/adminlte/addnews.html:82
-#: adminlte/templates/adminlte/pagedetail.html:52
+#: adminlte/templates/adminlte/addnews.html:84
+#: adminlte/templates/adminlte/pagedetail.html:88
 msgid "Головна картинка"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:36
 #: adminlte/templates/adminlte/Cinema_edit.html:55
 #: adminlte/templates/adminlte/Cinema_edit.html:79
-#: adminlte/templates/adminlte/Discount_edit.html:89
-#: adminlte/templates/adminlte/Discount_edit.html:113
-#: adminlte/templates/adminlte/Discount_edit.html:127
+#: adminlte/templates/adminlte/Discount_edit.html:93
+#: adminlte/templates/adminlte/Discount_edit.html:117
+#: adminlte/templates/adminlte/Discount_edit.html:131
 #: adminlte/templates/adminlte/Film_edit.html:90
 #: adminlte/templates/adminlte/Film_edit.html:115
 #: adminlte/templates/adminlte/Film_edit.html:129
@@ -54,42 +54,42 @@ msgstr ""
 #: adminlte/templates/adminlte/Hall_edit.html:92
 #: adminlte/templates/adminlte/Hall_edit.html:116
 #: adminlte/templates/adminlte/Hall_edit.html:130
-#: adminlte/templates/adminlte/News_edit.html:89
-#: adminlte/templates/adminlte/News_edit.html:113
-#: adminlte/templates/adminlte/News_edit.html:127
+#: adminlte/templates/adminlte/News_edit.html:93
+#: adminlte/templates/adminlte/News_edit.html:117
+#: adminlte/templates/adminlte/News_edit.html:131
 #: adminlte/templates/adminlte/addcinema.html:101
 #: adminlte/templates/adminlte/addcinema.html:120
 #: adminlte/templates/adminlte/addcinema.html:144
 #: adminlte/templates/adminlte/addcinema.html:158
-#: adminlte/templates/adminlte/adddiscount.html:91
-#: adminlte/templates/adminlte/adddiscount.html:115
-#: adminlte/templates/adminlte/adddiscount.html:129
+#: adminlte/templates/adminlte/adddiscount.html:108
+#: adminlte/templates/adminlte/adddiscount.html:132
+#: adminlte/templates/adminlte/adddiscount.html:146
 #: adminlte/templates/adminlte/addhall.html:74
 #: adminlte/templates/adminlte/addhall.html:93
 #: adminlte/templates/adminlte/addhall.html:117
-#: adminlte/templates/adminlte/addnews.html:90
-#: adminlte/templates/adminlte/addnews.html:125
-#: adminlte/templates/adminlte/pagedetail.html:60
-#: adminlte/templates/adminlte/pagedetail.html:83
-#: adminlte/templates/adminlte/pagedetail.html:97
+#: adminlte/templates/adminlte/addnews.html:92
+#: adminlte/templates/adminlte/addnews.html:127
+#: adminlte/templates/adminlte/pagedetail.html:100
+#: adminlte/templates/adminlte/pagedetail.html:125
+#: adminlte/templates/adminlte/pagedetail.html:139
 msgid "Додати"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:40
 #: adminlte/templates/adminlte/Cinema_edit.html:59
-#: adminlte/templates/adminlte/Discount_edit.html:93
+#: adminlte/templates/adminlte/Discount_edit.html:97
 #: adminlte/templates/adminlte/Film_edit.html:94
 #: adminlte/templates/adminlte/Hall_edit.html:77
 #: adminlte/templates/adminlte/Hall_edit.html:96
-#: adminlte/templates/adminlte/News_edit.html:93
+#: adminlte/templates/adminlte/News_edit.html:97
 #: adminlte/templates/adminlte/addcinema.html:105
 #: adminlte/templates/adminlte/addcinema.html:124
-#: adminlte/templates/adminlte/adddiscount.html:95
+#: adminlte/templates/adminlte/adddiscount.html:112
 #: adminlte/templates/adminlte/addhall.html:78
 #: adminlte/templates/adminlte/addhall.html:97
 #: adminlte/templates/adminlte/addhall.html:131
-#: adminlte/templates/adminlte/addnews.html:94
-#: adminlte/templates/adminlte/pagedetail.html:64
+#: adminlte/templates/adminlte/addnews.html:96
+#: adminlte/templates/adminlte/pagedetail.html:104
 msgid "Видалити"
 msgstr ""
 
@@ -99,15 +99,15 @@ msgid "Банер кінотеатру"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:67
-#: adminlte/templates/adminlte/Discount_edit.html:101
+#: adminlte/templates/adminlte/Discount_edit.html:105
 #: adminlte/templates/adminlte/Film_edit.html:103
 #: adminlte/templates/adminlte/Hall_edit.html:104
-#: adminlte/templates/adminlte/News_edit.html:101
+#: adminlte/templates/adminlte/News_edit.html:105
 #: adminlte/templates/adminlte/addcinema.html:132
 #: adminlte/templates/adminlte/addfilm.html:108
 #: adminlte/templates/adminlte/addhall.html:105
-#: adminlte/templates/adminlte/addnews.html:102
-#: adminlte/templates/adminlte/pagedetail.html:71
+#: adminlte/templates/adminlte/addnews.html:104
+#: adminlte/templates/adminlte/pagedetail.html:111
 msgid "Галерея"
 msgstr ""
 
@@ -128,108 +128,109 @@ msgid "+ Зал"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:143
-#: adminlte/templates/adminlte/Discount_edit.html:150
+#: adminlte/templates/adminlte/Discount_edit.html:154
 #: adminlte/templates/adminlte/Film_edit.html:173
 #: adminlte/templates/adminlte/Hall_edit.html:144
-#: adminlte/templates/adminlte/News_edit.html:150
-#: adminlte/templates/adminlte/adddiscount.html:152
+#: adminlte/templates/adminlte/News_edit.html:154
+#: adminlte/templates/adminlte/adddiscount.html:173
 #: adminlte/templates/adminlte/addfilm.html:171
 #: adminlte/templates/adminlte/addhall.html:145
-#: adminlte/templates/adminlte/addnews.html:144
-#: adminlte/templates/adminlte/generalpage.html:52
-#: adminlte/templates/adminlte/pagedetail.html:109
+#: adminlte/templates/adminlte/addnews.html:146
+#: adminlte/templates/adminlte/generalpage.html:48
+#: adminlte/templates/adminlte/pagedetail.html:151
 msgid "СЕО Блок:"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:151
-#: adminlte/templates/adminlte/Discount_edit.html:138
-#: adminlte/templates/adminlte/Discount_edit.html:158
+#: adminlte/templates/adminlte/Discount_edit.html:142
+#: adminlte/templates/adminlte/Discount_edit.html:162
 #: adminlte/templates/adminlte/Film_edit.html:140
 #: adminlte/templates/adminlte/Film_edit.html:181
 #: adminlte/templates/adminlte/Hall_edit.html:152
-#: adminlte/templates/adminlte/News_edit.html:138
-#: adminlte/templates/adminlte/News_edit.html:158
+#: adminlte/templates/adminlte/News_edit.html:142
+#: adminlte/templates/adminlte/News_edit.html:162
 #: adminlte/templates/adminlte/addcinema.html:180
-#: adminlte/templates/adminlte/adddiscount.html:140
-#: adminlte/templates/adminlte/adddiscount.html:160
+#: adminlte/templates/adminlte/adddiscount.html:159
+#: adminlte/templates/adminlte/adddiscount.html:181
 #: adminlte/templates/adminlte/addfilm.html:179
 #: adminlte/templates/adminlte/addhall.html:153
-#: adminlte/templates/adminlte/addnews.html:132
-#: adminlte/templates/adminlte/addnews.html:152
-#: adminlte/templates/adminlte/generalpage.html:60
-#: adminlte/templates/adminlte/pagedetail.html:42
-#: adminlte/templates/adminlte/pagedetail.html:117
+#: adminlte/templates/adminlte/addnews.html:134
+#: adminlte/templates/adminlte/addnews.html:154
+#: adminlte/templates/adminlte/generalpage.html:56
+#: adminlte/templates/adminlte/pagedetail.html:78
+#: adminlte/templates/adminlte/pagedetail.html:159
 msgid "Посилання"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:152
-#: adminlte/templates/adminlte/Discount_edit.html:159
+#: adminlte/templates/adminlte/Discount_edit.html:163
 #: adminlte/templates/adminlte/Film_edit.html:182
 #: adminlte/templates/adminlte/Hall_edit.html:153
-#: adminlte/templates/adminlte/News_edit.html:159
+#: adminlte/templates/adminlte/News_edit.html:163
 #: adminlte/templates/adminlte/addcinema.html:181
-#: adminlte/templates/adminlte/adddiscount.html:161
+#: adminlte/templates/adminlte/adddiscount.html:182
 #: adminlte/templates/adminlte/addfilm.html:180
 #: adminlte/templates/adminlte/addhall.html:154
-#: adminlte/templates/adminlte/addnews.html:153
-#: adminlte/templates/adminlte/generalpage.html:61
-#: adminlte/templates/adminlte/pagedetail.html:25
-#: adminlte/templates/adminlte/pagedetail.html:118
+#: adminlte/templates/adminlte/addnews.html:155
+#: adminlte/templates/adminlte/generalpage.html:57
+#: adminlte/templates/adminlte/pagedetail.html:160
 msgid "Назва"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:153
-#: adminlte/templates/adminlte/Discount_edit.html:160
+#: adminlte/templates/adminlte/Discount_edit.html:164
 #: adminlte/templates/adminlte/Film_edit.html:183
 #: adminlte/templates/adminlte/Hall_edit.html:154
-#: adminlte/templates/adminlte/News_edit.html:160
+#: adminlte/templates/adminlte/News_edit.html:164
 #: adminlte/templates/adminlte/addcinema.html:182
-#: adminlte/templates/adminlte/adddiscount.html:162
+#: adminlte/templates/adminlte/adddiscount.html:183
 #: adminlte/templates/adminlte/addfilm.html:181
 #: adminlte/templates/adminlte/addhall.html:155
-#: adminlte/templates/adminlte/addnews.html:154
-#: adminlte/templates/adminlte/generalpage.html:62
-#: adminlte/templates/adminlte/pagedetail.html:119
+#: adminlte/templates/adminlte/addnews.html:156
+#: adminlte/templates/adminlte/generalpage.html:58
+#: adminlte/templates/adminlte/pagedetail.html:161
 msgid "Ключові слова"
 msgstr ""
 
 #: adminlte/templates/adminlte/Cinema_edit.html:154
-#: adminlte/templates/adminlte/Discount_edit.html:161
+#: adminlte/templates/adminlte/Discount_edit.html:165
 #: adminlte/templates/adminlte/Film_edit.html:184
 #: adminlte/templates/adminlte/Hall_edit.html:155
-#: adminlte/templates/adminlte/News_edit.html:161
-#: adminlte/templates/adminlte/adddiscount.html:163
+#: adminlte/templates/adminlte/News_edit.html:165
+#: adminlte/templates/adminlte/adddiscount.html:184
 #: adminlte/templates/adminlte/addfilm.html:182
 #: adminlte/templates/adminlte/addhall.html:156
-#: adminlte/templates/adminlte/addnews.html:155
-#: adminlte/templates/adminlte/generalpage.html:63
-#: adminlte/templates/adminlte/pagedetail.html:33
-#: adminlte/templates/adminlte/pagedetail.html:120
+#: adminlte/templates/adminlte/addnews.html:157
+#: adminlte/templates/adminlte/generalpage.html:59
+#: adminlte/templates/adminlte/pagedetail.html:162
 msgid "Опис"
 msgstr ""
 
-#: adminlte/templates/adminlte/Discount_edit.html:205
+#: adminlte/templates/adminlte/Discount_edit.html:209
 #: adminlte/templates/adminlte/Film_edit.html:228
 #: adminlte/templates/adminlte/Hall_edit.html:199
-#: adminlte/templates/adminlte/News_edit.html:205
-#: adminlte/templates/adminlte/adddiscount.html:207
+#: adminlte/templates/adminlte/News_edit.html:209
+#: adminlte/templates/adminlte/adddiscount.html:236
 #: adminlte/templates/adminlte/addfilm.html:226
-#: adminlte/templates/adminlte/pagedetail.html:164
+#: adminlte/templates/adminlte/pagedetail.html:206
+#: cinema/templates/cinema/usercabinet.html:166
 msgid "Зберегти"
 msgstr ""
 
-#: adminlte/templates/adminlte/Discount_edit.html:206
+#: adminlte/templates/adminlte/Discount_edit.html:210
 #: adminlte/templates/adminlte/Film_edit.html:229
 #: adminlte/templates/adminlte/Hall_edit.html:200
-#: adminlte/templates/adminlte/News_edit.html:206
-#: adminlte/templates/adminlte/adddiscount.html:208
+#: adminlte/templates/adminlte/News_edit.html:210
+#: adminlte/templates/adminlte/adddiscount.html:237
 #: adminlte/templates/adminlte/addfilm.html:227
-#: adminlte/templates/adminlte/pagedetail.html:165
+#: adminlte/templates/adminlte/pagedetail.html:207
 msgid "Очистити"
 msgstr ""
 
 #: adminlte/templates/adminlte/Film_edit.html:74
+#: adminlte/templates/adminlte/adddiscount.html:86
 #: adminlte/templates/adminlte/addfilm.html:80
+#: adminlte/templates/adminlte/addnews.html:77
 msgid "Дата показу"
 msgstr ""
 
@@ -261,71 +262,365 @@ msgstr ""
 msgid "Описи"
 msgstr ""
 
-#: adminlte/templates/adminlte/adddiscount.html:75
-msgid "Дата редагування"
-msgstr ""
-
 #: adminlte/templates/adminlte/addfilm.html:138
 msgid "Посилання на відео"
 msgstr ""
 
-#: adminlte/templates/adminlte/generalpage.html:25
+#: adminlte/templates/adminlte/generalpage.html:29
 msgid "Номер телефону"
 msgstr ""
 
-#: adminlte/templates/adminlte/generalpage.html:42
+#: adminlte/templates/adminlte/generalpage.html:38
 msgid "СЕО текст"
 msgstr ""
 
-#: user/models.py:9
-msgid "email address"
+#: cinema/templates/cinema/aboutcinema.html:5
+#: cinema/templates/cinema/base.html:83 cinema/templates/cinema/base.html:229
+#: cinema/templates/cinema/cafebar.html:4
+#: cinema/templates/cinema/cafebar.html:14
+msgid "Кафе-Бар"
 msgstr ""
 
-#: user/models.py:10
-msgid "first_name"
+#: cinema/templates/cinema/aboutcinema.html:15
+#: cinema/templates/cinema/base.html:78 cinema/templates/cinema/base.html:226
+#: cinema/templates/cinema/cinema_info.html:58
+msgid "Про кінотеатр"
 msgstr ""
 
-#: user/models.py:11
-msgid "last_name"
+#: cinema/templates/cinema/aboutcinema.html:24
+#: cinema/templates/cinema/advertising.html:25
+#: cinema/templates/cinema/cafebar.html:23
+#: cinema/templates/cinema/childroom.html:22
+#: cinema/templates/cinema/cinema_info.html:70
+#: cinema/templates/cinema/discount_info.html:20
+#: cinema/templates/cinema/newpage.html:22
+#: cinema/templates/cinema/news_info.html:20
+#: cinema/templates/cinema/viphall.html:22
+msgid "Фотогалерея"
+msgstr ""
+
+#: cinema/templates/cinema/aboutcinema.html:61
+#: cinema/templates/cinema/advertising.html:62
+msgid "Поки реклами немає"
+msgstr ""
+
+#: cinema/templates/cinema/advertising.html:5
+#: cinema/templates/cinema/base.html:80 cinema/templates/cinema/base.html:228
+msgid "Реклама"
+msgstr ""
+
+#: cinema/templates/cinema/advertising.html:16
+msgid "Рекламодавцям"
+msgstr ""
+
+#: cinema/templates/cinema/afisha.html:5 cinema/templates/cinema/afisha.html:11
+#: cinema/templates/cinema/base.html:50 cinema/templates/cinema/base.html:219
+#: cinema/templates/cinema/soon.html:11
+msgid "Афіша"
+msgstr ""
+
+#: cinema/templates/cinema/afisha.html:12 cinema/templates/cinema/base.html:60
+#: cinema/templates/cinema/soon.html:5 cinema/templates/cinema/soon.html:12
+msgid "Скоро"
+msgstr ""
+
+#: cinema/templates/cinema/afisha.html:23
+msgid "Зараз в кіно"
+msgstr ""
+
+#: cinema/templates/cinema/afisha.html:26 cinema/templates/cinema/index.html:43
+msgid "Купити квиток"
+msgstr ""
+
+#: cinema/templates/cinema/auth.html:13
+msgid "Авторизація"
+msgstr ""
+
+#: cinema/templates/cinema/auth.html:25
+msgid "Увійдіть що почати"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:55 cinema/templates/cinema/base.html:220
+msgid "Розклад"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:65 cinema/templates/cinema/base.html:222
+#: cinema/templates/cinema/cinema.html:4
+msgid "Кінотеатри"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:70 cinema/templates/cinema/base.html:223
+#: cinema/templates/cinema/discount.html:5
+msgid "Акції"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:75
+msgid "Додатково"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:79 cinema/templates/cinema/base.html:227
+#: cinema/templates/cinema/newss.html:5
+msgid "Новини"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:81
+msgid "Vip-зал"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:82
+#: cinema/templates/cinema/childroom.html:13
+msgid "Дитяча кімната"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:84 cinema/templates/cinema/base.html:230
+msgid "Контакти"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:166 cinema/templates/cinema/base.html:176
+msgid "Особистий кабінет"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:167
+msgid "Адмін панель"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:168 cinema/templates/cinema/base.html:177
+msgid "Вийти"
+msgstr ""
+
+#: cinema/templates/cinema/base.html:221
+msgid "Скоро в прокаті"
+msgstr ""
+
+#: cinema/templates/cinema/cafebar.html:61
+msgid "Вибачте. Адміністратор виключив сторінку"
+msgstr ""
+
+#: cinema/templates/cinema/childroom.html:59
+#: cinema/templates/cinema/newpage.html:59
+#: cinema/templates/cinema/viphall.html:59
+msgid "Скоро буде"
+msgstr ""
+
+#: cinema/templates/cinema/cinema.html:12
+msgid "Наші кінотеатри"
+msgstr ""
+
+#: cinema/templates/cinema/cinema_info.html:15
+msgid "Кількість залів:"
+msgstr ""
+
+#: cinema/templates/cinema/cinema_info.html:21
+#: cinema/templates/cinema/timetable.html:85
+msgid "Зал"
+msgstr ""
+
+#: cinema/templates/cinema/cinema_info.html:35
+msgid "Розклад сеансів"
+msgstr ""
+
+#: cinema/templates/cinema/cinema_info.html:64
+msgid "Умови"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:15
+msgid "Дата показу:"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:18
+msgid "Опис фільму:"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:27
+msgid "Рік"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:31
+msgid "Країна"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:35
+msgid "Режисер"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:39
+msgid "Продюсер"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:43
+msgid "Актор"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:47
+msgid "Сценарист"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:51
+msgid "Оператор"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:67
+msgid "Розклад сеансів кінотеатру"
+msgstr ""
+
+#: cinema/templates/cinema/filmdetail.html:71
+#: cinema/templates/cinema/timetable.html:14
+msgid "Кінотеатр"
+msgstr ""
+
+#: cinema/templates/cinema/index.html:33
+msgid "Дивіться сьогодні"
+msgstr ""
+
+#: cinema/templates/cinema/index.html:52
+msgid "Дивіться скоро"
+msgstr ""
+
+#: cinema/templates/cinema/index.html:69
+msgid "Новини та акції"
+msgstr ""
+
+#: cinema/templates/cinema/soon.html:26
+msgid "Купити квитки"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:25
+msgid "ФІльм: Всі"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:33
+msgid "Зал: Всі"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:47
+msgid "Дивитися тільки: "
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:82
+msgid "Дата"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:83
+msgid "Час"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:84
+msgid "Фільм"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:86
+msgid "Ціна"
+msgstr ""
+
+#: cinema/templates/cinema/timetable.html:87
+msgid "Бронювати"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:13
+msgid "Ім'я"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:14
+msgid "Прізвище"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:15
+msgid "Нікнейм"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:16
+msgid "Пошта"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:17
+msgid "Адреса"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:18
+msgid "Пароль"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:19
+msgid "Номер картки"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:93
+msgid "Мова"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:94
+msgid "Стать"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:95
+msgid "Телефон"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:96
+msgid "Дата народження"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:97
+msgid "Місто"
+msgstr ""
+
+#: cinema/templates/cinema/usercabinet.html:98
+msgid "Повторіть пароль"
+msgstr ""
+
+#: cinema/templates/cinema/viphall.html:13
+msgid "Vip Зала"
 msgstr ""
 
 #: user/models.py:12
-msgid "nickname"
+msgid "email address"
 msgstr ""
 
 #: user/models.py:13
-msgid "city"
+msgid "first_name"
 msgstr ""
 
 #: user/models.py:14
-msgid "address"
+msgid "last_name"
 msgstr ""
 
 #: user/models.py:15
-msgid "card_number"
+msgid "nickname"
 msgstr ""
 
 #: user/models.py:16
-msgid "phone"
+msgid "city"
+msgstr ""
+
+#: user/models.py:17
+msgid "address"
+msgstr ""
+
+#: user/models.py:18
+msgid "card_number"
 msgstr ""
 
 #: user/models.py:19
+msgid "phone"
+msgstr ""
+
+#: user/models.py:22
 msgid "birthday"
 msgstr ""
 
-#: user/models.py:20
+#: user/models.py:23
 msgid "date_joined"
 msgstr ""
 
-#: user/models.py:21
+#: user/models.py:24
 msgid "active"
 msgstr ""
 
-#: user/models.py:29
+#: user/models.py:32
 msgid "User"
 msgstr ""
 
-#: user/models.py:30
+#: user/models.py:33
 msgid "Users"
 msgstr ""
 

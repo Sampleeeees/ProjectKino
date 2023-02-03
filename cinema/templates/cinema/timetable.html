@@ -1,5 +1,6 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
+{% load i18n %}
 
 
 {%block content%}
@@ -10,9 +11,9 @@
                 </div>
                 <div class="col">
                     <select class="form-select" id="cinema_select" aria-label="Default select example">
-                        <option id="all_cinema" selected>Кінотеатр</option>
+                        <option id="all_cinema" selected>{% trans 'Кінотеатр' %}</option>
                         {% for cinema in cinema_list %}
-                            <option id="cinema_{{ cinema.id }}" value="cinema{{ cinema.id }}">{{ cinema.name_uk }}</option>
+                            <option id="cinema_{{ cinema.id }}" value="{{ cinema.id }}">{{ cinema.name_uk }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -21,7 +22,7 @@
                 </div>
                 <div class="col">
                     <select class="form-select" id="film_select" aria-label="Default select example">
-                        <option id="all_film" selected>Фільм: Всі</option>
+                        <option id="all_film" selected>{% trans 'ФІльм: Всі' %}</option>
                         {% for film in film_list %}
                             <option value="film{{ film.id }}">{{ film.name_uk }}</option>
                         {% endfor %}
@@ -29,7 +30,7 @@
                 </div>
                 <div class="col">
                     <select class="form-select" id="hall_select" aria-label="Default select example">
-                        <option id="all_hall" selected>Зал: Всі</option>
+                        <option id="all_hall" selected>{% trans 'Зал: Всі' %}</option>
                         {% for hall in hall_list %}
                             <option value="hall{{ hall.pk }}">Зал {{ hall.hall_number }} в {{ hall.cinema.name_uk }}</option>
                         {% endfor %}
@@ -43,7 +44,7 @@
         <div class="check-form">
             <div class="row mt-3 mb-3">
                 <div class="col-2 text-end">
-                    <p class="fw-bold">Дивитися тільки:</p>
+                    <p class="fw-bold">{% trans 'Дивитися тільки: ' %}</p>
                 </div>
                 <div class="col-1">
                         <div class="form-check">
@@ -78,19 +79,19 @@
             <table class="table border border-3 border-warning">
                 <thead>
                     <tr>
-                        <th class="col">Дата</th>
-                        <th class="col">Час</th>
-                        <th class="col">Фільм</th>
-                        <th class="col">Зал</th>
-                        <th class="col">Ціна</th>
-                        <th class="col">Бронювати</th>
+                        <th class="col">{% trans 'Дата' %}</th>
+                        <th class="col">{% trans 'Час' %}</th>
+                        <th class="col">{% trans 'Фільм' %}</th>
+                        <th class="col">{% trans 'Зал' %}</th>
+                        <th class="col">{% trans 'Ціна' %}</th>
+                        <th class="col">{% trans 'Бронювати' %}</th>
                     </tr>
                 </thead>
-                <tbody>{% for ses in session %}
+                <tbody id="tbody">{% for ses in session %}
                     <tr>
-                        <th>{{ ses.day|date:'d.m.Y' }}</th>
+                        <th>{{ ses.day|date:'Y-m-d' }}</th>
                         <th>{{ ses.time_start|date:"h:s" }}</th>
-                        <th><a class="text-decoration-none text-body" href="../js/spider.html">{{ ses.film.name_uk }}</a></th>
+                        <th><a class="text-decoration-none text-body" href="{% url 'film_detail' pk=ses.film.pk %}">{{ ses.film.name_uk }}</a></th>
                         <th>{{ ses.hall.hall_number }}</th>
                         <th>90 грн</th>
                         <th></th>
@@ -105,9 +106,63 @@
             </div>
         </div>
     <script>
-    $('input[name="dates"]').daterangepicker();
+    $('input[name="dates"]').daterangepicker({locale: {'format':'YYYY-MM-DD'}});
+    let startday = $('input[name="dates"]').val().substring(0, 10).replaceAll('/', '-');
+    let endday = $('input[name="dates"]').val().substring(13, 23);
 
+    $('input[name="dates"]').change(function (){
+        console.log($('input[name="dates"]').val().substring(0, 10).replaceAll('/', '-'), )
+        console.log($('input[name="dates"]').val().substring(13, 23).replaceAll('/', '-'), )
+    })
 
-    
+    $('#hall_select').change(function (){
+        console.log($('#hall_select').find('option:selected').val());
+    });
+    $('#cinema_select').change(function (){
+        {#console.log($('#cinema_select').find('option:selected').val());#}
+
+        {#let cinema = $("select[id='cinema_select']");#}
+        {#console.log(cinema);#}
+        {#let cinema_collection = cinema.find('option:selected');#}
+        {#console.log(cinema_collection);#}
+        {#let id_cinema = cinema_collection[0].value;#}
+        {#console.log(id_cinema);#}
+
+        $.get({
+            data: {'id_cinema': $('#cinema_select').find('option:selected').val()},
+            url: "{% url 'cinema_filter' %}",
+            success: function (response){
+                let cinema_selected = JSON.parse(response['cinema']);
+                let halls_for_current_cinema = JSON.parse(response['halls']);
+                let session_cinema_filter = JSON.parse(response['session']);
+                let films = JSON.parse(response['films']);
+                console.log(films)
+                console.log()
+                console.log(response['films'])
+                console.log(session_cinema_filter)
+                console.log(cinema_selected[0])
+                console.log(cinema_selected[0]['fields']['name_uk'])
+                console.log(halls_for_current_cinema)
+                console.log(halls_for_current_cinema[0]['fields']['hall_number']);
+                console.log(halls_for_current_cinema.length)
+                let hall_select = document.getElementById('hall_select');
+                hall_select.innerText = '';
+                hall_select.innerHTML = '<option>Зал: Всі</option>'
+                for(let i = 1; i<=halls_for_current_cinema.length; i++){
+                    console.log('Hello')
+                    hall_select.innerHTML += '<option>' + 'Зал ' + i + ' в ' + cinema_selected[0]['fields']['name_uk'] + '</option>'
+                }
+                let tbody = document.getElementById('tbody');
+                tbody.innerText = '';
+                for (let i = 0; i<session_cinema_filter.length; i++){
+                    console.log(session_cinema_filter[i])
+                    tbody.innerHTML += '<tr>'+'<th>'+ session_cinema_filter[i]['fields']['day'] + '<th>'+ session_cinema_filter[i]['fields']['time_start'].substring(0,5) + '<th>'+ response['films'][session_cinema_filter[i]['fields']['film']] + '<th>'+ session_cinema_filter[i]['fields']['hall'] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
+                }
+            }
+        })
+    });
+    $('#film_select').change(function (){
+        console.log($('#film_select').find('option:selected').val());
+    });
     </script>
 {%endblock content%}

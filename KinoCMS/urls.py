@@ -28,7 +28,8 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('adminlte/', include('adminlte.urls'))
+    path('adminlte/', include('adminlte.urls')),
+    path('cinema/', include('adminlte.urls')),
 )
 
 if settings.DEBUG:

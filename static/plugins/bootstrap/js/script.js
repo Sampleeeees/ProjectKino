@@ -174,11 +174,6 @@ function switchList(radiotype){
     }
 }
 
-function name_load_template(name){
-    document.getElementById('file_name_template').innerText =
-        name.value
-
-}
 
 
 $(document).ready(function () {
@@ -223,5 +218,7 @@ function changepicker(){
     document.getElementById('id_back_type_pick').value = document.getElementById('picker-color').value
     console.log(document.getElementById('picker-color').value)
 }
+
+
 
 

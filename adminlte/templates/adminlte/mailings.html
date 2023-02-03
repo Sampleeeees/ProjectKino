@@ -62,7 +62,7 @@
                                     <tr class="even">
                                         <td class="sorting_1">
                                             <div style="display: flex; justify-content: center;">
-                                                <input type="checkbox" id={{ user.id }} value="olegignatov@example.com" class="form-check-input user_select">
+                                                <input type="checkbox" name="user_checking" id={{ user.id }} value="{{ user.email }}" class="form-check-input user_select">
                                             </div>
                                         </td>
                                         <td>{{ user.id }}</td>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="modal-footer" style="display: flex; justify-content: space-between;">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
-                                <button type="button" class="btn btn-primary button_mail">Почати розсилку</button>
+                                <label type="button" for="submit_mail" class="btn btn-primary button_mail">Почати розсилку</label>
                             </div>
                         </div>
                     </div>
@@ -128,6 +128,7 @@
                 </div>
                 <div class="d-flex mt-3">
                     <p class="ml-3">Кол-во листів:</p>
+                    <p class="ml-3">{{ count }}</p>
                     <p class="ml-5"> Розсилка виконана на:</p>
                 </div>
             </div>
@@ -137,7 +138,7 @@
 
                     {% for list in mail %}
                         <div class=" m-3 form-check d-flex">
-                        <input onclick="name_load_template(this)" type="radio" class="form-check-input" name="name_mail_radio" value="{{ list.template.name }}" id='mail_checkbox'>
+                        <input onclick="name_load_template(this)" type="radio" class="form-check-input" name="list_pk" value="{{ list.pk}}" id='mail_checkbox'>
                         <label for="mail_checkbox">{{ list.template }}</label>
                         <a href="{% url 'delete-any' name='MailSend' delete_item=list.id %}" class="ml-3">
                             <svg width="20px" height="20px" fill="none" stroke="red" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -145,16 +146,21 @@
                             </svg>
                         </a>
                         </div>
+                            <script>
+                                function name_load_template(name){
+                                    document.getElementById('file_name_template').innerText =
+                                    '{{ list.template.name }}'
+
+                                    }
+                                </script>
                     {% endfor %}
                 </div>
             </div>
         </div>
 
-        <button type="submit" class="btn btn_add mt-4 ml-auto mr-auto mb-3 pt-3 pb-3">Почати розсилку</button>
+        <button type="submit" id="submit_mail" class="btn btn_add mt-4 ml-auto mr-auto mb-3 pt-3 pb-3">Почати розсилку</button>
 
     </div>
     </div>
     </form>
-    <script>
-    </script>
 {% endblock %}

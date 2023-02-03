@@ -21,4 +21,7 @@ urlpatterns = [
     path('aboutcinema/', views.cinemaabout, name='cinemaabout'),
     path('contacts/', views.contacts, name='contacts'),
     path('usercabinet/', views.cabinet, name='cabinet'),
+
+
+    path('timetable/cinema_filter', views.cinema_filter, name='cinema_filter'),
 ]

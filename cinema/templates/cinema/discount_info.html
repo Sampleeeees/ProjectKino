@@ -1,5 +1,6 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block tittle %}{% endblock %}
 
@@ -16,7 +17,7 @@
             <div class="col-6 align-self-center text-center"><p>{{ discount.description_uk }}</p></div>
         </div>
         <div class="mt-4 mb-4">
-            <p class="fs-2 text-center">Фотогалерея</p>
+            <p class="fs-2 text-center">{% trans 'Фотогалерея' %}</p>
         </div>
         <div id="carouselExampleIndicators" class="carousel slide m-3 " data-bs-ride="carousel">
             <div class="carousel-inner">

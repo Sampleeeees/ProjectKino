@@ -1,7 +1,7 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
-
-{%block tittle%} Кінотеатри {% endblock tittle%}
+{% load i18n %}
+{%block tittle%} {% trans 'Кінотеатри' %} {% endblock tittle%}
 
 {% block content %}
 <div class="cinemas-photo">
@@ -9,7 +9,7 @@
          </div>
 
         <div class="text-center ">
-            <h1 class="pt-2 pb-2 ">{%block tittlecontent%}Наші кінотеатри{%endblock tittlecontent%}</h1>
+            <h1 class="pt-2 pb-2 ">{%block tittlecontent%}{% trans 'Наші кінотеатри' %}{%endblock tittlecontent%}</h1>
         </div>
         {%block context%}
         <div class="ourcinemas text-center">

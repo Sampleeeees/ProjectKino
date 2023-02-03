@@ -1,5 +1,6 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 {% if viphall.status %}
@@ -9,7 +10,7 @@
             <div class="row">
                 <div class="col">
                 <div class="text-center">
-        <p class="fs-2 fw-bolder">Vip Зала</p>
+        <p class="fs-2 fw-bolder">{% trans 'Vip Зала' %}</p>
         </div>
                     <div class="pt-4">
                         <p class="text-center">
@@ -18,7 +19,7 @@
                     </div>
 
             <div class="text-center p-2 mt-4 mb-4">
-                <h1>Фотогалерея</h1>
+                <h1>{% trans 'Фотогалерея' %}</h1>
             </div>
                     <div id="carouselExampleIndicators" class="carousel slide m-3 " data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -55,6 +56,6 @@
 
 
         {% else %}
-        <div>Поки реклами немає</div>
+        <div>{% trans 'Скоро буде' %}</div>
     {% endif %}
 {% endblock %}

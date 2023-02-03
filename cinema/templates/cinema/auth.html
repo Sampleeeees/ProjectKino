@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load i18n %}
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
     <link rel="shortcut icon" href="{% static 'dist/img/favicon.ico' %}" type="image/x-icon">
     <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet" >
     <link rel="stylesheet" href="{% static 'dist/css/cinema.css' %}">
-    <title>Authentification</title>
+    <title>{% trans 'Авторизація' %}</title>
     <script src="{% static 'plugins/js/bootstrap.bundle.min.js' %}"></script>
 </head>
 
@@ -21,7 +22,7 @@
       <a href="{% url 'index' %}" class="h1"><b>Kino</b>CMS</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Увійдіть щоб почати</p>
+      <p class="login-box-msg">{% trans 'Увійдіть що почати' %}</p>
 
       <form  method="post">
           {% csrf_token %}

@@ -1,5 +1,7 @@
 <!doctype html>
 {% load static %}
+{% load static i18n %}
+{% load i18n %}
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
@@ -45,41 +47,41 @@
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
                                     <li class="nav-item">
                                         <a href="{%url 'afisha'%}" class="nav-link text-white">
-                                            Афіша
+                                            {% trans 'Афіша' %}
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'timetable' %}" class="nav-link text-white">
-                                            Розклад
+                                            {% trans 'Розклад' %}
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'soon' %}" class="nav-link text-white">
-                                            Скоро
+                                            {% trans 'Скоро' %}
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'cinema' %}" class="nav-link text-white">
-                                            Кінотеатри
+                                            {% trans 'Кінотеатри' %}
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'discount' %}" class="nav-link text-white">
-                                            Акції
+                                            {% trans 'Акції' %}
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <button class="btn nav-link dropdown-toggle text-white " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Додатково
+                                            {% trans 'Додатково' %}
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a href="{% url 'cinemaabout' %}" class="dropdown-item text-white">Про кінотеатр</a></li>
-                                            <li><a href="{% url 'newss' %}" class="dropdown-item text-white">Новини</a></li>
-                                            <li><a href="{% url 'advertising' %}" class="dropdown-item text-white">Реклама</a></li>
-                                            <li><a href="{% url 'viphall' %}" class="dropdown-item text-white">Vip-зал</a></li>
-                                            <li><a href="{% url 'childroom' %}" class="dropdown-item text-white">Дитяча кімната</a></li>
-                                            <li><a href="{% url 'cafebar' %}" class="dropdown-item text-white">Кафе-Бар</a></li>
-                                            <li><a href="{% url 'contacts' %}" class="dropdown-item text-white">Контакти</a></li>
+                                            <li><a href="{% url 'cinemaabout' %}" class="dropdown-item text-white">{% trans 'Про кінотеатр' %}</a></li>
+                                            <li><a href="{% url 'newss' %}" class="dropdown-item text-white">{% trans 'Новини' %}</a></li>
+                                            <li><a href="{% url 'advertising' %}" class="dropdown-item text-white">{% trans 'Реклама' %}</a></li>
+                                            <li><a href="{% url 'viphall' %}" class="dropdown-item text-white">{% trans 'Vip-зал' %}</a></li>
+                                            <li><a href="{% url 'childroom' %}" class="dropdown-item text-white">{% trans 'Дитяча кімната' %}</a></li>
+                                            <li><a href="{% url 'cafebar' %}" class="dropdown-item text-white">{% trans 'Кафе-Бар' %}</a></li>
+                                            <li><a href="{% url 'contacts' %}" class="dropdown-item text-white">{% trans 'Контакти' %}</a></li>
                                             {% for page in page_list %}
                                                 <li><a href="{% url 'page_info' page_id=page.id %}" class="dropdown-item text-white">{{ page.name_uk }}</a></li>
                                             {% endfor %}
@@ -129,14 +131,28 @@
                 <!---------------Language + Auth------------->
                 <div class="col align-self-center">
                     <!--Language-->
-                    <a class="btn btn-outline-dark text-white link-padd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            UA
-                    </a>
-                        <ul class="dropdown-menu ">
-                            <li><a class="dropdown-item text-white" href="#">Українська</a></li>
-                            <li><a class="dropdown-item text-white" href="#">English</a></li>
-                            <li><a class="dropdown-item text-white" href="#">Рос</a></li>
-                        </ul>
+{#                    <a class="btn btn-outline-dark text-white link-padd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#                            UA#}
+{#                    </a>#}
+{#                        <ul class="dropdown-menu ">#}
+{#                            <li><a class="dropdown-item text-white" href="#">Українська</a></li>#}
+{#                            <li><a class="dropdown-item text-white" href="#">English</a></li>#}
+{#                            <li><a class="dropdown-item text-white" href="#">Рос</a></li>#}
+{#                        </ul>#}
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select class="btn btn-outline-dark text-white link-padd" name="language">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option id="lan_{{ language.code }}" value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                                    {{ language.name_local }} {{ language.code }}
+                                </option>
+                            {% endfor%}
+                        </select>
+                        <input type="submit" class="btn-outline-dark btn link-padd" value="GO">
+                    </form>
                     <!--/Language-->
                     <!--Auth-->
                     <span class="user">
@@ -147,9 +163,9 @@
                                     <img class ="iconimg" src="{% static 'dist/img/user.png' %}" alt="">
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-white" href="{% url 'cabinet' %}">Особистий кабінет</a></li>
-                                        <li><a class="dropdown-item text-white" href="{% url 'admin' %}">Адмін панель</a></li>
-                                        <li><a class="dropdown-item text-white" href="{% url "logout_user" %}">Вийти</a></li>
+                                        <li><a class="dropdown-item text-white" href="{% url 'cabinet' %}">{% trans 'Особистий кабінет' %}</a></li>
+                                        <li><a class="dropdown-item text-white" href="{% url 'admin' %}">{% trans 'Адмін панель' %}</a></li>
+                                        <li><a class="dropdown-item text-white" href="{% url "logout_user" %}">{% trans 'Вийти' %}</a></li>
                                     </ul>
                                 {% else %}
                                 <a class="btn btn-outline-dark text-white link-padd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -157,8 +173,8 @@
                                     <img class ="iconimg" src="{% static 'dist/img/user.png' %}" alt="">
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-white" href="{% url 'cabinet' %}">Особистий кабінет</a></li>
-                                        <li><a class="dropdown-item text-white" href="{% url "logout_user" %}">Вийти</a></li>
+                                        <li><a class="dropdown-item text-white" href="{% url 'cabinet' %}">{% trans 'Особистий кабінет' %}</a></li>
+                                        <li><a class="dropdown-item text-white" href="{% url "logout_user" %}">{% trans 'Вийти' %}</a></li>
                                     </ul>
                                 {% endif %}
                             {% else %}
@@ -200,18 +216,18 @@
                 <img src="{% static 'dist/img/appstore.png' %}" alt="" class="footer-icon">
             </div>
             <div class="col-2">
-                <a href="{% url 'afisha' %}" class="btn-ft d-block">Афіша</a>
-                <a href="{% url 'timetable' %}" class="btn-ft d-block">Розклад</a>
-                <a href="{% url 'soon' %}" class="btn-ft d-block">Скоро в прокаті</a>
-                <a href="{% url 'cinema' %}" class="btn-ft d-block"> Кінотеатри</a>
-                <a href="{% url 'discount' %}" class="btn-ft d-block">Акції</a>
+                <a href="{% url 'afisha' %}" class="btn-ft d-block">{% trans 'Афіша' %}</a>
+                <a href="{% url 'timetable' %}" class="btn-ft d-block">{% trans 'Розклад' %}</a>
+                <a href="{% url 'soon' %}" class="btn-ft d-block">{% trans 'Скоро в прокаті' %}</a>
+                <a href="{% url 'cinema' %}" class="btn-ft d-block"> {% trans 'Кінотеатри' %}</a>
+                <a href="{% url 'discount' %}" class="btn-ft d-block">{% trans 'Акції' %}</a>
             </div>
             <div class="col-2">
-                <a href="" class="btn-ft d-block">Про кінотеатр</a>
-                <a href="{% url 'newss' %}" class="btn-ft d-block">Новини</a>
-                <a href="{% url 'advertising' %}" class="btn-ft d-block">Реклама</a>
-                <a href="{% url 'cafebar' %}" class="btn-ft d-block">Кафе-Бар</a>
-                <a href="{% url 'contacts' %}" class="btn-ft d-block">Контакти</a>
+                <a href="" class="btn-ft d-block">{% trans 'Про кінотеатр' %}</a>
+                <a href="{% url 'newss' %}" class="btn-ft d-block">{% trans 'Новини' %}</a>
+                <a href="{% url 'advertising' %}" class="btn-ft d-block">{% trans 'Реклама' %}</a>
+                <a href="{% url 'cafebar' %}" class="btn-ft d-block">{% trans 'Кафе-Бар' %}</a>
+                <a href="{% url 'contacts' %}" class="btn-ft d-block">{% trans 'Контакти' %}</a>
             </div>
             <div class="col-3 text-center mt-3">
                 <img class="iconimg" src="{% static 'dist/img/facebook.png' %}" alt="">
@@ -238,4 +254,11 @@
 
 <script src="{% static 'dist/js/jquery-ui.js' %}"></script>
 <script src="{% static 'plugins/bootstrap/js/script.js' %}"></script>
+<script>
+    $(document).ready(function (){
+        $('#lan_uk').click(function (){
+            console.log('Hello')
+        })
+    })
+</script>
 </html>

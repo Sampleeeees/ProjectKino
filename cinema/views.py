@@ -1,8 +1,10 @@
 import datetime
 
+import faker
 from django.contrib.auth import authenticate, login
+from django.core import serializers
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from adminlte.models import *
 from django.views.generic.base import View
@@ -59,7 +61,8 @@ def timetable(request):
     hall_list = Hall.objects.all()
     session = Session.objects.all().order_by('day', 'time_start')
     date_all = session.filter(day__gte=date, day__lte=weeks).distinct('day')
-    print(date_all)
+    cinema = request.GET.get('cinema_select')
+    print(cinema)
 
     context = {
         'session': session,
@@ -207,8 +210,31 @@ class AfishaView(View):
 class FilmDetailView(View):
     def get(self, request, pk):
         film = Film.objects.get(id=pk)
+        fake = faker.Faker('RU_ru')
+        data_for_film = {
+            'year': fake.year(),
+            'country': fake.country(),
+            'director': fake.name(),
+            'writer': fake.name(),
+            'producer': fake.name(),
+            'actor': fake.name(),
+            'cinema': fake.name()
+        }
 
-        return render(request, 'cinema/filmdetail.html', {'film': film})
+        return render(request, 'cinema/filmdetail.html', {'film': film, 'data_film': data_for_film})
 
 
+def cinema_filter(request):
+    response = request.GET.get('id_cinema')
+    print(response)
+    if response == 'Кінотеатр':
+        return JsonResponse({'null': None})
+    else:
+        cinema = Cinema.objects.filter(pk=response)
+        print(cinema)
+        current_cinema = serializers.serialize('json', cinema)
+        halls = serializers.serialize('json', Hall.objects.filter(cinema=response))
+        session = serializers.serialize('json', Session.objects.filter(hall__cinema=cinema.get(pk=response)))
+        films = serializers.serialize('json', Film.objects.all())
+        return JsonResponse({'cinema': current_cinema, 'halls': halls, 'session': session, 'films': films}, status=200)
 

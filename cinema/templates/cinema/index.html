@@ -1,5 +1,6 @@
 {% extends 'cinema/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content%}
     {% if speed.status %}
@@ -29,7 +30,7 @@
     {% endif %}
 
         <div class="text-center">
-            <h1 class=" text-h1">Дивіться сьогодні</h1>
+            <h1 class=" text-h1">{% trans 'Дивіться сьогодні' %}</h1>
         </div>
 
         <div class="watch-today">
@@ -39,7 +40,7 @@
             <div class="col item-film">
                 <img class="logo-film" src="{{ film.logo.url }}" alt="">
                 <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' pk=film.id %}">{{ film.name_uk }}{{ film.name_eng }}</a>
-                <a href="#" class="btn text-white bg-film">Buy ticket</a>
+                <a href="#" class="btn text-white bg-film">{% trans 'Купити квиток' %}</a>
             </div>
                 {% endif %}
             {% endfor %}
@@ -48,7 +49,7 @@
 
             <div class="text-center">
                  <hr class="border border-dark border-2 opacity-75 hr-radius mb-2">
-                <h1 class="text-h1">Дивіться скоро</h1>
+                <h1 class="text-h1">{% trans 'Дивіться скоро' %}</h1>
             </div>
 
             <div class="watch-today">
@@ -65,7 +66,7 @@
 
             <div class="text-center">
                 <hr class="border border-dark border-2 opacity-75 hr-radius mb-2">
-                <h1 class="text-h1">Новини та акції</h1>
+                <h1 class="text-h1">{% trans 'Новини та акції' %}</h1>
             </div>
 {% if speed2.status %}
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
