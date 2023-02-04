@@ -238,3 +238,16 @@ def cinema_filter(request):
         films = serializers.serialize('json', Film.objects.all())
         return JsonResponse({'cinema': current_cinema, 'halls': halls, 'session': session, 'films': films}, status=200)
 
+def booking(request, pk):
+    current_session = Session.objects.get(pk=pk)
+    current_film_for_session = Film.objects.get(pk=current_session.film.id)
+    current_hall_for_session = Hall.objects.get(pk=current_session.hall.id)
+    date = datetime.date.today()
+
+    context = {
+        'film': current_film_for_session,
+        'hall': current_hall_for_session,
+        'session': current_session,
+        'date': date
+    }
+    return render(request, 'cinema/brooking.html', context=context)

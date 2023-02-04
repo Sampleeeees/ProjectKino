@@ -4,79 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'mailing back-banner def'">
-      <change afterPath="$PROJECT_DIR$/adminlte/context_processors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/0002-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/0002-1_bfUAz8v.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_0QkJA8U.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_1QUOtzs.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_1yTKfVd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_4I8i4IB.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_6HD5P7c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_8CTPZi4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_Ef33svx.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_ErwDvtI.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_J6YiQMT.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_JsA18FY.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_KNvvj2D.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_PVabz8R.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_RJzA2bK.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_TFzg5RG.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_TvrPeix.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_UAjuKS5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_W6F9fcX.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_YNaqsQR.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_asSnlji.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_fFwI7u1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_k8amWgc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_kyVRV6m.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adam2_vXmtSuq.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addcinema.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addcinema_Ifx04U9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addcinema_UEdSDsd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adddiscount.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adddiscount_BYQP84u.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adddiscount_NXBfJvq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addfilm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addfilm_eOIkyXM.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addhall.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addhall_FFksGis.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addnews.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addnews_1QEYmzq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/addnews_VVCdmc2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adduser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adduser_BI3sJaH.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adduser_BKz7un8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/file/mailing/adduser_SEKLdo6.html" afterDir="false" />
+    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'new commit'">
+      <change afterPath="$PROJECT_DIR$/cinema/templates/cinema/brooking.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KinoCMS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinoCMS/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/templates/adminlte/mailings.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/mailings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/aboutcinema.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/aboutcinema.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/advertising.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/advertising.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/afisha.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/afisha.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/auth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/cafebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/cafebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/childroom.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/childroom.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/cinema.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/cinema.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/discount.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/discount.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/discount_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/discount_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/filmdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/filmdetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/mobileapp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/newpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/newpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/newss.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/newss.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/soon.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/soon.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/viphall.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/viphall.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locale/en/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/locale/en/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locale/uk/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/locale/uk/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/plugins/bootstrap/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/plugins/bootstrap/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +126,8 @@
       <workItem from="1675255209308" duration="16749000" />
       <workItem from="1675332949753" duration="8276000" />
       <workItem from="1675361711068" duration="14893000" />
+      <workItem from="1675421027703" duration="17000" />
+      <workItem from="1675546501142" duration="5013000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
       <created>1673455811827</created>
@@ -221,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674842301505</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="'new commit'">
+      <created>1675421040772</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675421040772</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +190,8 @@
     <MESSAGE value="'add new edit file '" />
     <MESSAGE value="'new commit with new edit file'" />
     <MESSAGE value="'mailing back-banner def'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'mailing back-banner def'" />
+    <MESSAGE value="'new commit'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'new commit'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
