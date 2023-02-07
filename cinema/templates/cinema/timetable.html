@@ -11,7 +11,7 @@
                 </div>
                 <div class="col">
                     <select class="form-select" id="cinema_select" aria-label="Default select example">
-                        <option id="all_cinema" selected>{% trans 'Кінотеатр' %}</option>
+                        <option id="all_cinema" value="0" selected>{% trans 'Кінотеатр' %}</option>
                         {% for cinema in cinema_list %}
                             <option id="cinema_{{ cinema.id }}" value="{{ cinema.id }}">{{ cinema.name_uk }}</option>
                         {% endfor %}
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col">
                     <select class="form-select" id="film_select" aria-label="Default select example">
-                        <option id="all_film" selected>{% trans 'ФІльм: Всі' %}</option>
+                        <option id="all_film" value="0" selected>{% trans 'ФІльм: Всі' %}</option>
                         {% for film in film_list %}
                             <option value="film{{ film.id }}">{{ film.name_uk }}</option>
                         {% endfor %}
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col">
                     <select class="form-select" id="hall_select" aria-label="Default select example">
-                        <option id="all_hall" selected>{% trans 'Зал: Всі' %}</option>
+                        <option id="all_hall" value="0" selected>{% trans 'Зал: Всі' %}</option>
                         {% for hall in hall_list %}
                             <option value="hall{{ hall.pk }}">Зал {{ hall.hall_number }} в {{ hall.cinema.name_uk }}</option>
                         {% endfor %}
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-1">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="2d" id="flexCheckDefault" checked>
                             <label class="form-check-label" for="flexCheckDefault">
                                 2D
                             </label>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-1">
                     <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="3d" id="flexCheckDefault" checked>
                             <label class="form-check-label" for="flexCheckDefault">
                                 3D
                             </label>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-1">
                     <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="4d" id="flexCheckDefault" checked>
                             <label class="form-check-label" for="flexCheckDefault">
                                 IMAX
                             </label>
@@ -121,53 +121,196 @@
     })
 
     $('#hall_select').change(function (){
+
         console.log($('#hall_select').find('option:selected').val());
-    });
-    $('#cinema_select').change(function (){
-        {#console.log($('#cinema_select').find('option:selected').val());#}
-
-        {#let cinema = $("select[id='cinema_select']");#}
-        {#console.log(cinema);#}
-        {#let cinema_collection = cinema.find('option:selected');#}
-        {#console.log(cinema_collection);#}
-        {#let id_cinema = cinema_collection[0].value;#}
-        {#console.log(id_cinema);#}
-
-        $.get({
-            url: "{% url 'cinema_filter' %}",
-            data: {'id_cinema': $('#cinema_select').find('option:selected').val()},
+        $.ajax({
+            url: '{% url 'hall_filter' %}',
+            type: 'GET',
+            data: {
+                'id_hall': $('#hall_select').find('option:selected').val().replace(/\D+/g,"")
+            },
             success: function (response){
-                let cinema_selected = JSON.parse(response['cinema']);
-                let halls_for_current_cinema = JSON.parse(response['halls']);
-                let session_cinema_filter = JSON.parse(response['session']);
-                let films = JSON.parse(response['films']);
-                console.log(films)
-                console.log()
-                console.log(response['films'])
-                console.log(session_cinema_filter)
-                console.log(cinema_selected[0])
-                console.log(cinema_selected[0]['fields']['name_uk'])
-                console.log(halls_for_current_cinema)
-                console.log(halls_for_current_cinema[0]['fields']['hall_number']);
-                console.log(halls_for_current_cinema.length)
-                let hall_select = document.getElementById('hall_select');
-                hall_select.innerText = '';
-                hall_select.innerHTML = '<option>Зал: Всі</option>'
-                for(let i = 1; i<=halls_for_current_cinema.length; i++){
-                    console.log('Hello')
-                    hall_select.innerHTML += '<option>' + 'Зал ' + i + ' в ' + cinema_selected[0]['fields']['name_uk'] + '</option>'
-                }
-                let tbody = document.getElementById('tbody');
-                tbody.innerText = '';
-                for (let i = 0; i<session_cinema_filter.length; i++){
-                    console.log(session_cinema_filter[i])
-                    tbody.innerHTML += '<tr>'+'<th>'+ session_cinema_filter[i]['fields']['day'] + '<th>'+ session_cinema_filter[i]['fields']['time_start'].substring(0,5) + '<th>'+ response['films'][session_cinema_filter[i]['fields']['film']] + '<th>'+ session_cinema_filter[i]['fields']['hall'] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
+                console.log('Hall_work')
+                let table_shedule = document.getElementById('tbody')
+                let parse_hall = JSON.parse(response['current_hall'])
+                console.log(parse_hall)
+                document.getElementById('all_cinema').setAttribute('selected', 'false')
+                let film_parse = JSON.parse(response['films'])
+                document.getElementById('cinema_'+parse_hall[0]['fields']['cinema']).setAttribute('selected', 'true');
+                let session = JSON.parse(response['session'])
+                table_shedule.innerText = ''
+                let film_name_session = film_session_check(session, film_parse)
+                if (parse_hall.length > 1){
+                    console.log($('#cinema_select'))
+                    let all_cinema = $('#cinema_select').find('option#all_cinema')
+                    for (let i = 0; i < session.length; i++) {
+                        table_shedule.innerHTML += '<tr>' + '<th>' + session[i]['fields']['day'] + '<th>' + session[i]['fields']['time_start'].substring(0, 5) + '<th>' + film_name_session[i] + '<th>' + session[i]['fields']['hall'] + '<th>' + '90 грн' + '</th>' + '<th>' + '' + '</th>' + '</tr>'
+                    }
+                }else {
+                    for (let i = 0; i < session.length; i++) {
+                        table_shedule.innerHTML += '<tr>' + '<th>' + session[i]['fields']['day'] + '<th>' + session[i]['fields']['time_start'].substring(0, 5) + '<th>' + film_name_session[i] + '<th>' + session[i]['fields']['hall'] + '<th>' + '90 грн' + '</th>' + '<th>' + '' + '</th>' + '</tr>'
+                    }
                 }
             }
         })
+    })
+
+
+
+
+
+    $('#cinema_select').change(function (){
+        $.get({
+                url: "{% url 'cinema_filter' %}",
+                data: {'id_cinema': $('#cinema_select').find('option:selected').val()},
+                success: function (response){
+                    let cinema_selected = JSON.parse(response['cinema']);
+                    let halls_for_current_cinema = JSON.parse(response['halls']);
+                    let session_cinema_filter = JSON.parse(response['session']);
+                    let films = JSON.parse(response['films']);
+                    console.log(films)
+                    let name_film = film_session_check(session_cinema_filter, films)
+                    let hall_number = hall_session_check(session_cinema_filter, halls_for_current_cinema)
+                    let hall_select = document.getElementById('hall_select');
+                    hall_select.innerText = '';
+                    hall_select.innerHTML = '<option value="0">Зал: Всі</option>'
+                    if ($('#cinema_select').find('option:selected').val() === '0'){
+                        let cinema_name = cinema_name_for_hall(halls_for_current_cinema, cinema_selected)
+                        console.log(cinema_name)
+                        console.log(halls_for_current_cinema)
+                        console.log(cinema_selected)
+                        let film_select = document.getElementById('film_select');
+                        film_select.innerText = '';
+                        film_select.innerHTML = '<option value="0">Фільм: Всі</option>'
+                        for(let i = 0; i<halls_for_current_cinema.length; i++){
+                            hall_select.innerHTML += '<option value="' + halls_for_current_cinema[i]['pk'] +'">' + 'Зал ' + halls_for_current_cinema[i]['fields']['hall_number'] + ' в ' + cinema_name[i] + '</option>'
+                        }
+                        for (let j=0; j<=films.length; j++){
+                            console.log(films[j])
+                            film_select.innerHTML += '<option value="film'+ films[j]['pk'] +'">' + films[j]['fields']['name_uk'] +'</option>'
+                        }
+
+                    }
+                    else{
+                        for(let i = 1; i<=halls_for_current_cinema.length; i++){
+                            console.log('Else', halls_for_current_cinema)
+                            hall_select.innerHTML += '<option value="' + halls_for_current_cinema[i-1]['pk'] +'">' + 'Зал ' + i + ' в ' + cinema_selected[0]['fields']['name_uk'] + '</option>'
+                        }
+                        let tbody = document.getElementById('tbody');
+                        tbody.innerText = '';
+                        for (let i = 0; i<=session_cinema_filter.length; i++){
+                            tbody.innerHTML += '<tr>'+'<th>'+ session_cinema_filter[i]['fields']['day'] + '<th>'+ session_cinema_filter[i]['fields']['time_start'].substring(0,5) + '<th>'+ name_film[i] + '<th>'+ hall_number[i] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
+                        }
+                    }
+                }
+            })
+
     });
+
+
+
+
+
+
+
     $('#film_select').change(function (){
-        console.log($('#film_select').find('option:selected').val());
-    });
+        console.log($('#flexCheckDefault:checked').val())
+
+        let type_film = []
+        console.log(type_film)
+        $('#flexCheckDefault:checked').each(function (){
+            type_film.push($(this).val())
+
+        })
+        let current_type = type_film
+        console.log(current_type)
+        $.ajax({
+            url:'{% url 'film_filter' %}',
+            type: 'GET',
+            data:{
+                'film_id': $('#film_select').find('option:selected').val().replace(/\D+/g,""),
+                'cinema_id': $('#cinema_select').find('option:selected').val(),
+                'hall_id': $('#hall_select').find('option:selected').val().replace(/\G+/g, ""),
+                'film_type': JSON.stringify(current_type),
+                'startday': JSON.stringify($('input[name="dates"]').val().substring(0, 10).replaceAll('/', '-')),
+                'endday':  JSON.stringify($('input[name="dates"]').val().substring(13, 23).replaceAll('/', '-'))
+            },
+            success: function (response){
+                let hall = JSON.parse(response['hall'])
+                let cinema = JSON.parse(response['cinema'])
+                let film = JSON.parse(response['film'])
+                let session = JSON.parse(response['session'])
+                console.log(hall)
+                console.log(cinema)
+                console.log(film)
+                console.log(session)
+                let tbody = document.getElementById('tbody')
+                tbody.innerText= ''
+                if(hall.length >1 && cinema.length > 1){
+                    let films = film_session_check(session, film)
+                    let halls = hall_session_check(session, hall)
+                    console.log(films)
+                    console.log(halls)
+                    for (let i=0; i<session.length; i++){
+                        tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ films[i] + '<th>'+ halls[i] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
+                    }
+                }else{
+                for (let i=0; i<session.length; i++){
+                    tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ film[0]['fields']['name_uk'] + '<th>'+ hall[0]['fields']['hall_number'] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
+
+                }}
+            }
+        })
+    })
+
+
+
+
+    function film_session_check(session, films){
+        let name_film = []
+        for(let i=0; i<session.length; i++){
+            for(let j =0; j<films.length; j++){
+                if(session[i]['fields']['film'] === films[j]['pk']){
+                    name_film.push(films[j]['fields']['name_uk'])
+                }
+            }
+        }
+        return name_film
+    }
+
+
+
+
+
+    function hall_session_check(session, hall){
+        let hall_number = []
+        for (let i=0; i<session.length; i++){
+            for (let j=0; j<hall.length; j++){
+                if(session[i]['fields']['hall'] === hall[j]['pk'])
+                    hall_number.push(hall[j]['fields']['hall_number'])
+            }
+        }
+        return hall_number
+    }
+
+
+
+
+
+    function cinema_name_for_hall(hall, cinema){
+        let cinema_name = []
+        for(let i=0; i<hall.length; i++){
+            for(let j=0; j<cinema.length; j++){
+                if(hall[i]['fields']['cinema'] === cinema[j]['pk']){
+                    cinema_name.push(cinema[j]['fields']['name_uk'])
+                }
+            }
+        }
+        return cinema_name
+    }
+
+
+
+
     </script>
 {%endblock content%}

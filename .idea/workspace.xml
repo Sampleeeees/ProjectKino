@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'new commit'">
-      <change afterPath="$PROJECT_DIR$/cinema/templates/cinema/brooking.html" afterDir="false" />
+    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'add booking page'">
+      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0044_auto_20230205_1014.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0045_auto_20230205_1016.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0046_auto_20230205_1017.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0040_auto_20230205_1014.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0041_auto_20230205_1016.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0042_alter_user_sex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/cinema.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/cinema.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminlte/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/brooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/booking.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/views.py" afterDir="false" />
@@ -128,6 +135,14 @@
       <workItem from="1675361711068" duration="14893000" />
       <workItem from="1675421027703" duration="17000" />
       <workItem from="1675546501142" duration="5013000" />
+      <workItem from="1675551944661" duration="27000" />
+      <workItem from="1675584057906" duration="8937000" />
+      <workItem from="1675635222524" duration="604000" />
+      <workItem from="1675665579418" duration="9764000" />
+      <workItem from="1675692784615" duration="3022000" />
+      <workItem from="1675716590294" duration="3756000" />
+      <workItem from="1675750558525" duration="3257000" />
+      <workItem from="1675755443693" duration="7828000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
       <created>1673455811827</created>
@@ -164,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675421040772</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="'add booking page'">
+      <created>1675551956914</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675551956914</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +213,8 @@
     <MESSAGE value="'new commit with new edit file'" />
     <MESSAGE value="'mailing back-banner def'" />
     <MESSAGE value="'new commit'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'new commit'" />
+    <MESSAGE value="'add booking page'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'add booking page'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

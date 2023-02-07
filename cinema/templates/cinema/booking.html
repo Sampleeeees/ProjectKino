@@ -4,15 +4,16 @@
 
 {% block tittle %} Бронювання {% endblock %}
 {% block content %}
+    {% if user.is_authenticated %}
 <div class="cinemas-photo">
     <img class="w-100" src="{% static 'dist/img/cinemas.jpg' %}" alt="">
 </div>
     <div class="row">
-    <div class="col-3 text-center">
-        <div>
+    <div class="col-3  text-center">
+        <div class="col">
             <img class="m-2" height="450px" width="250px" src="{{ film.logo.url }}" alt="">
         </div>
-        <div>
+        <div class="col">
             <img class="" src="{% static 'dist/img/add.png' %}" alt="">
         </div>
     </div>
@@ -30,19 +31,19 @@
                 <p class="fs-4">Ціна в грн: </p><p style="margin-left: 10px; background: orange; padding: 0 10px;" class="fs-4"> 90</p>
             </div>
             <div class="col"></div>
-            <div class="col-3">
-                <p class="fs-5">Ваше замовлення:</p>
+            <div class="col-4 d-flex align-items-center">
+                <p class="fs-5">Ваше замовлення:</p><p style="margin-left: 10px;" id="user_book">0</p><p>грн</p>
             </div>
             <div style="margin-right: 10px;" class="col-4">
                 <div class="p-2 border border-3 border-warning rounded d-flex">
                     <div class="d-flex">
                         <p>Квитків:</p>
-                        <p style="margin-left: 10px;">0</p>
+                        <p id="current_count" style="margin-left: 10px;">0</p>
                     </div>
                     <div class="col"></div>
                     <div class="d-flex">
                         <p>Сума:</p>
-                        <p style="margin-left: 10px;">0 грн</p>
+                        <p id="current_price" style="margin-left: 10px;">0</p><p> грн </p>
                     </div>
                 </div>
             </div>
@@ -155,7 +156,7 @@
         </div>
         <div class="row justify-content-center mt-3">
             <div class="col-2">
-                <button type="button" class="border border-2 border-dark rounded"> Забронювати</button>
+                <button type="button" class="border border-2 border-dark rounded" onclick="booking_ticket(this)"> Забронювати</button>
             </div>
             <div class="col-2">
                 <button type="button" class="border border-2 border-dark rounded bg-success text-white pl-2 pr-2"> Купити</button>
@@ -164,4 +165,152 @@
         </div>
 
     </div>
+        {% else %}
+        <div>
+        <h2>Для того щоб купити квиток потрібно авторизуватися</h2>
+        </div>
+    {% endif %}
+    <script>
+    $(document).ready(function () {
+        $('#svgObject').click(function () {
+            console.log(event.target.id);
+            console.log(event.target.className.baseVal);
+            if (event.target.className.baseVal === 'unclick'){
+                let current_count = parseInt(document.getElementById('current_count').innerText);
+                let current_price = parseInt(document.getElementById('current_price').innerText);
+                console.log(current_count, current_price)
+                current_count = current_count + 1;
+                current_price = current_price + 90;
+                console.log(current_count, current_price)
+                document.getElementById('current_count').innerText = current_count;
+                document.getElementById('current_price').innerText = current_price;
+                document.getElementById(event.target.id).setAttribute('class', 'click');
+                document.getElementById(event.target.id).setAttribute('fill', 'yellow');
+            }
+            else if (event.target.className.baseVal === 'click'){
+                let current_count = parseInt(document.getElementById('current_count').innerText);
+                let current_price = parseInt(document.getElementById('current_price').innerText);
+                console.log(current_price, current_count);
+                current_count = current_count - 1;
+                current_price = current_price - 90;
+                console.log(current_price, current_count);
+                document.getElementById('current_count').innerText = current_count;
+                document.getElementById('current_price').innerText = current_price;
+                document.getElementById(event.target.id).setAttribute('class', 'unclick');
+                document.getElementById(event.target.id).setAttribute('fill', 'white');
+            }
+            else if (event.target.className.baseVal === 'book_place'){
+                swal('Місце вже заброньовано')
+            }
+            else if (event.target.className.baseVal === 'user_book'){
+                let id_booking = event.target.id;
+                swal ({
+                    title: 'Ви впевнені що хочете видалити бронювання ?',
+                    type: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: "Видалити",
+                    cancelButtonText: "Відмінити",
+                    confirmButtonColor: "#ff0055",
+                    cancelButtonColor: "#999999",
+                    reverseButtons: true,
+                    focusConfirm: false,
+                    focusCancel: true
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url:'{% url 'booking_delete' %}',
+                            type: 'GET',
+                            data: {
+                                id_booking: id_booking
+                            },
+                            success: function (){
+                                document.getElementById('id_booking').setAttribute('fill', 'white')
+                                document.getElementById('id_booking').setAttribute('class', 'unclick')
+                                console.log(id_booking)
+                            }
+                        })
+                        swal('Бронювання видалено!')
+                    }
+                    else if (result.dismiss === 'cancel'){
+                        swal('Бронювання не відмінено!')
+                    }
+                })
+            }
+        })
+    });
+
+    function booking_ticket() {
+        swal('Бронювання успішне!')
+        let booking_list = Object.entries(document.getElementsByClassName('click'))
+        let list_place = []
+        booking_list.forEach(function (item, i, booking_list){
+            console.log({{ session.id }})
+            dataL = {
+                id: item[1].attributes.id.value,
+                row: item[1].attributes.row.value,
+                place: item[1].attributes.place.value,
+                price: 90,
+                session_id: {{ session.id }}
+            }
+            list_place.push(dataL)
+        })
+
+        $.ajax({
+            url: '{% url 'list_booking' %}',
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                list_place: JSON.stringify(list_place)
+            },
+            success: function (response){
+                document.getElementById('current_price').innerText = 0;
+                document.getElementById('current_count').innerText = 0;
+            }
+        })
+    }
+
+
+    $(document).ready(function (){
+            $.ajax({
+                url: '{% url 'list_booking' %}',
+                type: 'GET',
+                data: {
+                    session: {{ session.id }}
+                },
+                success: function (response){
+                    let data = JSON.parse(response['ticket_user_data']);
+                    let all_data = JSON.parse(response['ticket_data']);
+                    console.log(all_data)
+
+                    let sum_user = 0;
+                    data.forEach(function (item, i, data){
+                        sum_user = i + 1
+                        document.getElementById(item.pk).setAttribute('fill', 'red')
+                        document.getElementById(item.pk).setAttribute('class', 'user_book')
+                    })
+                    document.getElementById('user_book').innerText = sum_user*90;
+
+                    if (all_data != 0){
+                        all_data.forEach(function (item, i, all_data){
+                            console.log(i)
+                            console.log(item.pk)
+                            document.getElementById(item.pk).setAttribute('fill', 'black')
+                            document.getElementById(item.pk).setAttribute('class', 'book_place')
+                        })
+                    }else{
+                        let all = document.getElementsByClassName('book_user');
+                        let i;
+                        for(i = 0; i < all.length; i++){
+                            all[i].setAttribute('fill', 'white')
+                            all[i].setAttribute('class', 'unclick')
+                        }
+                    }
+                }
+            })
+        })
+
+
+
+
+    </script>
 {% endblock %}

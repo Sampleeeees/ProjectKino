@@ -22,7 +22,11 @@ urlpatterns = [
     path('contacts/', views.contacts, name='contacts'),
     path('usercabinet/', views.cabinet, name='cabinet'),
     path('booking/<int:pk>', views.booking, name='booking'),
+    path('booking/delete', views.booking_delete, name='booking_delete'),
+    path('booking/list_booking', views.list_booking, name='list_booking'),
 
 
     path('timetable/cinema_filter', views.cinema_filter, name='cinema_filter'),
+    path('timetable/hall_filter', views.hall_filter, name='hall_filter'),
+    path('timetable/film_filter', views.film_filter, name='film_filter'),
 ]

@@ -90,9 +90,9 @@ class Session(models.Model):
 class Ticket(models.Model):
     row = models.IntegerField()
     place = models.ImageField()
-    price = models.DecimalField(decimal_places=2, max_digits=3 )
+    price = models.FloatField()
     session = models.ForeignKey(Session, verbose_name='Сеанс', on_delete=models.CASCADE, blank=True, null=True)
-    # user = models.ForeignKey('user', verbose_name='Користувач', on_delete=models.CASCADE)
+    user = models.ForeignKey('user.User', verbose_name='Користувач', on_delete=models.CASCADE, blank=True, null=True)
 
 
 # Pages

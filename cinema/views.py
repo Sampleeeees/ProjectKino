@@ -1,4 +1,5 @@
 import datetime
+import json
 
 import faker
 from django.contrib.auth import authenticate, login
@@ -227,8 +228,12 @@ class FilmDetailView(View):
 def cinema_filter(request):
     response = request.GET.get('id_cinema')
     print(response)
-    if response == 'Кінотеатр':
-        return JsonResponse({'null': None})
+    if response == '0':
+        current_cinema = serializers.serialize('json', Cinema.objects.all())
+        halls = serializers.serialize('json', Hall.objects.all())
+        session = serializers.serialize('json', Session.objects.all())
+        films = serializers.serialize('json', Film.objects.all())
+        return JsonResponse({'cinema': current_cinema, 'halls': halls, 'session': session, 'films': films}, status=200)
     else:
         cinema = Cinema.objects.filter(pk=response)
         print(cinema)
@@ -237,6 +242,58 @@ def cinema_filter(request):
         session = serializers.serialize('json', Session.objects.filter(hall__cinema=cinema.get(pk=response)))
         films = serializers.serialize('json', Film.objects.all())
         return JsonResponse({'cinema': current_cinema, 'halls': halls, 'session': session, 'films': films}, status=200)
+
+def hall_filter(request):
+    response_hall = request.GET.get('id_hall')
+    print(response_hall)
+    if response_hall == '0':
+        cinema = Cinema.objects.all()
+        sess = Session.objects.all()
+        current_hall = serializers.serialize('json', Hall.objects.all())
+        current_cinema_for_hall = serializers.serialize('json', Cinema.objects.all())
+        all_hall_in_cinema = serializers.serialize('json', Hall.objects.all())
+        session = serializers.serialize('json', Session.objects.all())
+        films = serializers.serialize('json', Film.objects.all())
+        return JsonResponse({'current_hall': current_hall, 'current_cinema': current_cinema_for_hall, 'all_hall': all_hall_in_cinema, 'session': session, 'films':films, 'cinema': cinema}, status=200)
+
+    else:
+        hall = Hall.objects.get(pk=response_hall)
+        cinema = Cinema.objects.get(pk=hall.cinema.id)
+        sess = Session.objects.filter(hall=hall.id)
+        current_hall = serializers.serialize('json', Hall.objects.filter(pk=response_hall))
+        current_cinema_for_hall = serializers.serialize('json', Cinema.objects.filter(pk=hall.cinema.id))
+        all_hall_in_cinema = serializers.serialize('json', Hall.objects.filter(cinema=cinema.id))
+        session = serializers.serialize('json', Session.objects.filter(hall=hall.id))
+        films = serializers.serialize('json', Film.objects.all())
+
+
+        return JsonResponse({'current_hall': current_hall, 'current_cinema': current_cinema_for_hall, 'all_hall': all_hall_in_cinema, 'session': session, 'films':films}, status=200)
+
+def film_filter(request):
+    film_id = request.GET.get('film_id')
+    cinema_id = request.GET.get('cinema_id')
+    hall_id = request.GET.get('hall_id')
+    film_type = request.GET.get('film_type')
+    start_day = request.GET.get('startday')
+    end_day = request.GET.get('endday')
+
+    print(film_id, cinema_id, hall_id,  film_type, start_day, end_day)
+
+
+    if hall_id != '0' and cinema_id != 0:
+        hall = serializers.serialize('json', Hall.objects.filter(pk=hall_id))
+        cinema = serializers.serialize('json', Cinema.objects.filter(pk=cinema_id))
+        film = serializers.serialize('json', Film.objects.filter(pk=film_id))
+        session = serializers.serialize('json', Session.objects.filter(film=film_id))
+        print(hall)
+        return JsonResponse({'hall': hall, 'cinema': cinema, 'film': film, 'session': session}, status=200)
+    else:
+        hall = serializers.serialize('json', Hall.objects.all())
+        cinema = serializers.serialize('json', Cinema.objects.all())
+        film = serializers.serialize('json', Film.objects.filter(pk=film_id))
+        session = serializers.serialize('json', Session.objects.filter(film=film_id))
+        return JsonResponse({'hall': hall, 'cinema': cinema, 'film': film, 'session': session}, status=200)
+
 
 def booking(request, pk):
     current_session = Session.objects.get(pk=pk)
@@ -250,4 +307,42 @@ def booking(request, pk):
         'session': current_session,
         'date': date
     }
-    return render(request, 'cinema/brooking.html', context=context)
+    return render(request, 'cinema/booking.html', context=context)
+
+def booking_delete(request):
+    id_booking = request.GET.get('id_booking')
+    print(id_booking)
+    delete_booking = get_object_or_404(Ticket, id=id_booking)
+    delete_booking.delete()
+    return HttpResponse()
+
+def list_booking(request):
+    if request.POST:
+        list_place = request.POST.get('list_place')
+        instance_place = json.loads(list_place)
+
+        for data in instance_place:
+            id = data['id']
+            row = data['row']
+            place = data['place']
+            price = data['price']
+            user = request.user.pk
+            session_id = data['session_id']
+            if request.POST:
+                ticket = Ticket()
+                ticket.id = id
+                ticket.row = row
+                ticket.place = place
+                ticket.price = price
+                ticket.user_id = user
+                ticket.session_id = session_id
+                ticket.save()
+    user = request.user.pk
+    session = request.GET.get('session')
+    print(session)
+    all_user_tickets = Ticket.objects.filter(user_id=user, session_id=session)
+    all_tickets = Ticket.objects.filter(session_id=session).exclude(user_id=user)
+    ticket_user_data = serializers.serialize('json', all_user_tickets)
+    ticket_data = serializers.serialize('json', all_tickets)
+
+    return JsonResponse({'ticket_user_data': ticket_user_data, 'ticket_data': ticket_data}, status=200)
