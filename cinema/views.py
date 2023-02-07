@@ -245,28 +245,29 @@ def cinema_filter(request):
 
 def hall_filter(request):
     response_hall = request.GET.get('id_hall')
+    start_day = request.GET.get('startday')
+    end_day = request.GET.get('endday')
+
+    start = start_day[1:5] + '-' + start_day[6:8] + '-' + start_day[9:11]
+    end = end_day[1:5] + '-' + end_day[6:8] + '-' + end_day[9:11]
     print(response_hall)
     if response_hall == '0':
-        cinema = Cinema.objects.all()
-        sess = Session.objects.all()
+        cinema = serializers.serialize('json', Cinema.objects.all())
         current_hall = serializers.serialize('json', Hall.objects.all())
         current_cinema_for_hall = serializers.serialize('json', Cinema.objects.all())
         all_hall_in_cinema = serializers.serialize('json', Hall.objects.all())
-        session = serializers.serialize('json', Session.objects.all())
+        session = serializers.serialize('json', Session.objects.filter(day__gte=start, day__lte=end))
         films = serializers.serialize('json', Film.objects.all())
         return JsonResponse({'current_hall': current_hall, 'current_cinema': current_cinema_for_hall, 'all_hall': all_hall_in_cinema, 'session': session, 'films':films, 'cinema': cinema}, status=200)
 
     else:
         hall = Hall.objects.get(pk=response_hall)
         cinema = Cinema.objects.get(pk=hall.cinema.id)
-        sess = Session.objects.filter(hall=hall.id)
         current_hall = serializers.serialize('json', Hall.objects.filter(pk=response_hall))
         current_cinema_for_hall = serializers.serialize('json', Cinema.objects.filter(pk=hall.cinema.id))
         all_hall_in_cinema = serializers.serialize('json', Hall.objects.filter(cinema=cinema.id))
-        session = serializers.serialize('json', Session.objects.filter(hall=hall.id))
+        session = serializers.serialize('json', Session.objects.filter(hall=hall.id, day__gte=start, day__lte=end))
         films = serializers.serialize('json', Film.objects.all())
-
-
         return JsonResponse({'current_hall': current_hall, 'current_cinema': current_cinema_for_hall, 'all_hall': all_hall_in_cinema, 'session': session, 'films':films}, status=200)
 
 def film_filter(request):
@@ -277,21 +278,30 @@ def film_filter(request):
     start_day = request.GET.get('startday')
     end_day = request.GET.get('endday')
 
-    print(film_id, cinema_id, hall_id,  film_type, start_day, end_day)
+    start = start_day[1:5] + '-' + start_day[6:8]+ '-' + start_day[9:11]
+    end = end_day[1:5] + '-' + end_day[6:8] + '-' + end_day[9:11]
+
+    print(film_id)
 
 
-    if hall_id != '0' and cinema_id != 0:
+
+    if hall_id != '0' and cinema_id != '0' and film_id != '0':
         hall = serializers.serialize('json', Hall.objects.filter(pk=hall_id))
         cinema = serializers.serialize('json', Cinema.objects.filter(pk=cinema_id))
         film = serializers.serialize('json', Film.objects.filter(pk=film_id))
-        session = serializers.serialize('json', Session.objects.filter(film=film_id))
-        print(hall)
+        session = serializers.serialize('json', Session.objects.filter(film=film_id, day__gte=start, day__lte=end))
+        return JsonResponse({'hall': hall, 'cinema': cinema, 'film': film, 'session': session}, status=200)
+    elif hall_id == '0' and cinema_id == '0' and film_id != '0':
+        hall = serializers.serialize('json', Hall.objects.all())
+        cinema = serializers.serialize('json', Cinema.objects.all())
+        film = serializers.serialize('json', Film.objects.filter(pk=film_id))
+        session = serializers.serialize('json', Session.objects.filter(film=film_id, day__gte=start, day__lte=end))
         return JsonResponse({'hall': hall, 'cinema': cinema, 'film': film, 'session': session}, status=200)
     else:
         hall = serializers.serialize('json', Hall.objects.all())
         cinema = serializers.serialize('json', Cinema.objects.all())
-        film = serializers.serialize('json', Film.objects.filter(pk=film_id))
-        session = serializers.serialize('json', Session.objects.filter(film=film_id))
+        film = serializers.serialize('json', Film.objects.all())
+        session = serializers.serialize('json', Session.objects.filter(day__gte=start, day__lte=end))
         return JsonResponse({'hall': hall, 'cinema': cinema, 'film': film, 'session': session}, status=200)
 
 

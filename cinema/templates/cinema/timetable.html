@@ -32,43 +32,12 @@
                     <select class="form-select" id="hall_select" aria-label="Default select example">
                         <option id="all_hall" value="0" selected>{% trans 'Зал: Всі' %}</option>
                         {% for hall in hall_list %}
-                            <option value="hall{{ hall.pk }}">Зал {{ hall.hall_number }} в {{ hall.cinema.name_uk }}</option>
+                            <option value="{{ hall.pk }}">Зал {{ hall.hall_number }} в {{ hall.cinema.name_uk }}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="col-1">
 
-                </div>
-            </div>
-        </div>
-        <div class="check-form">
-            <div class="row mt-3 mb-3">
-                <div class="col-2 text-end">
-                    <p class="fw-bold">{% trans 'Дивитися тільки: ' %}</p>
-                </div>
-                <div class="col-1">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="2d" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                2D
-                            </label>
-                        </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="3d" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                3D
-                            </label>
-                        </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="4d" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                IMAX
-                            </label>
-                        </div>
                 </div>
             </div>
         </div>
@@ -111,6 +80,8 @@
             </div>
         </div>
     <script>
+
+
     $('input[name="dates"]').daterangepicker({locale: {'format':'YYYY-MM-DD'}});
     let startday = $('input[name="dates"]').val().substring(0, 10).replaceAll('/', '-');
     let endday = $('input[name="dates"]').val().substring(13, 23);
@@ -120,14 +91,17 @@
         console.log($('input[name="dates"]').val().substring(13, 23).replaceAll('/', '-'), )
     })
 
-    $('#hall_select').change(function (){
 
+
+    $('#hall_select').change(function (){
         console.log($('#hall_select').find('option:selected').val());
         $.ajax({
             url: '{% url 'hall_filter' %}',
             type: 'GET',
             data: {
-                'id_hall': $('#hall_select').find('option:selected').val().replace(/\D+/g,"")
+                'id_hall': $('#hall_select').find('option:selected').val().replace(/\D+/g,""),
+                'startday': JSON.stringify($('input[name="dates"]').val().substring(0, 10).replaceAll('/', '-')),
+                'endday':  JSON.stringify($('input[name="dates"]').val().substring(13, 23).replaceAll('/', '-'))
             },
             success: function (response){
                 console.log('Hall_work')
@@ -144,16 +118,17 @@
                     console.log($('#cinema_select'))
                     let all_cinema = $('#cinema_select').find('option#all_cinema')
                     for (let i = 0; i < session.length; i++) {
-                        table_shedule.innerHTML += '<tr>' + '<th>' + session[i]['fields']['day'] + '<th>' + session[i]['fields']['time_start'].substring(0, 5) + '<th>' + film_name_session[i] + '<th>' + session[i]['fields']['hall'] + '<th>' + '90 грн' + '</th>' + '<th>' + '' + '</th>' + '</tr>'
+                        table_shedule.innerHTML += '<tr>' + '<th>' + session[i]['fields']['day'] + '<th>' + session[i]['fields']['time_start'].substring(0, 5) + '<th>' + film_name_session[i] + '<th>' + session[i]['fields']['hall'] + '<th>' + '90 грн' + '</th>' + '<th>' + '<a id="'+ session[i]['pk'] +'" href="/cinema/booking/'+ session[i]['pk'] +'">' + '<svg width="30px" height="30px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" ">'+ '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"></path>' +'</svg>' + '</a>' +'</th>' + '</tr>'
                     }
                 }else {
                     for (let i = 0; i < session.length; i++) {
-                        table_shedule.innerHTML += '<tr>' + '<th>' + session[i]['fields']['day'] + '<th>' + session[i]['fields']['time_start'].substring(0, 5) + '<th>' + film_name_session[i] + '<th>' + session[i]['fields']['hall'] + '<th>' + '90 грн' + '</th>' + '<th>' + '' + '</th>' + '</tr>'
+                        table_shedule.innerHTML += '<tr>' + '<th>' + session[i]['fields']['day'] + '<th>' + session[i]['fields']['time_start'].substring(0, 5) + '<th>' + film_name_session[i] + '<th>' + session[i]['fields']['hall'] + '<th>' + '90 грн' + '</th>' + '<th>' + '<a id="'+ session[i]['pk'] +'" href="/cinema/booking/'+ session[i]['pk'] +'">' + '<svg width="30px" height="30px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" ">'+ '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"></path>' +'</svg>' + '</a>' + '</th>' + '</tr>'
                     }
                 }
             }
         })
     })
+
 
 
 
@@ -176,12 +151,12 @@
                     hall_select.innerHTML = '<option value="0">Зал: Всі</option>'
                     if ($('#cinema_select').find('option:selected').val() === '0'){
                         let cinema_name = cinema_name_for_hall(halls_for_current_cinema, cinema_selected)
-                        console.log(cinema_name)
-                        console.log(halls_for_current_cinema)
-                        console.log(cinema_selected)
                         let film_select = document.getElementById('film_select');
                         film_select.innerText = '';
                         film_select.innerHTML = '<option value="0">Фільм: Всі</option>'
+                        console.log(cinema_name)
+                        console.log(halls_for_current_cinema)
+                        console.log(cinema_selected)
                         for(let i = 0; i<halls_for_current_cinema.length; i++){
                             hall_select.innerHTML += '<option value="' + halls_for_current_cinema[i]['pk'] +'">' + 'Зал ' + halls_for_current_cinema[i]['fields']['hall_number'] + ' в ' + cinema_name[i] + '</option>'
                         }
@@ -192,19 +167,30 @@
 
                     }
                     else{
+                        let film_select = document.getElementById('film_select');
+                        film_select.innerText = '';
+                        film_select.innerHTML = '<option value="0">Фільм: Всі</option>'
+
                         for(let i = 1; i<=halls_for_current_cinema.length; i++){
                             console.log('Else', halls_for_current_cinema)
                             hall_select.innerHTML += '<option value="' + halls_for_current_cinema[i-1]['pk'] +'">' + 'Зал ' + i + ' в ' + cinema_selected[0]['fields']['name_uk'] + '</option>'
                         }
+
+                        for (let j=0; j<=films.length; j++){
+                            console.log(films[j])
+                            film_select.innerHTML += '<option value="film'+ films[j]['pk'] +'">' + films[j]['fields']['name_uk'] +'</option>'
+                        }
+
                         let tbody = document.getElementById('tbody');
                         tbody.innerText = '';
                         for (let i = 0; i<=session_cinema_filter.length; i++){
                             tbody.innerHTML += '<tr>'+'<th>'+ session_cinema_filter[i]['fields']['day'] + '<th>'+ session_cinema_filter[i]['fields']['time_start'].substring(0,5) + '<th>'+ name_film[i] + '<th>'+ hall_number[i] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
                         }
                     }
+
                 }
             })
-
+        film_select()
     });
 
 
@@ -214,16 +200,14 @@
 
 
     $('#film_select').change(function (){
-        console.log($('#flexCheckDefault:checked').val())
+        film_select()
+    })
 
-        let type_film = []
-        console.log(type_film)
-        $('#flexCheckDefault:checked').each(function (){
-            type_film.push($(this).val())
+    $('input[name="dates"]').change(function (){
+        film_select()
+    })
 
-        })
-        let current_type = type_film
-        console.log(current_type)
+    function film_select(){
         $.ajax({
             url:'{% url 'film_filter' %}',
             type: 'GET',
@@ -231,7 +215,6 @@
                 'film_id': $('#film_select').find('option:selected').val().replace(/\D+/g,""),
                 'cinema_id': $('#cinema_select').find('option:selected').val(),
                 'hall_id': $('#hall_select').find('option:selected').val().replace(/\G+/g, ""),
-                'film_type': JSON.stringify(current_type),
                 'startday': JSON.stringify($('input[name="dates"]').val().substring(0, 10).replaceAll('/', '-')),
                 'endday':  JSON.stringify($('input[name="dates"]').val().substring(13, 23).replaceAll('/', '-'))
             },
@@ -249,20 +232,26 @@
                 if(hall.length >1 && cinema.length > 1){
                     let films = film_session_check(session, film)
                     let halls = hall_session_check(session, hall)
-                    console.log(films)
+
+                    for (let i=0; i<session.length; i++){
+                        tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ films[i] + '<th>'+ halls[i] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '<a id="'+ session[i]['pk'] +'" href="/cinema/booking/'+ session[i]['pk'] +'">' + '<svg width="30px" height="30px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" ">'+ '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"></path>' +'</svg>' + '</a>' + '</th>' +'</tr>'
+                    }
+                }else if(hall.length === 0 && cinema.length === 0 && film !== 0 ) {
+                    let halls = hall_session_check(session, hall)
                     console.log(halls)
                     for (let i=0; i<session.length; i++){
-                        tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ films[i] + '<th>'+ halls[i] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
-                    }
-                }else{
+                    tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ film[0]['fields']['name_uk'] + '<th>'+ halls[i] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '<a id="'+ session[i]['pk'] +'" href="/cinema/booking/'+ session[i]['pk'] +'">' + '<svg width="30px" height="30px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" ">'+ '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"></path>' +'</svg>' + '</a>' + '</th>' +'</tr>'
+
+                }
+                }
+                else{
                 for (let i=0; i<session.length; i++){
-                    tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ film[0]['fields']['name_uk'] + '<th>'+ hall[0]['fields']['hall_number'] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '</th>' +'</tr>'
+                    tbody.innerHTML += '<tr>'+'<th>'+ session[i]['fields']['day'] + '<th>'+ session[i]['fields']['time_start'].substring(0,5) + '<th>'+ film[0]['fields']['name_uk'] + '<th>'+ hall[0]['fields']['hall_number'] + '<th>'+ '90 грн' +'</th>'+ '<th>' + '<a id="'+ session[i]['pk'] +'" href="/cinema/booking/'+ session[i]['pk'] +'">' + '<svg width="30px" height="30px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" ">'+ '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"></path>' +'</svg>' + '</a>' + '</th>' +'</tr>'
 
                 }}
             }
         })
-    })
-
+    }
 
 
 

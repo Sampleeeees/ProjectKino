@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'add booking page'">
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0044_auto_20230205_1014.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0045_auto_20230205_1016.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0046_auto_20230205_1017.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0040_auto_20230205_1014.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0041_auto_20230205_1016.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0042_alter_user_sex.py" afterDir="false" />
+    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'filter cinema, hall, film'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminlte/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminlte/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/brooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/filmdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/filmdetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/templates/cinema/timetable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cinema/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +133,10 @@
       <workItem from="1675692784615" duration="3022000" />
       <workItem from="1675716590294" duration="3756000" />
       <workItem from="1675750558525" duration="3257000" />
-      <workItem from="1675755443693" duration="7828000" />
+      <workItem from="1675755443693" duration="8134000" />
+      <workItem from="1675763620401" duration="35000" />
+      <workItem from="1675768929457" duration="5628000" />
+      <workItem from="1675802451930" duration="8873000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
       <created>1673455811827</created>
@@ -186,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675551956914</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="'filter cinema, hall, film'">
+      <created>1675763570829</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675763570829</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +215,8 @@
     <MESSAGE value="'mailing back-banner def'" />
     <MESSAGE value="'new commit'" />
     <MESSAGE value="'add booking page'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'add booking page'" />
+    <MESSAGE value="'filter cinema, hall, film'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'filter cinema, hall, film'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -64,17 +64,13 @@
                         <img src="" alt="">
                     </div>
                     {% endfor %}
-                    <h1 class="text-center">{% trans 'Розклад сеансів кінотеатру' %}</h1>
-                </div>
-                <div class="col-5 ">
-                    <select class="form-select w-50 mt-2 " aria-label="Default select example">
-                        <option selected>{% trans 'Кінотеатр' %}</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
                 </div>
             </div>
+        <div class="row justify-content-center">
+        <div class="col-3">
+            <a class="btn bg-success mt-4 mb-4 fs-4 text-white " href="{% url 'timetable' %}">Купити квиток</a>
+        </div>
+        </div>
 
 
 {% endblock %}

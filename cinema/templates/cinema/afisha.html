@@ -23,7 +23,7 @@
                             <p>{% trans 'Зараз в кіно' %}</p>
                             <img height="180px" width="150px" class="logo-afisha" src="{{ film.logo.url }}" alt="">
                             <a class="btn-cn d-block pt-2 pb-2" href="{% url 'film_detail' pk=film.id %}">{{ film.name_uk }}</a>
-                            <a href="#" class="btn text-white bg-film">{% trans 'Купити квиток' %}</a>
+                            <a href="{% url 'timetable' %}" class="btn text-white bg-film">{% trans 'Купити квиток' %}</a>
                         </div>
                         {% endif %}
                     {% endfor %}
