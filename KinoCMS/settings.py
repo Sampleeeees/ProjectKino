@@ -15,29 +15,9 @@ from pathlib import Path
 from django.urls import reverse_lazy
 from django.core.exceptions import ImproperlyConfigured
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-env = environ.Env()
-environ.Env.read_env()
-
-
-
-SECRET_KEY = env('SECRET_KEY')
-
-DEBUG = env('DEBUG')
-
-ALLOWED_HOSTS = ['*']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
@@ -96,16 +76,7 @@ WSGI_APPLICATION = 'KinoCMS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+
 
 
 # Password validation
@@ -170,19 +141,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIAFILES_DIRS = [
-    os.path.join(BASE_DIR, 'media')
-]
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
-)
 
 
 
@@ -191,14 +150,10 @@ LOCALE_PATHS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#smtp
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'rubetsdima2004@gmail.com'
-EMAIL_HOST_PASSWORD = 'gheslkacgwwucmwa'
-EMAIL_PORT = 587
 
 
-#CELERY settings
-CELERY_BROKER_URL = "redis://localhost:6379"
-CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+try:
+    from .local_settings import *
+except ImportError:
+    from .prod_settings import *
