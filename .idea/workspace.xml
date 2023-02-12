@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'complite filter'">
+    <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'delpoying'">
       <change beforePath="$PROJECT_DIR$/.env.prod" beforeDir="false" afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/KinoCMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KinoCMS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -390,7 +391,7 @@
       <workItem from="1676153157271" duration="1764000" />
       <workItem from="1676154929113" duration="6833000" />
       <workItem from="1676193498380" duration="4616000" />
-      <workItem from="1676199502267" duration="12158000" />
+      <workItem from="1676199502267" duration="12210000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
       <created>1673455811827</created>
@@ -448,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675812421362</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="'delpoying'">
+      <created>1676239379302</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676239379302</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +490,8 @@
     <MESSAGE value="'add booking page'" />
     <MESSAGE value="'filter cinema, hall, film'" />
     <MESSAGE value="'complite filter'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'complite filter'" />
+    <MESSAGE value="'delpoying'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'delpoying'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
