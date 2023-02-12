@@ -19,7 +19,8 @@ from django.core.exceptions import ImproperlyConfigured
 # SECURITY WARNING: don't run with debug turned on in production!
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+env = environ.Env()
+environ.Env.read_env()
 
 # Application definition
 
@@ -50,6 +51,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'KinoCMS.urls'
+
+
 
 TEMPLATES = [
     {
@@ -138,10 +141,22 @@ DATE_INPUT_FORMATS = ['%d/%m/%Y']
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "mediafiles"
 
+MEDIAFILES_DIRS = [
+    os.path.join(BASE_DIR, 'media')
+]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
 
 
 

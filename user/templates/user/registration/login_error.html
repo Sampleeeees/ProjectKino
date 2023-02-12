@@ -1,0 +1,42 @@
+{% extends 'user/base_auth_register.html' %}
+{% block content %}
+    <form  method="POST">
+<div class="login-box ">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="{% url 'index' %}" class="h1"><b>Kino</b>CMS</a>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+            Логін або пароль не вірний
+         </div>
+      <p class="login-box-msg">Увійдіть щоб почати</p>
+
+
+          {% csrf_token %}
+        <div class="input-group mb-3">
+          {{ form.nickname }}
+        </div>
+        <div class="input-group mb-3">
+          {{ form.password }}
+          </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="text-center">
+            <button type="submit" class=" btn btn-dark justify-content-center ">Увійти</button>
+          </div>
+          <!-- /.col -->
+        </div>
+
+      <p class="mb-0 mt-3">
+        <a href="{% url 'register' %}" class="text-center">Зареєструвати нового користувача</a>
+      </p>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+<!-- /.login-box -->
+    </form>
+{% endblock %}
