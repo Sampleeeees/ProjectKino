@@ -5,294 +5,256 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf763ac-316b-413d-a39d-ea5621a7b324" name="Changes" comment="'complite filter'">
-      <change afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.prod.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile.prod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0009_auto_20230111_1148.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0010_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0011_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0012_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0013_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0014_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0015_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0016_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0017_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0018_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0019_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0020_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0021_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0022_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0023_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0024_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0025_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0026_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0027_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0028_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0029_auto_20230121_1100.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0030_auto_20230121_1116.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0031_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0032_auto_20230125_0044.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0033_auto_20230125_0605.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0034_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0035_auto_20230125_0833.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0036_auto_20230125_0838.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0037_auto_20230125_0838.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0038_auto_20230125_0840.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0039_auto_20230125_0845.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0040_auto_20230125_0859.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0041_auto_20230125_0900.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0047_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0048_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0049_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0050_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0051_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0052_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/migrations/0053_alter_speedcarousel_speed_carousel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/tasks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/chartjs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminlte/templates/adminlte/useredit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.prod.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/changelists.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/forms.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/nav_sidebar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/responsive_rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/vendor/select2/LICENSE-SELECT2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/vendor/select2/select2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/vendor/select2/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/css/widgets.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/fonts/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/fonts/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/fonts/Roboto-Bold-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/fonts/Roboto-Light-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/fonts/Roboto-Regular-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/calendar-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_off.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-addlink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-alert.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-changelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-clock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-deletelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-no.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-unknown-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-unknown.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-viewlink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/icon-yes.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/inline-delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/selector-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/sorting-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/tooltag-add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/img/tooltag-arrowright.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/SelectBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/SelectFilter2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/admin/RelatedObjectLookups.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/autocomplete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/cancel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/change_form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/collapse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/inlines.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/jquery.init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/nav_sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/popup_response.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/prepopulate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/prepopulate_init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/urlify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/bn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/bs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/dsb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/hsb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/hy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ka.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/pt-BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/sr-Cyrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/tk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/zh-CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/i18n/zh-TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/select2.full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/select2/select2.full.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/modeltranslation/css/tabbed_translation_fields.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/modeltranslation/js/clearable_inputs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/modeltranslation/js/force_jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/modeltranslation/js/tabbed_translation_fields.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/cinema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/moment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/bootstrap/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/brands.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/brands.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/fontawesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/fontawesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/regular.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/regular.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/solid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/solid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/svg-with-js.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/svg-with-js.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/v4-shims.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/css/v4-shims.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/fontawesome-free/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery-ui.theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery-ui.theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery.slim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery.slim.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/jquery.slim.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plugins/jquery/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/authenticate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/backends.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0008_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0009_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0010_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0011_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0012_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0013_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0014_auto_20230112_1313.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0015_alter_user_card_number.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0016_auto_20230114_0725.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0017_auto_20230114_0728.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0018_alter_user_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0019_auto_20230114_0741.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0020_auto_20230114_0748.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0021_auto_20230120_2245.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0022_auto_20230121_1100.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0023_auto_20230121_1116.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0024_auto_20230124_0023.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0025_auto_20230125_0044.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0026_alter_user_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0027_auto_20230125_0832.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0028_alter_user_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0029_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0030_auto_20230125_0838.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0031_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0032_auto_20230125_0843.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0033_auto_20230125_0843.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0034_auto_20230125_0843.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0035_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0036_alter_user_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0037_auto_20230125_0900.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0043_auto_20230210_0946.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0044_alter_user_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0045_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0046_alter_user_sex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0047_auto_20230211_2248.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0048_auto_20230211_2251.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0049_auto_20230211_2254.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/base_auth_register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/registration/login_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/registration/login_error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user/registration/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.prod" beforeDir="false" afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/KinoCMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KinoCMS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KinoCMS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinoCMS/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/cinema/context_processors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locale/en/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/locale/en/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locale/uk/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/locale/uk/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/req.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KinoCMS/prod_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinoCMS/prod_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Banner/TopBannerImage/addphoto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Banner/TopBannerImage/maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Banner/TopBannerImage/maverick_7ptg5aO.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/ContactImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/ContactImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1_WzM4VXq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/ContactImage/img2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/ContactImage/img3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/IMG_20211020_105052.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/IMG_20211020_105052_oTObAFr.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/icons8-твиттер-120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/icons8-твиттер-120_DOA6WBw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/icons8-твиттер-120_jhG3HgZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/icons8-твиттер-120_mtjOkw9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/NewsAndDiscountLogo/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/PageImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/PageImage/adam2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/PageImage/adamlogo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/PageImage/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/PageImage/img1_Q2aAlA4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/adamlogo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/adamlogo_B21YU5w.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/adamlogo_FwzW2xF.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/icons8-твиттер-120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/img2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/photo_2022-11-26_11-32-47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/TopBannerImage/photo_2022-11-26_11-32-47_Z7lKsIY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Top_Gun-_Maverick_FsI0aJt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Top_Gun-_Maverick_qkiZqQh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam1_Au0lg51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam1_BpmqTve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam1_IJGR2AG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam1_u4Nn534.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adam2_ARJWyJs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adamlogo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adamlogo_1WOhFpi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adamlogo_Wc9MkrM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adamlogo_XPMeRPC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/adamlogo_qQHrtPW.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/addphoto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/addphoto_4XD2z82.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/addphoto_mftPx2g.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/logo/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/logo/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/logo/adam1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/logo/adam1_05xMLtj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/logo/icons8-твиттер-120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/adam2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/img1_IPSMBE9.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/img2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cinema/top_banner/Зняток_екрана_як_2022-11-04_08-34-55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/0002-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/0002-1_bfUAz8v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_0QkJA8U.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_1QUOtzs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_1yTKfVd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_4I8i4IB.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_6HD5P7c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_8CTPZi4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_Ef33svx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_ErwDvtI.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_J6YiQMT.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_JsA18FY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_KNvvj2D.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_PVabz8R.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_RJzA2bK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_TFzg5RG.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_TvrPeix.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_UAjuKS5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_W6F9fcX.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_YNaqsQR.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_asSnlji.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_fFwI7u1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_k8amWgc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_kyVRV6m.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adam2_vXmtSuq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addcinema.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addcinema_Ifx04U9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addcinema_UEdSDsd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adddiscount.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adddiscount_BYQP84u.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adddiscount_NXBfJvq.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addfilm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addfilm_eOIkyXM.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addhall.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addhall_FFksGis.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addnews.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addnews_1QEYmzq.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/addnews_VVCdmc2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adduser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adduser_BI3sJaH.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adduser_BKz7un8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/file/mailing/adduser_SEKLdo6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM._V1_FMjpg_UX1000_.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_4Tvno4y.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_A4WjJ5X.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_BBEzmWU.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_IQc5yVV.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_KM113we.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_T0LdUvl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_c50aNwo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_gRnWJEz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_pqq8wnw.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_qNRk5nY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_wqNBMV1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Top_Gun-_Maverick_x5C4UzG.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/adamlogo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/adamlogo_XbeJoF9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/adamlogo_b99isjq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/adamlogo_ock1okm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/adamlogo_uqUCqaM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/img1_6sIXLNP.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/img1_95SwpVU.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_64U75l8.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_VJtz1YA.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_aS8ZVTP.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_fQFzSAU.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_fsjWWrO.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_mX56Gbq.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_nqt1oYa.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/spider-man-no-way-home-multiverse-poster_wNT3EBq.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/film/logo/Зняток_екрана_як_2022-11-11_17-31-34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/icons8-твиттер-120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1_2Pp0eXq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1_HGpFHNe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1_OCORGXb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/adam2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/adamlogo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/maverick_HYiXe48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/maverick_tgC3a5j.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/maverick_tyYCV6v.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/photo_2022-11-26_11-32-47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/photo_2022-11-26_11-32-47_E4n11h8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/spider-man-no-way-home-multiverse-poster.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/spider-man-no-way-home-multiverse-poster_OmpgFK1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/spider-man-no-way-home-multiverse-poster_eR3zfXA.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/spider-man-no-way-home-multiverse-poster_jjfu408.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/spider-man-no-way-home-multiverse-poster_lakOt39.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/Зняток_екрана_як_2022-11-04_08-34-51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/Зняток_екрана_як_2022-11-04_08-34-51_5mBkwKN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/Зняток_екрана_як_2022-11-04_08-34-51_9Tc40Iw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/Зняток_екрана_як_2022-11-04_08-34-51_PZQKaAJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/TopBannerImage/Зняток_екрана_як_2022-11-04_08-34-51_RYRDiR7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/1645519870_1-kartinkin-net-p-kartinki-s-serdechkom-1_ypWiwDg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/IMG_20211020_105052.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/IMG_20211020_105052_mD3onnV.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Top_Gun-_Maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Top_Gun-_Maverick_b7VCKWw.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Top_Gun-_Maverick_hm9cENh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Top_Gun-_Maverick_jNXJYge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Top_Gun-_Maverick_mHWJYWn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Top_Gun-_Maverick_qjxtc1q.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam1_4YCywML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam1_V5ViE7z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam1_Y82OYz3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam1_cz4SMhT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_4vFKWfj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_IyGl4fk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_NinfSr8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_QppT3Cl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_Xg2V5lo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_lVzNTGk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adam2_rqurUtu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adamlogo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adamlogo_BKGQE4z.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adamlogo_KJD0kci.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/adamlogo_OPXwQ9T.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/addphoto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/icons8-твиттер-120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img1_0MSd8nm.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img1_J8mx6CK.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img1_P8QGJEe.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2_4XJKhGl.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2_7to2OGf.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2_HHiJP61.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2_fxgVNyu.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2_nlSOBn9.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img2_pVTTB8V.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img3_5464y0l.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img3_5AAzF7k.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/img3_FQZRNrt.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_0euBfUk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_7dnDBxq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_8Fsd3kK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_DfuWrnx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_H3iGYri.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_H7JH3yx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_Kyrb6tf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_Nhg3fde.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_cZghj77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_esg3Ugt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_evFz9ys.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_hcbn6cI.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_ilLMai7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_mEdGJMZ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_n8VM6p5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_oBMRPD8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_r8aNYg5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_tAMu7W4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_voYYahT.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/maverick_yiBi4zf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/spider-man-no-way-home-multiverse-poster.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/unnamed.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Зняток_екрана_як_2022-11-04_08-34-55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/gallery_image/Зняток_екрана_як_2022-11-10_12-48-09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img2_mE6cOkU.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img3_KdXJXlg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/maverick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/maverick_E55Ac7U.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/maverick_tekMEGy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/photo_2022-11-26_11-32-47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/photo_2022-11-26_11-32-47_04sKbPj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/photo_2022-11-26_11-32-47_1gWmRBJ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/photo_2022-11-26_11-32-47_8YIlCKH.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/photo_2022-11-26_11-32-47_dQhfVky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/photo_2022-11-26_11-32-47_u7tqAwo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/unnamed.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Зняток_екрана_як_2022-11-11_17-31-34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,23 +286,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/dima/kinocms",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="KinoCMS" type="Python.DjangoServer" factoryName="Django server">
       <module name="KinoCMS" />
@@ -352,7 +315,7 @@
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -426,6 +389,8 @@
       <workItem from="1675885870096" duration="2938000" />
       <workItem from="1676153157271" duration="1764000" />
       <workItem from="1676154929113" duration="6833000" />
+      <workItem from="1676193498380" duration="4616000" />
+      <workItem from="1676199502267" duration="12158000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;add btn active and rebuilt registratino&quot;">
       <created>1673455811827</created>
@@ -491,6 +456,7 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
